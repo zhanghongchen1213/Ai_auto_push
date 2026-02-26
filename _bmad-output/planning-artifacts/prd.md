@@ -17,6 +17,8 @@ classification:
 lastEdited: '2026-02-26'
 editHistory:
   - date: '2026-02-26'
+    changes: '简化页面结构：移除独立归档页，历史浏览复用首页布局；更新FR9/FR11反映日历弹窗交互；添加设计稿节点映射表'
+  - date: '2026-02-26'
     changes: '新增UX设计规范章节(引用UX-design.pen); 修复FR7/FR11/NFR11/NFR12/NFR13/NFR15共6处验证警告'
 ---
 
@@ -192,8 +194,8 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 - 移动端 Safari / Chrome
 
 **响应式设计：**
-- 桌面端（≥1024px）：多列领域分区布局
-- 平板端（768-1023px）：双列布局
+- 桌面端（≥1440px）：多列领域分区布局
+- 平板端（768-1439px）：双列布局
 - 移动端（<768px）：单列纵向排列
 
 **性能目标：**（详见 Non-Functional Requirements）
@@ -233,6 +235,23 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 **Header 规范：**
 - 白色背景，含品牌标识、日期显示、更新状态指示器、搜索栏
 - 搜索栏圆角 20px，背景 #F3F4F6
+
+**页面结构与设计稿节点映射：**
+
+设计稿采用简化的页面结构，无独立归档页面，历史日期浏览复用首页布局：
+
+| 页面 | 桌面端节点 | 移动端节点 | 说明 |
+|------|-----------|-----------|------|
+| 首页（当日资讯） | XqEim (Homepage-Desktop) | OSbpZ (Mobile-Homepage) | 默认展示当天资讯，切换日期后复用同一布局 |
+| 日历弹窗 | rhhn2 (calendarPopup, 276px) | 1W03N (CalendarBottomSheet, 全屏底部弹出) | 点击"打开日历"触发，选择日期后关闭 |
+| 搜索页 | P3UuJ (Search-Desktop) | 59Oal (Search-Mobile) | 关键词全文搜索，跨日期跨领域 |
+
+交互流程：
+1. 用户打开网站 → 展示当天资讯首页（XqEim / OSbpZ）
+2. 用户点击"打开日历" → 弹出日历面板（rhhn2 / 1W03N）
+3. 用户选择日期 → 关闭日历，首页内容切换为所选日期资讯
+4. 用户点击左右箭头 → 切换到前一天/后一天
+5. 用户点击搜索 → 跳转搜索页（P3UuJ / 59Oal）
 
 ### Implementation Considerations
 
@@ -286,9 +305,9 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 
 ### 导航与历史浏览
 
-- FR9: 用户可以通过时间线导航选择任意历史日期
+- FR9: 用户可以通过日历弹窗选择任意历史日期（桌面端为浮层日历 rhhn2，移动端为底部弹出面板 1W03N）
 - FR10: 用户可以浏览任意历史日期的资讯内容
-- FR11: 用户可以一次点击切换至相邻日期（前一天/后一天）
+- FR11: 用户可以通过头部日期导航区的左右箭头一键切换相邻日期（前一天/后一天）
 
 ### 搜索功能
 
@@ -304,7 +323,7 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
   - Skills 遵循 Claude Code Skills 标准格式，每个 Skill 配置文件包含：name（技能名称）、description（描述）、domain（领域标识）、sources（信息源列表，含 URL 和抓取策略）、output_format（输出 Markdown 模板）、schedule（执行频率，默认 daily）。
 - FR18: 用户可以通过新增 Skill 文件添加新的关注领域
 - FR19: 系统将抓取内容自动整理为标准化 Markdown 格式（标题+摘要+链接）
-  - 标准化 Markdown 格式定义如下：每日内容文件路径为 src/content/daily/YYYY-MM-DD/index.md，frontmatter 包含 date、domain、source_count、generated_at 字段；正文按领域分组，每条资讯包含三级标题（资讯标题）、摘要段落（150-200字）、元信息行（来源、时间）和原文链接。
+  - 每个领域每天一个独立 Markdown 文件，路径 `src/content/daily/YYYY-MM-DD/{domain-slug}.md`（如 `ai-tech.md`、`ecom.md`），frontmatter 包含 title（领域标题）、domain（领域标识符）、date（日期）、itemCount（新闻条数）、generatedAt（生成时间）字段；正文为该领域当日新闻列表，每条新闻含三级标题（新闻标题）、摘要段落（150-200字）、元信息行（来源、时间）和原文链接。
 - FR20: 系统自动将生成的 Markdown 文件推送至 Git 仓库触发站点构建
 
 ### 系统可靠性与容错
@@ -316,7 +335,7 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 
 ### 响应式与跨端适配
 
-- FR25: 网站在桌面端（≥1024px）以多列布局展示领域分区
+- FR25: 网站在桌面端（≥1440px）以双列或多列布局（列间距24px）展示领域分区
 - FR26: 网站在移动端（<768px）以单列纵向布局展示内容
 - FR27: 用户在任意设备上均可完成资讯浏览和搜索操作
 

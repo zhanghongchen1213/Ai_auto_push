@@ -188,10 +188,11 @@ export const domains = [
 
 **页面路由策略：日期驱动的静态页面生成**
 
-- 首页（`/`）：展示最新一天的资讯，按领域分区渲染
-- 日期页（`/daily/2026-02-26/`）：特定日期的全部领域资讯
-- 归档页（`/archive/`）：日期索引列表，支持按月浏览
+- 首页（`/`）：展示最新一天（今日）的资讯，按领域分区渲染
+- 日期页（`/daily/YYYY-MM-DD/`）：特定日期的全部领域资讯
 - 搜索页（`/search/`）：Pagefind 客户端搜索界面
+
+> **注意：** 无独立归档页。历史日期浏览通过首页日历弹窗（桌面端浮层 / 移动端底部弹出）选择日期后，导航至 `/daily/YYYY-MM-DD/` 路由实现。
 
 **组件模型：纯 Astro 组件，零客户端 JS 框架**
 
@@ -206,6 +207,33 @@ export const domains = [
 - 按 `domains` 配置顺序渲染领域分区
 - 每个领域分区独立渲染，缺失领域自动跳过（容错）
 - 资讯条目从 Markdown 正文解析，按 `##` 标题拆分
+
+**领域卡片背景色：**
+- AI 技术：#EFF6FF（蓝色系）
+- 跨境电商：#ECFDF5（绿色系）
+- 产品创业：#FFFBEB（琥珀色系）
+- GitHub 热门：#F5F3FF（紫色系）
+
+**设计稿节点映射：**
+
+前端页面与 `UX/UX-design.pen` 设计稿节点对应关系：
+
+| 路由 | 页面文件 | 桌面端设计节点 | 移动端设计节点 |
+|------|---------|--------------|--------------|
+| `/` | `index.astro` | XqEim (Homepage-Desktop) | OSbpZ (Mobile-Homepage) |
+| `/daily/[date]` | `daily/[date].astro` | XqEim (复用首页布局) | OSbpZ (复用首页布局) |
+| `/search` | `search.astro` | P3UuJ (Search-Desktop) | 59Oal (Search-Mobile) |
+
+弹窗组件（非独立路由）：
+- 桌面端日历浮层：rhhn2 (calendarPopup, 276px)
+- 移动端日历底部弹出：1W03N (CalendarBottomSheet, 含遮罩层)
+
+可复用组件节点（icAv9 下）：
+- hwpF3: NewsCard
+- O8R2L: DateGroupHeader
+- 5D7y1: CategoryNav
+- lBzjR: SearchBox
+- 1tPAu: DateNav
 
 ### Pipeline Architecture (Skills 自动化管道)
 
@@ -313,7 +341,7 @@ generatedAt: "2026-02-26T08:00:00Z"
 - 类型/接口：PascalCase，接口不加 `I` 前缀（如 `DomainConfig`, `NewsEntry`）
 
 **URL & Route Naming:**
-- 页面路由：kebab-case，全小写（如 `/daily/2026-02-26/`, `/archive/`）
+- 页面路由：kebab-case，全小写（如 `/daily/2026-02-26/`, `/search/`）
 - 静态资源：kebab-case（如 `hero-image.webp`, `site-logo.svg`）
 
 ### Structure Patterns
@@ -460,8 +488,7 @@ ai-auto-push/
 │   │   ├── BaseLayout.astro
 │   │   └── DailyLayout.astro
 │   ├── pages/
-│   │   ├── index.astro         # 首页（最新日期资讯）
-│   │   ├── archive.astro       # 归档页（日期索引）
+│   │   ├── index.astro         # 首页（最新/今日资讯，复用于历史日期浏览）
 │   │   ├── search.astro        # 搜索页
 │   │   └── daily/
 │   │       └── [date].astro    # 动态日期页
@@ -519,7 +546,7 @@ ai-auto-push/
 |---------|-------------|
 | 每日资讯展示 (FR1-FR5) | `src/pages/index.astro`, `src/pages/daily/[date].astro`, `src/components/news/` |
 | 多领域内容组织 (FR6-FR8) | `src/config/domains.ts`, `src/components/news/DomainSection.astro` |
-| 导航与历史浏览 (FR9-FR11) | `src/pages/archive.astro`, `src/components/ui/Navigation.astro`, `src/components/ui/DatePicker.astro` |
+| 导航与历史浏览 (FR9-FR11) | `src/components/ui/Navigation.astro`, `src/components/ui/DatePicker.astro`（日历弹窗选择日期 → `/daily/[date]`） |
 | 搜索功能 (FR12-FR15) | `src/pages/search.astro`, `src/components/search/SearchWidget.astro` |
 | Skills 自动化管道 (FR16-FR20) | `scripts/pipeline/`, `.github/workflows/pipeline.yml` |
 | 可靠性与容错 (FR21-FR24) | `scripts/pipeline/run.ts`（隔离执行）, `.github/workflows/pipeline.yml`（手动触发） |
@@ -598,7 +625,7 @@ openclaw API → fetch.ts → filter.ts → format.ts → Markdown files
 |---------|---------|---------|
 | FR1-FR5 每日资讯展示 | ✅ 完全覆盖 | Content Collections + 日期路由 + Astro 组件 |
 | FR6-FR8 多领域组织 | ✅ 完全覆盖 | domains.ts 配置驱动 + 按领域分文件 |
-| FR9-FR11 导航与历史 | ✅ 完全覆盖 | archive 页面 + DatePicker + 动态路由 |
+| FR9-FR11 导航与历史 | ✅ 完全覆盖 | 日历弹窗 + DatePicker + `/daily/[date]` 动态路由 |
 | FR12-FR15 搜索功能 | ✅ 完全覆盖 | Pagefind 构建时索引 + SearchWidget |
 | FR16-FR20 Skills 管道 | ✅ 完全覆盖 | scripts/pipeline/ + GitHub Actions cron |
 | FR21-FR24 可靠性容错 | ✅ 完全覆盖 | 按领域隔离执行 + Git commit 日志 + 手动触发 |
