@@ -266,6 +266,14 @@ generatedAt: "2026-02-26T08:00:00Z"
 - 构建失败通过 GitHub 通知机制告警
 - 无需额外监控服务，利用 GitHub 原生能力
 
+### 管道失败告警机制
+
+- GitHub Actions 工作流配置 `on: workflow_run` 事件监听，当 daily pipeline 失败时触发告警
+- 告警渠道：GitHub Actions 内置邮件通知（配置 repository notification settings）
+- 告警内容：失败的领域、错误类型、失败时间、Git commit SHA
+- 恢复操作：支持手动触发 `workflow_dispatch` 重新执行失败的管道
+- 连续失败阈值：同一领域连续 3 次失败后，在站点首页显示"数据更新延迟"提示
+
 ### Decision Impact Analysis
 
 **Implementation Sequence:**
@@ -605,6 +613,14 @@ openclaw API → fetch.ts → filter.ts → format.ts → Markdown files
 | 发布成功率 ≥99% | ✅ 覆盖 | Content Collections schema 构建时校验 |
 | HTTPS + CSP | ✅ 覆盖 | GitHub Pages 自动 HTTPS，meta 标签 CSP |
 | WCAG 2.1 AA | ✅ 覆盖 | 语义化 HTML（Astro 原生），Tailwind 无障碍工具类 |
+
+### 性能基准测试计划
+
+- MVP 完成后执行 Lighthouse CI 基准测试，目标分数 ≥90
+- Pagefind 搜索性能测试：使用 1000+ 条模拟资讯数据，验证搜索响应 ≤500ms
+- 页面体积监控：构建产物 ≤500KB（HTML + CSS + JS），通过 bundlesize 工具自动检查
+- 测试环境：GitHub Actions 中集成 Lighthouse CI Action
+- 测试频率：每次部署前自动执行，结果记录在 PR comment 中
 
 ### Implementation Readiness Validation ✅
 

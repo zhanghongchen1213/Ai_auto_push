@@ -301,8 +301,10 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 
 - FR16: 系统每日自动执行抓取-整理-发布全链路流程
 - FR17: 系统通过 Skills 配置文件定义各领域的信息源和抓取规则
+  - Skills 遵循 Claude Code Skills 标准格式，每个 Skill 配置文件包含：name（技能名称）、description（描述）、domain（领域标识）、sources（信息源列表，含 URL 和抓取策略）、output_format（输出 Markdown 模板）、schedule（执行频率，默认 daily）。
 - FR18: 用户可以通过新增 Skill 文件添加新的关注领域
 - FR19: 系统将抓取内容自动整理为标准化 Markdown 格式（标题+摘要+链接）
+  - 标准化 Markdown 格式定义如下：每日内容文件路径为 src/content/daily/YYYY-MM-DD/index.md，frontmatter 包含 date、domain、source_count、generated_at 字段；正文按领域分组，每条资讯包含三级标题（资讯标题）、摘要段落（150-200字）、元信息行（来源、时间）和原文链接。
 - FR20: 系统自动将生成的 Markdown 文件推送至 Git 仓库触发站点构建
 
 ### 系统可靠性与容错
