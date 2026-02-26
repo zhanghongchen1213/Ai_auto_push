@@ -1,0 +1,641 @@
+{
+  "version": "2.8",
+  "children": [
+    {
+      "type": "frame",
+      "id": "nXOnO",
+      "x": 0,
+      "y": 0,
+      "name": "方向1-编辑式晨报",
+      "width": 1200,
+      "fill": "#FAFAFA",
+      "layout": "vertical",
+      "padding": [
+        0,
+        0,
+        48,
+        0
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "NBZ7d",
+          "name": "Header",
+          "width": "fill_container",
+          "fill": "#FFFFFF",
+          "padding": [
+            16,
+            48
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "a2brj",
+              "name": "d1logo",
+              "fill": "#1A1A2E",
+              "content": "Ai_auto_push",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "600"
+            },
+            {
+              "type": "frame",
+              "id": "xK9o6",
+              "name": "headerRight",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "wXoq8",
+                  "name": "d1date",
+                  "fill": "#6B7280",
+                  "content": "2026年2月26日 星期四",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "ellipse",
+                  "id": "APbga",
+                  "name": "dot",
+                  "fill": "#059669",
+                  "width": 8,
+                  "height": 8
+                },
+                {
+                  "type": "text",
+                  "id": "PGoCX",
+                  "name": "status",
+                  "fill": "#059669",
+                  "content": "已更新",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "FsIqr",
+                  "name": "search",
+                  "fill": "#F3F4F6",
+                  "cornerRadius": 20,
+                  "gap": 8,
+                  "padding": [
+                    8,
+                    16
+                  ],
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MbWbK",
+                      "name": "sicon",
+                      "content": "🔍",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ZZJST",
+                      "name": "sinput",
+                      "fill": "#9CA3AF",
+                      "content": "搜索资讯...",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "VH98a",
+          "name": "divider",
+          "fill": "#E5E7EB",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "ILGWY",
+          "name": "Content",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 32,
+          "padding": [
+            32,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "E5P6p",
+              "name": "AI区",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "afhgD",
+                  "name": "aiH",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "vvWr5",
+                      "name": "aiBar",
+                      "fill": "#3B82F6",
+                      "width": 4,
+                      "height": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "86Uzp",
+                      "name": "aiLabel",
+                      "fill": "#3B82F6",
+                      "content": "AI 技术",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "4WrEG",
+                      "name": "aiCount",
+                      "fill": "#6B7280",
+                      "content": "3 篇资讯",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "imqoF",
+                  "name": "AI卡片",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UrCFG",
+                      "name": "c1",
+                      "width": "fill_container",
+                      "fill": "#EFF6FF",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "31TdP",
+                          "name": "t1",
+                          "fill": "#1A1A2E",
+                          "content": "Claude 4.5 Opus 发布：百万级上下文窗口重新定义 AI 编程",
+                          "fontFamily": "Inter",
+                          "fontSize": 17,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "781x0",
+                          "name": "s1",
+                          "fill": "#6B7280",
+                          "content": "Anthropic 发布 Claude 4.5 Opus，支持 100 万 token 上下文窗口，在代码生成和推理任务上大幅超越前代模型。开发者社区反响热烈，认为这将改变 AI 辅助编程的工作流。",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "xtzkD",
+                          "name": "m1",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "liXnh",
+                              "name": "ms1",
+                              "fill": "#9CA3AF",
+                              "content": "TechCrunch · 2小时前",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "WfgPS",
+                              "name": "ml1",
+                              "fill": "#3B82F6",
+                              "content": "阅读原文 →",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KvoWz",
+              "name": "电商区",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "VF0Ng",
+                  "name": "ecH",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "bmn1Y",
+                      "name": "ecBar",
+                      "fill": "#10B981",
+                      "width": 4,
+                      "height": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "7ygOn",
+                      "name": "ecLabel",
+                      "fill": "#10B981",
+                      "content": "跨境电商",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "3TyO5",
+                      "name": "ecCount",
+                      "fill": "#6B7280",
+                      "content": "3 篇资讯",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "qWI85",
+                  "name": "ecCards",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "K4EVW",
+                      "name": "ec1",
+                      "width": "fill_container",
+                      "fill": "#ECFDF5",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "FnRcb",
+                          "name": "ect1",
+                          "fill": "#1A1A2E",
+                          "content": "Temu 一季度新进5个欧洲市场，欧洲版图扩至32国",
+                          "fontFamily": "Inter",
+                          "fontSize": 17,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "uE3IY",
+                          "name": "ecs1",
+                          "fill": "#6B7280",
+                          "content": "Temu 宣布进入挪威、丹麦、芬兰、葡萄牙和希腊市场，与 Amazon 及本地电商平台的竞争进一步加剧。分析师预计此举将推动其 2026 年 GMV 突破 500 亿美元。",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "Uz6WB",
+                          "name": "ecm1",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "nen7f",
+                              "name": "ecms1",
+                              "fill": "#9CA3AF",
+                              "content": "36氪 · 3小时前",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "1b6q1",
+                              "name": "ecml1",
+                              "fill": "#10B981",
+                              "content": "阅读原文 →",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jX1TX",
+              "name": "创业区",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "r8RGz",
+                  "name": "suH",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "4GXDy",
+                      "name": "suBar",
+                      "fill": "#F59E0B",
+                      "width": 4,
+                      "height": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "kVIvL",
+                      "name": "suLabel",
+                      "fill": "#F59E0B",
+                      "content": "产品创业",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "ldxTc",
+                      "name": "suCount",
+                      "fill": "#6B7280",
+                      "content": "4 篇资讯",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "MMkQe",
+                  "name": "suCards",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "jwJ80",
+                      "name": "su1",
+                      "width": "fill_container",
+                      "fill": "#FFFBEB",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "OtIWo",
+                          "name": "sut1",
+                          "fill": "#1A1A2E",
+                          "content": "YC W26 批次揭晓：超六成创业公司押注 AI 原生产品",
+                          "fontFamily": "Inter",
+                          "fontSize": 17,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "3Lg9H",
+                          "name": "sus1",
+                          "fill": "#6B7280",
+                          "content": "Y Combinator 2026 冬季批次中，AI 原生产品占比超过 60%。垂直 AI Agent、AI 开发者工具和自主商业运营平台成为三大热门赛道。",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "5OdhM",
+                          "name": "sum1",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "xoGhi",
+                              "name": "sums1",
+                              "fill": "#9CA3AF",
+                              "content": "极客公园 · 4小时前",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "MIzMW",
+                              "name": "suml1",
+                              "fill": "#F59E0B",
+                              "content": "阅读原文 →",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "UC1pk",
+              "name": "GitHub区",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 16,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "bZ6b0",
+                  "name": "ghH",
+                  "width": "fill_container",
+                  "gap": 12,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 2,
+                      "id": "kkShH",
+                      "name": "ghBar",
+                      "fill": "#8B5CF6",
+                      "width": 4,
+                      "height": 24
+                    },
+                    {
+                      "type": "text",
+                      "id": "HlCSN",
+                      "name": "ghLabel",
+                      "fill": "#8B5CF6",
+                      "content": "GitHub 热门",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "text",
+                      "id": "TMtxk",
+                      "name": "ghCount",
+                      "fill": "#6B7280",
+                      "content": "5 个仓库",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "normal"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "rqQlo",
+                  "name": "ghCards",
+                  "width": "fill_container",
+                  "layout": "vertical",
+                  "gap": 12,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "eiRU8",
+                      "name": "gh1",
+                      "width": "fill_container",
+                      "fill": "#F5F3FF",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": [
+                        16,
+                        20
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "cdV3l",
+                          "name": "ght1",
+                          "fill": "#1A1A2E",
+                          "content": "openai/codex — AI 编程 Agent，支持终端自主操作",
+                          "fontFamily": "Inter",
+                          "fontSize": 17,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "6POxE",
+                          "name": "ghs1",
+                          "fill": "#6B7280",
+                          "content": "OpenAI 开源 Codex，一个基于终端的 AI 编程 Agent，可自主执行代码、运行测试和管理 Git 工作流。上线 48 小时已获 12k Star。",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "frame",
+                          "id": "QLO2d",
+                          "name": "ghm1",
+                          "gap": 8,
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "fOQnE",
+                              "name": "ghms1",
+                              "fill": "#9CA3AF",
+                              "content": "GitHub · 1小时前 · ★ 12.4k",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": "normal"
+                            },
+                            {
+                              "type": "text",
+                              "id": "bDM5P",
+                              "name": "ghml1",
+                              "fill": "#8B5CF6",
+                              "content": "查看仓库 →",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": "500"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

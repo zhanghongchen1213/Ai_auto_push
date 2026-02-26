@@ -1,7 +1,8 @@
 ---
-stepsCompleted: [step-01-init, step-02-discovery, step-02b-vision, step-02c-executive-summary, step-03-success, step-04-journeys, step-05-domain-skipped, step-06-innovation, step-07-project-type, step-08-scoping, step-09-functional, step-10-nonfunctional, step-11-polish]
+stepsCompleted: [step-01-init, step-02-discovery, step-02b-vision, step-02c-executive-summary, step-03-success, step-04-journeys, step-05-domain-skipped, step-06-innovation, step-07-project-type, step-08-scoping, step-09-functional, step-10-nonfunctional, step-11-polish, step-e-01-discovery, step-e-02-review, step-e-03-edit]
 inputDocuments:
   - product-brief-Ai_auto_push-2026-02-26.md
+  - UX/UX-design.pen
 documentCounts:
   briefs: 1
   research: 0
@@ -13,6 +14,10 @@ classification:
   domain: general
   complexity: low
   projectContext: greenfield
+lastEdited: '2026-02-26'
+editHistory:
+  - date: '2026-02-26'
+    changes: '新增UX设计规范章节(引用UX-design.pen); 修复FR7/FR11/NFR11/NFR12/NFR13/NFR15共6处验证警告'
 ---
 
 # Product Requirements Document - Ai_auto_push
@@ -203,6 +208,32 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 **无障碍：**（详见 Non-Functional Requirements）
 - WCAG 2.1 AA 基础合规、语义化 HTML、键盘导航、颜色对比度 ≥4.5:1
 
+### UX 设计规范
+
+本项目采用 `UX/UX-design.pen` 作为官方 UX 设计标准，所有前端实现须遵循该设计稿定义的视觉规范：
+
+**布局架构：**
+- 单列纵向布局（编辑式晨报风格），最大宽度 1200px
+- 页面背景 #FAFAFA，内容区域内边距 32px/48px
+- 各领域区块纵向排列，区块间距 32px
+
+**领域色彩编码：**
+- AI 技术：蓝色系（主色 #3B82F6，卡片背景 #EFF6FF）
+- 跨境电商：绿色系（主色 #10B981，卡片背景 #ECFDF5）
+- 产品创业：琥珀色系（主色 #F59E0B，卡片背景 #FFFBEB）
+- GitHub 热门：紫色系（主色 #8B5CF6，卡片背景 #F5F3FF）
+
+**卡片规范：**
+- 圆角 8px，内边距 16px/20px
+- 标题：Inter 17px/600，色值 #1A1A2E
+- 摘要：Inter 15px/normal，色值 #6B7280，行高 1.6
+- 元信息：Inter 12px，色值 #9CA3AF
+- 原文链接：Inter 13px/500，色值 #3B82F6
+
+**Header 规范：**
+- 白色背景，含品牌标识、日期显示、更新状态指示器、搜索栏
+- 搜索栏圆角 20px，背景 #F3F4F6
+
 ### Implementation Considerations
 
 - **静态站点生成器选型**：推荐 Astro（对 Markdown 内容驱动站点支持优秀，构建速度快，生态活跃）
@@ -250,14 +281,14 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 ### 多领域内容组织
 
 - FR6: 系统将资讯按领域分区展示（AI技术、跨境电商、产品创业、GitHub热门项目）
-- FR7: 用户可以视觉上清晰区分不同领域的资讯区块
+- FR7: 用户可以通过领域专属颜色编码、标题栏色条和卡片背景色区分不同领域的资讯区块（具体色值参见 UX 设计稿）
 - FR8: 系统自动识别并适配新增的领域分区（通过 Skills 配置驱动）
 
 ### 导航与历史浏览
 
 - FR9: 用户可以通过时间线导航选择任意历史日期
 - FR10: 用户可以浏览任意历史日期的资讯内容
-- FR11: 用户可以在日期之间快速前后切换
+- FR11: 用户可以一次点击切换至相邻日期（前一天/后一天）
 
 ### 搜索功能
 
@@ -307,11 +338,11 @@ Ai_auto_push 的前端是一个静态生成的资讯展示网站。内容由 Ski
 ### 安全性（基础级别）
 
 - NFR10: 站点通过 HTTPS 提供服务
-- NFR11: 静态资源配置适当的 CSP（Content Security Policy）头
-- NFR12: 外部链接使用 rel="noopener noreferrer" 防止安全风险
+- NFR11: 静态资源配置 CSP 头，至少包含 default-src 'self' 和 script-src 'self' 指令
+- NFR12: 外部链接不泄露引用来源信息且不共享浏览器上下文
 
 ### 无障碍（基础级别）
 
-- NFR13: 语义化 HTML 标签，支持屏幕阅读器基本导航
+- NFR13: 语义化 HTML 标签，屏幕阅读器可完成标题跳转、区域导航和链接列表浏览
 - NFR14: 颜色对比度符合 WCAG 2.1 AA 标准（≥4.5:1）
-- NFR15: 支持键盘导航完成核心浏览操作
+- NFR15: 支持键盘导航完成浏览资讯、切换日期、执行搜索三项核心操作
