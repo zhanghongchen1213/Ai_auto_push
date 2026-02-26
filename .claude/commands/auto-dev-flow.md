@@ -58,9 +58,13 @@ Task(
 
 完成后 story 状态变为 `done`
 
+### 3.4 强制执行 Compact（不可跳过）
+
+每个 story 完成（状态变为 `done`）后，**必须立即执行 `/compact`**，释放上下文窗口空间，防止后续 story 因 "prompt is too long" 中断。此步骤为强制性要求，在开始下一个 story 之前不可省略。
+
 ## 4. 循环与通知
 
-1. 完成一个 story 后，返回步骤 2 查找下一个 story
+1. 完成一个 story 并执行 `/compact` 后，返回步骤 2 查找下一个 story
 2. 当 epic 所有 story 完成时：
    - 更新 epic 状态为 `done`
    - **通知用户：Epic [名称] 已完成！**

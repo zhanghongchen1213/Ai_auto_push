@@ -32,6 +32,13 @@
 # - Stories can be worked in parallel if team capacity allows
 # - SM typically creates next story after previous one is 'done' to incorporate learnings
 # - Dev moves story to 'review', then runs code-review (fresh context, different LLM recommended)
+#
+# MANDATORY COMPACT RULE (强制执行):
+# ==================================
+# - 每完成一个 story（状态变为 done）后，必须立即执行 /compact
+# - 此规则为强制性要求，不可跳过
+# - 目的：释放上下文窗口空间，防止长任务链导致 "prompt is too long" 中断
+# - 执行时机：story 状态更新为 done 之后、开始下一个 story 之前
 
 generated: 2026-02-26
 project: Ai_auto_push
@@ -41,8 +48,8 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Epic 1: 项目基础与每日资讯展示
-  epic-1: backlog
-  1-1-project-initialization: backlog
+  epic-1: in-progress
+  1-1-project-initialization: ready-for-dev
   1-2-content-collections-schema: backlog
   1-3-base-layout-header: backlog
   1-4-daily-news-homepage: backlog
@@ -54,7 +61,7 @@ development_status:
   epic-2: backlog
   2-1-date-dynamic-routing: backlog
   2-2-prev-next-date-navigation: backlog
-  2-3-archive-timeline-navigation: backlog
+  2-3-calendar-popup-date-selection: backlog
   epic-2-retrospective: optional
 
   # Epic 3: 搜索功能
