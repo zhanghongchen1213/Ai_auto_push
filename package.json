@@ -8,7 +8,8 @@
     "build": "astro build && pagefind --site dist --force-language zh-cn",
     "preview": "astro preview",
     "astro": "astro",
-    "test": "vitest run"
+    "test": "vitest run",
+    "pipeline": "tsx scripts/pipeline/run.ts"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.3.13",
@@ -29,6 +30,7 @@
     "@astrojs/check": "^0.9.6",
     "jsdom": "^28.1.0",
     "pagefind": "^1.4.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vitest": "^4.0.18"
   }

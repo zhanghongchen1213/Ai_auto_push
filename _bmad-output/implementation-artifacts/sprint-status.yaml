@@ -72,13 +72,13 @@ development_status:
   epic-3-retrospective: optional
 
   # Epic 4: Skills 自动化内容管道
-  epic-4: in-progress
-  4-1-pipeline-entry-domain-scheduler: backlog
-  4-2-news-fetch-module: backlog
-  4-3-ai-content-filter-summary: backlog
-  4-4-markdown-format-output: backlog
-  4-5-git-auto-commit-push: backlog
-  4-6-skills-config-domain-extension: backlog
+  epic-4: done
+  4-1-pipeline-entry-domain-scheduler: done
+  4-2-news-fetch-module: done
+  4-3-ai-content-filter-summary: done
+  4-4-markdown-format-output: done
+  4-5-git-auto-commit-push: done
+  4-6-skills-config-domain-extension: done
   epic-4-retrospective: optional
 
   # Epic 5: 系统可靠性、容错与部署
