@@ -49,3 +49,16 @@
 [2026-02-27T03:58:58.409Z] domain=github-trending name=GitHub热门 stage=unknown type=unknown duration=0ms
   message: github-trending failed
 
+--- Pipeline run at 2026-02-27T05:29:40.358Z | 4 failed / 4 total ---
+[2026-02-27T05:29:40.358Z] domain=ai-tech name=AI技术 stage=fetch type=api_error duration=0ms
+  message: 环境变量 OPENCLAW_API_KEY 未设置。请在 .env 或环境中配置 openclaw API 密钥后重试。
+
+[2026-02-27T05:29:40.358Z] domain=cross-border-ecom name=跨境电商 stage=fetch type=api_error duration=0ms
+  message: 环境变量 OPENCLAW_API_KEY 未设置。请在 .env 或环境中配置 openclaw API 密钥后重试。
+
+[2026-02-27T05:29:40.358Z] domain=product-startup name=产品创业 stage=fetch type=api_error duration=0ms
+  message: 环境变量 OPENCLAW_API_KEY 未设置。请在 .env 或环境中配置 openclaw API 密钥后重试。
+
+[2026-02-27T05:29:40.358Z] domain=github-trending name=GitHub热门 stage=fetch type=api_error duration=0ms
+  message: 环境变量 OPENCLAW_API_KEY 未设置。请在 .env 或环境中配置 openclaw API 密钥后重试。
+

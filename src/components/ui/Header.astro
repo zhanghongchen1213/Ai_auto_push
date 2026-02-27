@@ -19,7 +19,7 @@ const { activeDomain = 'all' } = Astro.props;
 
     <!-- Search (desktop) -->
     <div class="search-desktop">
-      <form class="search-box" role="search" action={`${import.meta.env.BASE_URL}search/`} method="get">
+      <form class="search-box" role="search" action={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/search/`} method="get">
         <input
           type="search"
           name="q"
@@ -64,7 +64,7 @@ const { activeDomain = 'all' } = Astro.props;
 
     <!-- Search (mobile) -->
     <div class="search-mobile">
-      <form class="search-box" role="search" action={`${import.meta.env.BASE_URL}search/`} method="get">
+      <form class="search-box" role="search" action={`${import.meta.env.BASE_URL.replace(/\/$/, '')}/search/`} method="get">
         <input
           type="search"
           name="q"
