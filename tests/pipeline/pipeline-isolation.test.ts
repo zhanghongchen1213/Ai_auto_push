@@ -9,10 +9,16 @@ import { domains } from "../../src/config/domains.ts";
 import { runPipeline } from "../../scripts/pipeline/run.ts";
 import type { PipelineContext } from "../../scripts/pipeline/types.ts";
 
-// Mock processDomain to simulate failures
-vi.mock("../../scripts/pipeline/process.ts", () => ({
-  processDomain: vi.fn(),
-}));
+// Mock processDomain to simulate failures; must also export classifyError
+// because run.ts imports it for the outer catch block.
+vi.mock("../../scripts/pipeline/process.ts", async (importOriginal) => {
+  const actual =
+    await importOriginal<typeof import("../../scripts/pipeline/process.ts")>();
+  return {
+    ...actual,
+    processDomain: vi.fn(),
+  };
+});
 
 import { processDomain } from "../../scripts/pipeline/process.ts";
 const mockProcess = vi.mocked(processDomain);

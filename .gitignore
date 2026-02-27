@@ -14,6 +14,9 @@ yarn-error.log*
 pnpm-debug.log*
 *.log
 
+# allow pipeline error logs to be tracked
+!logs/*-errors.log
+
 # environment variables
 .env
 .env.*

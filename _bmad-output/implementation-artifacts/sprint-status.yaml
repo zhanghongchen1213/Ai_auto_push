@@ -82,10 +82,10 @@ development_status:
   epic-4-retrospective: optional
 
   # Epic 5: 系统可靠性、容错与部署
-  epic-5: backlog
-  5-1-domain-failure-isolation: backlog
-  5-2-git-commit-observability: backlog
-  5-3-manual-trigger-recovery: backlog
-  5-4-error-log-persistence: backlog
-  5-5-github-actions-cicd-pipeline: backlog
+  epic-5: done
+  5-1-domain-failure-isolation: done
+  5-2-git-commit-observability: done
+  5-3-manual-trigger-recovery: done
+  5-4-error-log-persistence: done
+  5-5-github-actions-cicd-pipeline: done
   epic-5-retrospective: optional

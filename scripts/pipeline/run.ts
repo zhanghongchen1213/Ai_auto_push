@@ -8,8 +8,9 @@ import {
   validateAllDomains,
   checkConfigConsistency,
 } from "./config-validator.ts";
-import { processDomain } from "./process.ts";
-import { gitPublish } from "./publish.ts";
+import { processDomain, classifyError } from "./process.ts";
+import { writeErrorLog } from "./error-logger.ts";
+import { gitPublish, sanitize } from "./publish.ts";
 import { initSources } from "./sources/index.ts";
 import { getAllRegisteredSlugs } from "./sources/registry.ts";
 import type {
@@ -137,28 +138,40 @@ function padEndDisplay(str: string, targetWidth: number): string {
 
 /** 输出汇总日志 */
 export function printSummary(result: PipelineResult): void {
-  console.log("\n" + "=".repeat(60));
+  console.log("\n" + "=".repeat(72));
   console.log("管道执行汇总");
-  console.log("=".repeat(60));
+  console.log("=".repeat(72));
 
-  // 表头
+  // 表头（增加阶段和错误类型列）
   console.log(
-    `${padEndDisplay("领域", 16)}${padEndDisplay("状态", 10)}${padEndDisplay("耗时", 12)}错误信息`,
+    `${padEndDisplay("领域", 16)}` +
+      `${padEndDisplay("状态", 10)}` +
+      `${padEndDisplay("阶段", 10)}` +
+      `${padEndDisplay("错误类型", 14)}` +
+      `${padEndDisplay("耗时", 12)}` +
+      `错误信息`,
   );
-  console.log("-".repeat(60));
+  console.log("-".repeat(72));
 
   // 每个领域的结果
   for (const r of result.results) {
     const statusLabel =
       r.status === "success" ? "成功" : r.status === "failed" ? "失败" : "跳过";
+    const stageStr = r.failedStage ?? "-";
+    const typeStr = r.errorType ?? "-";
     const durationStr = `${r.duration}ms`;
     const errorStr = r.error ?? "-";
     console.log(
-      `${padEndDisplay(r.name, 16)}${padEndDisplay(statusLabel, 10)}${padEndDisplay(durationStr, 12)}${errorStr}`,
+      `${padEndDisplay(r.name, 16)}` +
+        `${padEndDisplay(statusLabel, 10)}` +
+        `${padEndDisplay(stageStr, 10)}` +
+        `${padEndDisplay(typeStr, 14)}` +
+        `${padEndDisplay(durationStr, 12)}` +
+        `${errorStr}`,
     );
   }
 
-  console.log("-".repeat(60));
+  console.log("-".repeat(72));
   console.log(
     `总计: ${result.results.length} 个领域 | ` +
       `成功: ${result.successCount} | ` +
@@ -166,7 +179,7 @@ export function printSummary(result: PipelineResult): void {
       `跳过: ${result.skippedCount} | ` +
       `总耗时: ${result.totalDuration}ms`,
   );
-  console.log("=".repeat(60));
+  console.log("=".repeat(72));
 }
 
 /** 执行管道主流程 */
@@ -235,6 +248,7 @@ export async function runPipeline(
         status: "failed",
         duration: Date.now() - domainStart,
         error: errorMsg,
+        errorType: classifyError(err),
       });
     }
   }
@@ -257,6 +271,19 @@ export async function runPipeline(
     failedCount: counts.failed,
     skippedCount: counts.skipped,
   };
+
+  // Error Log: 失败领域的错误日志持久化（写入失败不阻断管道）
+  if (!ctx.dryRun && counts.failed > 0) {
+    try {
+      const logPath = await writeErrorLog(ctx.date, pipelineResult, sanitize);
+      if (logPath) {
+        console.log(`    [error-log] 错误日志已写入: ${logPath}`);
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : String(err);
+      console.error(`    [error-log] 日志写入失败: ${msg}`);
+    }
+  }
 
   // Publish: 所有领域处理完成后统一执行 git add/commit/push
   try {

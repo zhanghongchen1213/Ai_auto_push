@@ -3,6 +3,7 @@
 // 在所有领域处理完成后执行一次统一的 git add/commit/push
 
 import { execFile } from "node:child_process";
+import { getLogRelativePath } from "./error-logger.ts";
 import type {
   PipelineResult,
   PublishResult,
@@ -26,7 +27,7 @@ const SENSITIVE_PATTERNS: readonly RegExp[] = [
 ];
 
 /** 过滤敏感信息（immutable reduce） */
-function sanitize(text: string): string {
+export function sanitize(text: string): string {
   return SENSITIVE_PATTERNS.reduce(
     (acc, pattern) => acc.replace(pattern, "[REDACTED]"),
     text,
@@ -55,10 +56,11 @@ export function execGit(args: readonly string[]): Promise<string> {
         if (error) {
           // error.killed 表示进程因超时被终止
           const isTimeout = error.killed === true;
-          // 优先使用 numeric exit code；error.code 可能是字符串错误码
+          // error.status 是子进程退出码（number | null）
+          // error.code 是 Node.js 错误码字符串（如 "ETIMEDOUT"），不可用作 exitCode
           const exitCode =
-            typeof (error as NodeJS.ErrnoException).code === "number"
-              ? Number((error as NodeJS.ErrnoException).code)
+            typeof (error as { status?: number }).status === "number"
+              ? (error as { status: number }).status
               : 1;
           const stderrMsg = isTimeout
             ? `命令超时 (${GIT_TIMEOUT}ms)`
@@ -117,27 +119,47 @@ function extractErrorSummary(error: string): string {
 }
 
 /**
- * 生成结构化提交信息
- * 格式: chore: daily update {date} ({n}/{total} domains succeeded)
+ * 生成 commit message body，逐行列出每个领域的执行状态
+ * 格式: - {domain}: {status} [(errorType)]
+ */
+function buildCommitBody(results: PipelineResult): string {
+  const lines = results.results.map((r) => {
+    if (r.status === "failed") {
+      const errorLabel =
+        r.errorType ?? (r.error ? extractErrorSummary(r.error) : "unknown");
+      return `- ${r.domain}: failed (${errorLabel})`;
+    }
+    const statusLabel = r.status === "success" ? "success" : "skipped";
+    return `- ${r.domain}: ${statusLabel}`;
+  });
+  return lines.join("\n");
+}
+
+/**
+ * 生成结构化提交信息（含多行 body）
+ * Subject: chore: daily update {date} ({n}/{total} domains succeeded)
  * 失败时追加: , failed: {slug} ({errorType})
+ * Body: 逐领域状态明细
  */
 export function buildCommitMessage(
   date: string,
   results: PipelineResult,
 ): string {
   const total = results.results.length;
-  let msg = `chore: daily update ${date} (${results.successCount}/${total} domains succeeded)`;
+  let subject = `chore: daily update ${date} (${results.successCount}/${total} domains succeeded)`;
 
   const failed = results.results.filter((r) => r.status === "failed");
   if (failed.length > 0) {
     const failedParts = failed.map((r) => {
-      const summary = r.error ? extractErrorSummary(r.error) : "unknown";
-      return `${r.domain} (${summary})`;
+      const errorLabel =
+        r.errorType ?? (r.error ? extractErrorSummary(r.error) : "unknown");
+      return `${r.domain} (${errorLabel})`;
     });
-    msg += `, failed: ${failedParts.join(", ")}`;
+    subject += `, failed: ${failedParts.join(", ")}`;
   }
 
-  return msg;
+  const body = buildCommitBody(results);
+  return body ? `${subject}\n\n${body}` : subject;
 }
 
 /**
@@ -185,7 +207,9 @@ export async function gitPush(
     }
   }
 
-  throw lastError;
+  throw (
+    lastError ?? new Error("[publish] push 失败: 无重试机会 (maxRetries ≤ 0)")
+  );
 }
 
 /**
@@ -210,8 +234,24 @@ export async function gitPublish(
     return { commitHash: "", filesAdded: 0, commitMessage };
   }
 
-  // Stage 1: git add
-  const filesAdded = await gitAdd(date);
+  // Stage 1: git add (content files)
+  let filesAdded = await gitAdd(date);
+
+  // Stage 1.5: 暂存错误日志文件（如有）
+  if (results.failedCount > 0) {
+    const logPath = getLogRelativePath(date);
+    try {
+      await execGit(["add", logPath]);
+      // 重新统计暂存区文件数，包含错误日志
+      const output = await execGit(["diff", "--cached", "--name-only"]);
+      if (output) {
+        filesAdded = output.split("\n").filter((f) => f.length > 0).length;
+      }
+    } catch {
+      // 日志文件可能不存在（writeErrorLog 失败时），忽略
+    }
+  }
+
   if (filesAdded === 0) {
     console.log(`${LOG_PREFIX} 无文件变更，跳过提交`);
     return { commitHash: "", filesAdded: 0, commitMessage };

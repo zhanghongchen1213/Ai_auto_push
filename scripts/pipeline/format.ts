@@ -2,7 +2,7 @@
 // Markdown 格式化输出模块
 // Story 4-4 实现
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, rename, unlink } from "node:fs/promises";
 import { join, dirname } from "node:path";
 import type { DomainConfig, FilteredNewsItem, FormatResult } from "./types.ts";
 
@@ -12,8 +12,8 @@ const PROJECT_ROOT = join(dirname(new URL(import.meta.url).pathname), "../..");
 /** 内容输出基础目录 */
 const CONTENT_BASE = "src/content/daily";
 
-/** 日期格式校验：YYYY-MM-DD */
-const DATE_RE = /^\d{4}-\d{2}-\d{2}$/;
+/** 日期格式校验：YYYY-MM-DD（限制月份 01-12，日期 01-31） */
+const DATE_RE = /^\d{4}-(?:0[1-9]|1[0-2])-(?:0[1-9]|[12]\d|3[01])$/;
 
 /** slug 格式校验：仅允许小写字母、数字、连字符 */
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
@@ -106,12 +106,18 @@ export function buildMarkdownBody(items: readonly FilteredNewsItem[]): string {
         sourceName = item.url.trim();
       }
     }
+    // 转义 URL 中的括号，防止 Markdown 链接注入
+    const safeUrl = item.url.trim().replace(/\(/g, "%28").replace(/\)/g, "%29");
+    // 转义 sourceName 中的 [ ] 防止 Markdown 链接文本注入
+    const safeSourceName = sourceName
+      .replace(/\[/g, "\\[")
+      .replace(/\]/g, "\\]");
     const section = [
       `## ${item.title.trim()}`,
       "",
       item.summary.trim(),
       "",
-      `**来源：** [${sourceName}](${item.url.trim()})`,
+      `**来源：** [${safeSourceName}](${safeUrl})`,
     ].join("\n");
 
     sections.push(section);
@@ -141,7 +147,7 @@ export function buildMarkdown(
     (item) => item.title.trim() !== "" && item.url.trim() !== "",
   );
   const frontmatter = buildFrontmatter(config, date, validItems.length);
-  const body = buildMarkdownBody(items);
+  const body = buildMarkdownBody(validItems);
   return frontmatter + "\n\n" + body + "\n";
 }
 
@@ -150,7 +156,8 @@ export function buildMarkdown(
 // ---------------------------------------------------------------------------
 
 /**
- * 写入 Markdown 文件到文件系统
+ * 写入 Markdown 文件到文件系统（原子写入）
+ * 先写入临时文件再原子重命名，确保不会产生不完整文件
  *
  * @param content - Markdown 内容
  * @param filePath - 绝对文件路径
@@ -160,12 +167,20 @@ export async function writeMarkdownFile(
   content: string,
   filePath: string,
 ): Promise<number> {
+  const tmpPath = filePath + ".tmp";
   try {
     await mkdir(dirname(filePath), { recursive: true });
     const buffer = Buffer.from(content, "utf-8");
-    await writeFile(filePath, buffer);
+    await writeFile(tmpPath, buffer);
+    await rename(tmpPath, filePath);
     return buffer.byteLength;
   } catch (err) {
+    // 清理临时文件（忽略不存在的情况）
+    try {
+      await unlink(tmpPath);
+    } catch {
+      /* ignore */
+    }
     const msg = err instanceof Error ? err.message : String(err);
     throw new Error(`[format] 文件写入失败: ${filePath} - ${msg}`);
   }
@@ -218,14 +233,24 @@ export async function formatAndWrite(
     return { filePath: "", itemCount: validCount, bytesWritten: 0 };
   }
 
-  // 正常模式：写入文件
+  // 正常模式：写入文件（失败时清理残留）
   const absolutePath = join(PROJECT_ROOT, relativePath);
-  const bytesWritten = await writeMarkdownFile(markdown, absolutePath);
+  try {
+    const bytesWritten = await writeMarkdownFile(markdown, absolutePath);
 
-  console.log(
-    `    [format] ${slug}: ${validCount} 条资讯, ` +
-      `${bytesWritten} bytes → ${relativePath}`,
-  );
+    console.log(
+      `    [format] ${slug}: ${validCount} 条资讯, ` +
+        `${bytesWritten} bytes → ${relativePath}`,
+    );
 
-  return { filePath: relativePath, itemCount: validCount, bytesWritten };
+    return { filePath: relativePath, itemCount: validCount, bytesWritten };
+  } catch (err) {
+    // 确保不残留损坏文件
+    try {
+      await unlink(absolutePath);
+    } catch {
+      /* 文件可能不存在 */
+    }
+    throw err;
+  }
 }

@@ -17,8 +17,11 @@ const { date, entries } = Astro.props;
 const hasData = date.length > 0 && entries.length > 0;
 const dateDisplay = hasData ? formatDateWithWeekday(date) : '';
 
-// 计算总资讯条数（不可变）
-const totalCount = entries.reduce((sum, entry) => sum + entry.data.itemCount, 0);
+// 计算总资讯条数（不可变，防御非数字值）
+const totalCount = entries.reduce((sum, entry) => {
+	const count = typeof entry.data.itemCount === 'number' ? entry.data.itemCount : 0;
+	return sum + count;
+}, 0);
 
 // 按领域 order 排序，构建分组数据（不可变）
 type DomainGroup = { readonly domain: DomainConfig; readonly items: readonly NewsItem[] };
@@ -26,8 +29,13 @@ const groups: readonly DomainGroup[] = domains
 	.map((domainConfig) => {
 		const entry = entries.find((e) => e.data.domain === domainConfig.slug);
 		if (!entry) return null;
-		const items = parseNewsItems(entry.body ?? '');
-		return items.length > 0 ? { domain: domainConfig, items } : null;
+		try {
+			const items = parseNewsItems(entry.body ?? '');
+			return items.length > 0 ? { domain: domainConfig, items } : null;
+		} catch {
+			// 损坏的内容文件不应阻断整页渲染
+			return null;
+		}
 	})
 	.filter((g): g is DomainGroup => g !== null);
 ---

@@ -1,0 +1,51 @@
+--- Pipeline run at 2026-02-27T03:45:18.875Z | 1 failed / 4 total ---
+[2026-02-27T03:45:18.875Z] domain=ai-tech name=AI技术 stage=unknown type=api_error duration=0ms
+  message: Simulated fetch failure
+
+--- Pipeline run at 2026-02-27T03:45:18.906Z | 4 failed / 4 total ---
+[2026-02-27T03:45:18.906Z] domain=ai-tech name=AI技术 stage=unknown type=unknown duration=0ms
+  message: ai-tech failed
+
+[2026-02-27T03:45:18.906Z] domain=cross-border-ecom name=跨境电商 stage=unknown type=unknown duration=0ms
+  message: cross-border-ecom failed
+
+[2026-02-27T03:45:18.906Z] domain=product-startup name=产品创业 stage=unknown type=unknown duration=0ms
+  message: product-startup failed
+
+[2026-02-27T03:45:18.906Z] domain=github-trending name=GitHub热门 stage=unknown type=unknown duration=0ms
+  message: github-trending failed
+
+--- Pipeline run at 2026-02-27T03:55:29.386Z | 1 failed / 4 total ---
+[2026-02-27T03:55:29.386Z] domain=ai-tech name=AI技术 stage=unknown type=api_error duration=1ms
+  message: Simulated fetch failure
+
+--- Pipeline run at 2026-02-27T03:55:29.419Z | 4 failed / 4 total ---
+[2026-02-27T03:55:29.419Z] domain=ai-tech name=AI技术 stage=unknown type=unknown duration=0ms
+  message: ai-tech failed
+
+[2026-02-27T03:55:29.419Z] domain=cross-border-ecom name=跨境电商 stage=unknown type=unknown duration=0ms
+  message: cross-border-ecom failed
+
+[2026-02-27T03:55:29.419Z] domain=product-startup name=产品创业 stage=unknown type=unknown duration=0ms
+  message: product-startup failed
+
+[2026-02-27T03:55:29.419Z] domain=github-trending name=GitHub热门 stage=unknown type=unknown duration=0ms
+  message: github-trending failed
+
+--- Pipeline run at 2026-02-27T03:58:58.372Z | 1 failed / 4 total ---
+[2026-02-27T03:58:58.372Z] domain=ai-tech name=AI技术 stage=unknown type=api_error duration=1ms
+  message: Simulated fetch failure
+
+--- Pipeline run at 2026-02-27T03:58:58.409Z | 4 failed / 4 total ---
+[2026-02-27T03:58:58.409Z] domain=ai-tech name=AI技术 stage=unknown type=unknown duration=0ms
+  message: ai-tech failed
+
+[2026-02-27T03:58:58.409Z] domain=cross-border-ecom name=跨境电商 stage=unknown type=unknown duration=0ms
+  message: cross-border-ecom failed
+
+[2026-02-27T03:58:58.409Z] domain=product-startup name=产品创业 stage=unknown type=unknown duration=0ms
+  message: product-startup failed
+
+[2026-02-27T03:58:58.409Z] domain=github-trending name=GitHub热门 stage=unknown type=unknown duration=0ms
+  message: github-trending failed
+

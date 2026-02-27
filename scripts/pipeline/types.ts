@@ -6,6 +6,17 @@ import type { DomainConfig } from "../../src/config/domains.ts";
 /** 领域处理状态 */
 export type DomainStatus = "success" | "failed" | "skipped";
 
+/** 失败发生的阶段 */
+export type FailedStage = "fetch" | "filter" | "format";
+
+/** 错误分类 */
+export type ErrorType =
+  | "timeout"
+  | "api_error"
+  | "parse_error"
+  | "write_error"
+  | "unknown";
+
 /** 单个领域的处理结果 */
 export interface DomainProcessResult {
   /** 领域 slug */
@@ -18,6 +29,10 @@ export interface DomainProcessResult {
   duration: number;
   /** 错误信息（仅 failed 时存在） */
   error?: string;
+  /** 失败发生的阶段（仅 failed 时存在） */
+  failedStage?: FailedStage;
+  /** 错误分类（仅 failed 时存在） */
+  errorType?: ErrorType;
 }
 
 /** 管道执行上下文 */

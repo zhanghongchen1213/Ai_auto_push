@@ -82,7 +82,10 @@ describe("buildCommitMessage", () => {
   it("should format message for all success", () => {
     const result = makeResult();
     const msg = buildCommitMessage(TEST_DATE, result);
-    expect(msg).toBe("chore: daily update 2026-02-27 (2/2 domains succeeded)");
+    const subject = msg.split("\n")[0];
+    expect(subject).toBe(
+      "chore: daily update 2026-02-27 (2/2 domains succeeded)",
+    );
   });
 
   it("should include failed domain summary", () => {
@@ -157,6 +160,138 @@ describe("buildCommitMessage", () => {
     });
     const msg = buildCommitMessage(TEST_DATE, result);
     expect(msg).toContain("failed: ai-tech (unknown)");
+  });
+
+  // --- Story 5-2: per-domain status in commit body ---
+
+  it("should have subject and body separated by blank line", () => {
+    const result = makeResult();
+    const msg = buildCommitMessage(TEST_DATE, result);
+    const parts = msg.split("\n\n");
+    expect(parts.length).toBeGreaterThanOrEqual(2);
+    expect(parts[0]).toContain("chore: daily update");
+  });
+
+  it("should include per-domain status in commit body", () => {
+    const result = makeResult({
+      results: [
+        { domain: "ai-tech", name: "AI技术", status: "success", duration: 100 },
+        {
+          domain: "ecom",
+          name: "电商",
+          status: "failed",
+          duration: 50,
+          error: "API timeout",
+          errorType: "timeout",
+        },
+      ],
+      successCount: 1,
+      failedCount: 1,
+    });
+    const msg = buildCommitMessage(TEST_DATE, result);
+    expect(msg).toContain("- ai-tech: success");
+    expect(msg).toContain("- ecom: failed (timeout)");
+  });
+
+  it("should include skipped domains in commit body", () => {
+    const result = makeResult({
+      results: [
+        { domain: "ai-tech", name: "AI技术", status: "success", duration: 100 },
+        { domain: "ecom", name: "电商", status: "skipped", duration: 0 },
+      ],
+      successCount: 1,
+      failedCount: 0,
+      skippedCount: 1,
+    });
+    const msg = buildCommitMessage(TEST_DATE, result);
+    expect(msg).toContain("- ai-tech: success");
+    expect(msg).toContain("- ecom: skipped");
+  });
+
+  it("should list all domains with mixed statuses", () => {
+    const result = makeResult({
+      results: [
+        { domain: "ai-tech", name: "AI技术", status: "success", duration: 100 },
+        {
+          domain: "ecom",
+          name: "电商",
+          status: "failed",
+          duration: 50,
+          error: "timeout",
+          errorType: "timeout",
+        },
+        { domain: "github", name: "GitHub", status: "skipped", duration: 0 },
+        {
+          domain: "startup",
+          name: "创业",
+          status: "failed",
+          duration: 30,
+          error: "parse error",
+          errorType: "parse_error",
+        },
+      ],
+      successCount: 1,
+      failedCount: 2,
+      skippedCount: 1,
+    });
+    const msg = buildCommitMessage(TEST_DATE, result);
+    // subject line
+    expect(msg).toContain("1/4 domains succeeded");
+    expect(msg).toContain("failed: ecom (timeout), startup (parse_error)");
+    // body lines
+    expect(msg).toContain("- ai-tech: success");
+    expect(msg).toContain("- ecom: failed (timeout)");
+    expect(msg).toContain("- github: skipped");
+    expect(msg).toContain("- startup: failed (parse_error)");
+  });
+
+  it("should show failed with (unknown) in body when errorType and error are both undefined", () => {
+    const result = makeResult({
+      results: [
+        {
+          domain: "ai-tech",
+          name: "AI技术",
+          status: "failed",
+          duration: 100,
+        },
+      ],
+      successCount: 0,
+      failedCount: 1,
+    });
+    const msg = buildCommitMessage(TEST_DATE, result);
+    // body should be consistent with subject: show (unknown) fallback
+    expect(msg).toContain("- ai-tech: failed (unknown)");
+  });
+
+  it("should show truncated error in body when errorType is undefined but error exists", () => {
+    const result = makeResult({
+      results: [
+        {
+          domain: "ai-tech",
+          name: "AI技术",
+          status: "failed",
+          duration: 100,
+          error: "connection refused by remote host",
+        },
+      ],
+      successCount: 0,
+      failedCount: 1,
+    });
+    const msg = buildCommitMessage(TEST_DATE, result);
+    // body and subject should both use extractErrorSummary fallback
+    expect(msg).toContain("- ai-tech: failed (connection refused by remot...)");
+  });
+
+  it("should handle empty results array", () => {
+    const result = makeResult({
+      results: [],
+      successCount: 0,
+      failedCount: 0,
+      skippedCount: 0,
+    });
+    const msg = buildCommitMessage(TEST_DATE, result);
+    const subject = msg.split("\n")[0];
+    expect(subject).toContain("0/0 domains succeeded");
   });
 });
 
@@ -259,6 +394,19 @@ describe("gitCommit", () => {
   it("should throw on commit failure", async () => {
     mockExecFileFail("nothing to commit");
     await expect(gitCommit("test")).rejects.toThrow("git 命令失败");
+  });
+
+  it("should pass multiline message to git commit -m", async () => {
+    mockExecFileSuccess("[main abc1234] chore: daily update");
+    const multilineMsg =
+      "chore: daily update 2026-02-27\n\n- ai-tech: success\n- ecom: failed (timeout)";
+    await gitCommit(multilineMsg);
+    expect(execFile).toHaveBeenCalledWith(
+      "git",
+      ["commit", "-m", multilineMsg],
+      expect.any(Object),
+      expect.any(Function),
+    );
   });
 });
 
@@ -402,6 +550,46 @@ describe("gitPublish", () => {
     await expect(gitPublish(TEST_DATE, makeResult(), false)).rejects.toThrow(
       "git 命令失败",
     );
+  });
+
+  it("should skip commit when all domains failed and no files generated", async () => {
+    let callCount = 0;
+    vi.mocked(execFile).mockImplementation(
+      (_cmd: unknown, _args: unknown, _opts: unknown, cb: unknown) => {
+        callCount++;
+        (cb as Function)(null, "", "");
+        return {} as ReturnType<typeof execFile>;
+      },
+    );
+
+    const allFailedResult = makeResult({
+      results: [
+        {
+          domain: "ai-tech",
+          name: "AI技术",
+          status: "failed",
+          duration: 100,
+          error: "timeout",
+          errorType: "timeout",
+        },
+        {
+          domain: "ecom",
+          name: "电商",
+          status: "failed",
+          duration: 50,
+          error: "api error",
+          errorType: "api_error",
+        },
+      ],
+      successCount: 0,
+      failedCount: 2,
+    });
+
+    const result = await gitPublish(TEST_DATE, allFailedResult, false);
+    expect(result.filesAdded).toBe(0);
+    expect(result.commitHash).toBe("");
+    // git add (content) + git diff (content) + git add (error log) + git diff (recount) = 4 calls, no commit/push
+    expect(callCount).toBe(4);
   });
 });
 

@@ -21,9 +21,11 @@ vi.spyOn(console, "error").mockImplementation(() => {});
 vi.mock("node:fs/promises", () => ({
   mkdir: vi.fn().mockResolvedValue(undefined),
   writeFile: vi.fn().mockResolvedValue(undefined),
+  rename: vi.fn().mockResolvedValue(undefined),
+  unlink: vi.fn().mockResolvedValue(undefined),
 }));
 
-import { mkdir, writeFile } from "node:fs/promises";
+import { mkdir, writeFile, rename, unlink } from "node:fs/promises";
 import {
   buildFrontmatter,
   buildMarkdownBody,
@@ -234,20 +236,39 @@ describe("writeMarkdownFile", () => {
   beforeEach(() => {
     vi.mocked(mkdir).mockClear();
     vi.mocked(writeFile).mockClear();
+    vi.mocked(rename).mockClear();
+    vi.mocked(unlink).mockClear();
   });
 
-  it("should call mkdir and writeFile", async () => {
+  it("should call mkdir, writeFile to tmp, and rename", async () => {
     const bytes = await writeMarkdownFile("hello", "/tmp/test/file.md");
     expect(mkdir).toHaveBeenCalledWith("/tmp/test", { recursive: true });
-    expect(writeFile).toHaveBeenCalled();
+    expect(writeFile).toHaveBeenCalledWith(
+      "/tmp/test/file.md.tmp",
+      expect.any(Buffer),
+    );
+    expect(rename).toHaveBeenCalledWith(
+      "/tmp/test/file.md.tmp",
+      "/tmp/test/file.md",
+    );
     expect(bytes).toBe(Buffer.byteLength("hello", "utf-8"));
   });
 
-  it("should throw structured error on write failure", async () => {
+  it("should throw structured error on write failure and clean up tmp", async () => {
     vi.mocked(writeFile).mockRejectedValueOnce(new Error("EACCES"));
     await expect(writeMarkdownFile("content", "/bad/path.md")).rejects.toThrow(
       "[format] 文件写入失败: /bad/path.md",
     );
+    // Should attempt to clean up tmp file
+    expect(unlink).toHaveBeenCalledWith("/bad/path.md.tmp");
+  });
+
+  it("should clean up tmp file when rename fails", async () => {
+    vi.mocked(rename).mockRejectedValueOnce(new Error("rename failed"));
+    await expect(
+      writeMarkdownFile("content", "/tmp/test/file.md"),
+    ).rejects.toThrow("[format] 文件写入失败");
+    expect(unlink).toHaveBeenCalledWith("/tmp/test/file.md.tmp");
   });
 });
 
@@ -259,6 +280,8 @@ describe("formatAndWrite", () => {
   beforeEach(() => {
     vi.mocked(mkdir).mockClear();
     vi.mocked(writeFile).mockClear();
+    vi.mocked(rename).mockClear();
+    vi.mocked(unlink).mockClear();
   });
 
   it("should return skipped result for empty input", async () => {
