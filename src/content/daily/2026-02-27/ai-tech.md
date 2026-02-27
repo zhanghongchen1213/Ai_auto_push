@@ -2,24 +2,36 @@
 title: "AI技术日报"
 domain: "ai-tech"
 date: "2026-02-27"
-itemCount: 3
-generatedAt: "2026-02-27T14:00:00+08:00"
+itemCount: 5
+generatedAt: "2026-02-27T15:43:59+08:00"
 ---
 
-## 谷歌发布 Nano Banana 2 图像生成模型
+## 中国AI调用量首超美国，四款大模型霸榜全球前五
 
-Google DeepMind 于2月27日正式推出新一代图像生成模型 Nano Banana 2（基于 Gemini 3.1 Flash Image 架构）。该模型支持原生4K分辨率输出，在复杂中文提示理解、空间比例感知和多对象一致性方面实现显著提升。相比前代产品，Nano Banana 2 将 Pro 级别的图像生成与编辑能力以 Flash 级速度交付，定价仅为 OpenAI 同类产品的一半。这一发布标志着谷歌在AI图像生成领域补齐了关键短板，对设计师和内容创作者具有重要实用价值。
+据OpenRouter平台数据显示，2月9日至15日当周，中国大模型以4.12万亿Token的调用量首次超越同期美国模型的2.94万亿Token，标志着全球AI格局的重大转折。MiniMax M2.5、Kimi K2.5、GLM-5、DeepSeek V3.2四款国产模型占据全球调用量前五中的四席。三周内中国模型Token消耗量增长127%，成本仅为同级美国模型的十分之一。业内分析认为，MoE混合专家架构创新与垂直整合策略是推动这一增长的核心动力，中国AI正从单点突破走向集群式爆发。
 
-**来源：** [TechCrunch](https://techcrunch.com/2026/02/26/google-launches-nano-banana-2-model-with-faster-image-generation/)
+**来源：** [36氪](https://36kr.com/p/3700980530851712)
 
-## 华为云 CodeArts 代码智能体公测版正式发布
+## 谷歌推出Nano Banana 2图像AI模型，支持4K分辨率输出
 
-华为云于2月27日发布 CodeArts 代码智能体公测版，该产品深度集成代码大模型、云端IDE与自主开发模式，覆盖代码生成、单元测试自动编写、研发知识问答等核心开发场景。CodeArts 支持多种主流开发环境，旨在通过AI驱动的智能体模式提升企业级软件研发效率。此次发布是国产AI编程工具在智能体方向的重要进展，与GitHub Copilot、Cursor等海外产品形成直接竞争，为国内开发者提供了本土化的AI辅助编程选择。
+Google DeepMind发布新一代图像生成模型Nano Banana 2（即Gemini 3.1 Flash Image），在图像质量与生成速度之间取得突破性平衡。该模型借助Gemini知识库与实时网络搜索能力，大幅提升了对复杂中文提示词、空间比例关系、真实世界常识及多对象一致性的理解能力，支持最高4K分辨率输出。这是谷歌在图像生成领域的重要迭代，进一步缩小了与专业图像模型之间的差距，也为多模态AI应用提供了更强的视觉生成基座。
 
-**来源：** [Huawei Cloud CodeArts Agent](https://www.huaweicloud.com/intl/en-us/product/codearts/ai.html)
+**来源：** [AI Bot](https://ai-bot.cn/daily-ai-news/) | **原文：** [阅读原文](https://ai-bot.cn/nano-banana-2/)
 
-## 智谱与MiniMax遭遇估值剧烈波动，中国AI公司被重新定价
+## Block一夜裁员4000人股价飙涨25%，AI时代用工模式剧变
 
-中国AI独角兽智谱AI和MiniMax近日经历剧烈的市场重新定价。智谱AI股价单日暴涨近30%至405港元，而MiniMax此前也曾录得超20%的涨幅，总市值突破1800亿港元。然而在经历524%的累计暴涨后，两家公司合计蒸发千亿市值。高盛给予MiniMax高达389亿美元估值，但市场对AI公司商业化能力的分歧正在加剧。这一波动反映出资本市场对中国AI赛道从"技术叙事"转向"盈利验证"的深层博弈。
+硅谷支付巨头Block宣布大规模裁员，将员工总数从10205人削减至约6000人，裁员比例高达40%。尽管公司营收达62.5亿美元且盈利能力持续改善，创始人Jack Dorsey仍在内部信中表示"智能工具结合更精简扁平的团队结构正在创造全新的工作模式"。消息公布后Block股价逆势飙涨超25%，市场以真金白银投票支持AI驱动的组织变革。Dorsey预测未来一年内类似重组将在各行业蔓延，这一事件被视为AI对就业市场产生实质性冲击的标志性节点。
 
-**来源：** [Reuters](https://www.reuters.com/world/asia-pacific/china-ai-firm-minimax-set-surge-hong-kong-debut-2026-01-09/)
+**来源：** [36氪](https://36kr.com/p/3701205055598471)
+
+## 华为云码道CodeArts代码智能体公测版正式发布
+
+华为云在线上发布会正式推出华为云码道（CodeArts）代码智能体公测版，这是一款集成代码大模型、IDE与自主开发模式的AI编码解决方案。该产品覆盖代码生成、单元测试自动编写、研发知识问答、规范驱动开发等核心场景，支持华为自研IDE及VS Code等主流开发环境。CodeArts的发布标志着华为在AI辅助开发领域的全面布局，与GitHub Copilot、Cursor等产品形成直接竞争，也体现了国产AI开发工具链的加速成熟。
+
+**来源：** [AI Bot](https://ai-bot.cn/daily-ai-news/) | **原文：** [阅读原文](https://ai-bot.cn/codearts/)
+
+## MiniMax发布Expert 2.0与MaxClaw，Agent能力全面升级
+
+MiniMax稀宇科技发布Agent功能重大升级，推出Expert 2.0和MaxClaw两大核心产品。Expert 2.0允许用户通过自然语言描述即可创建细分领域的专家Agent，已覆盖技术开发、商业金融、教育医疗等多个垂直领域，累计创建超过1.6万个专家智能体。MaxClaw则是基于OpenClaw框架构建的云端AI助手，开箱即用无需手动部署，降低了Agent应用的技术门槛。此次升级反映出国内AI厂商正加速从基础模型能力向Agent生态平台转型的趋势。
+
+**来源：** [AI Bot](https://ai-bot.cn/daily-ai-news/) | **原文：** [阅读原文](https://ai-bot.cn/maxclaw/)
