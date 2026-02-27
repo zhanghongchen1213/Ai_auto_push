@@ -213,13 +213,15 @@ generatedAt: "{ISO8601时间戳}"
 使用 Bash 工具执行 Git 操作（必须先 cd 到项目目录）：
 
 ```bash
-cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git add src/content/daily/{date}/ && git commit -m "chore: daily update {date} ({success}/{total} domains)"
+cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git add src/content/daily/{date}/ && git commit -m "chore: daily update {date} ({success}/{total} domains)" && git push
 ```
 
-**注意：**
-- git push 前必须询问用户确认（影响远程仓库）
+**自动推送（CRITICAL — 强制执行）：**
+- git push 必须自动执行，**禁止**询问用户确认
+- commit 和 push 合并在同一条 Bash 命令中执行，确保全流程无人工干预
+- 这是自动化管道的核心要求：抓取 → 筛选 → 写文件 → commit → push 全程自动完成
 - 如果部分领域失败，commit message 应反映实际数量
-- push 失败时最多重试 2 次
+- push 失败时最多重试 2 次，重试命令：`cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git push`
 
 ### Step 5: 汇总报告
 
