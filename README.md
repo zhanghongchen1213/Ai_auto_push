@@ -10,7 +10,9 @@
 
 #### 🌐 网页预览
 
-[![网页预览](https://i.imgs.ovh/2026/02/27/yidP8h.md.png)](https://imgloc.com/image/yidP8h)
+| 网页预览 | 日报预览 |
+|:---:|:---:|
+| [![网页预览](https://i.imgs.ovh/2026/02/27/yidP8h.md.png)](https://imgloc.com/image/yidP8h) | [![日报预览](https://i.imgs.ovh/2026/02/27/yiB4cq.md.jpeg)](https://imgloc.com/image/yiB4cq) |
 
 #### ⏰ 定时任务
 
