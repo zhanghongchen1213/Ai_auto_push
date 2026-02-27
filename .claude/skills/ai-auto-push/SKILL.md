@@ -26,6 +26,12 @@ WebFetch(专业站点) + WebSearch(补充搜索) → 严格日期过滤 → AI�
 | github-trending | GitHub热门 | github.com/trending, hellogithub.com, ossinsight.io | GitHub trending projects、热门开源项目、developer tools、AI开源框架、Rust/Go新项目 |
 
 
+## 项目路径（CRITICAL）
+
+**项目绝对路径：** `/Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push`
+
+记为 `{PROJECT_ROOT}`。所有文件操作和 Git 命令必须使用此绝对路径，确保从本机任何位置执行都能正确定位项目。
+
 ## 执行流程
 
 IT IS CRITICAL THAT YOU FOLLOW THESE STEPS EXACTLY:
@@ -34,9 +40,10 @@ IT IS CRITICAL THAT YOU FOLLOW THESE STEPS EXACTLY:
 
 ### Step 0: 初始化
 
-1. 获取今天日期（UTC+8），格式 `YYYY-MM-DD`，记为 `{date}`
-2. 用 TodoWrite 创建任务清单，每个领域一个任务
-3. 用 Bash 创建输出目录：`mkdir -p src/content/daily/{date}`
+1. 设置项目根目录：`PROJECT_ROOT=/Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push`
+2. 获取今天日期（UTC+8），格式 `YYYY-MM-DD`，记为 `{date}`
+3. 用 TodoWrite 创建任务清单，每个领域一个任务
+4. 用 Bash 创建输出目录：`mkdir -p {PROJECT_ROOT}/src/content/daily/{date}`
 
 ### Step 1: 抓取（Fetch）— 对每个领域执行
 
@@ -150,7 +157,7 @@ IT IS CRITICAL THAT YOU FOLLOW THESE STEPS EXACTLY:
 
 对每个领域，使用 Write 工具生成 Markdown 文件。
 
-**文件路径：** `src/content/daily/{date}/{slug}.md`
+**文件路径：** `{PROJECT_ROOT}/src/content/daily/{date}/{slug}.md`
 
 **严格遵循以下格式模板：**
 
@@ -187,11 +194,10 @@ generatedAt: "{ISO8601时间戳}"
 
 ### Step 4: 发布（Publish）
 
-使用 Bash 工具执行 Git 操作：
+使用 Bash 工具执行 Git 操作（必须先 cd 到项目目录）：
 
 ```bash
-git add src/content/daily/{date}/
-git commit -m "chore: daily update {date} ({success}/{total} domains)"
+cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git add src/content/daily/{date}/ && git commit -m "chore: daily update {date} ({success}/{total} domains)"
 ```
 
 **注意：**
@@ -224,12 +230,13 @@ git commit -m "chore: daily update {date} ({success}/{total} domains)"
 每个子 agent 负责阶段 1-3（爬取站点、搜索补充、日期过滤、筛选摘要、写文件），主 agent 负责阶段 4（Git 发布）。
 
 子 agent 的 prompt 应包含：
+- 项目绝对路径 `/Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push`
 - 当日日期 `{date}`
 - 该领域的专业站点列表
 - 该领域的搜索关键词
 - 严格日期过滤规则
 - Markdown 格式模板
-- 输出文件路径
+- 输出文件的绝对路径
 
 ---
 
