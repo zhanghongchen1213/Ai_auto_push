@@ -19,7 +19,7 @@ const { title, description } = Astro.props;
 <meta name="generator" content={Astro.generator} />
 
 <!-- Security -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'" />
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'" />
 
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
