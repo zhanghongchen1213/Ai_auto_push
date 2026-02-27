@@ -1,0 +1,465 @@
+---
+import { domains, type DomainSlug } from '../../config/domains';
+import { siteConfig } from '../../config/site';
+
+interface Props {
+  activeDomain?: DomainSlug | 'all';
+}
+
+const { activeDomain = 'all' } = Astro.props;
+---
+
+<header class="header" data-pagefind-ignore>
+  <div class="header-inner">
+    <!-- Brand -->
+    <a href={import.meta.env.BASE_URL} class="brand" aria-label={siteConfig.title}>
+      <span class="brand-icon" aria-hidden="true">📡</span>
+      <span class="brand-text">资讯雷达</span>
+    </a>
+
+    <!-- Search (desktop) -->
+    <div class="search-desktop">
+      <form class="search-box" role="search" action={`${import.meta.env.BASE_URL}search/`} method="get">
+        <input
+          type="search"
+          name="q"
+          placeholder="搜索资讯..."
+          aria-label="搜索资讯"
+          class="search-input"
+          maxlength="200"
+          autocomplete="off"
+        />
+      </form>
+    </div>
+  </div>
+
+  <!-- Category pill navigation -->
+  <div class="nav-row">
+    <nav aria-label="领域筛选" class="nav-scroll">
+      <div role="tablist" class="pill-list" aria-orientation="horizontal">
+        <button
+          role="tab"
+          aria-selected={activeDomain === 'all' ? 'true' : 'false'}
+          tabindex={activeDomain === 'all' ? 0 : -1}
+          class:list={['pill', { 'pill-active': activeDomain === 'all' }]}
+          data-domain="all"
+          style={`--pill-bg:#F0F5FF;--pill-text:#1677FF;`}
+        >
+          全部
+        </button>
+        {domains.map((d) => (
+          <button
+            role="tab"
+            aria-selected={activeDomain === d.slug ? 'true' : 'false'}
+            tabindex={activeDomain === d.slug ? 0 : -1}
+            class:list={['pill', { 'pill-active': activeDomain === d.slug }]}
+            data-domain={d.slug}
+            style={`--pill-bg:${d.pillBg};--pill-text:${d.pillText};`}
+          >
+            {d.name}
+          </button>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Search (mobile) -->
+    <div class="search-mobile">
+      <form class="search-box" role="search" action={`${import.meta.env.BASE_URL}search/`} method="get">
+        <input
+          type="search"
+          name="q"
+          placeholder="搜索资讯..."
+          aria-label="搜索资讯"
+          class="search-input"
+          maxlength="200"
+          autocomplete="off"
+        />
+      </form>
+    </div>
+  </div>
+</header>
+
+<style>
+  .header {
+    background: #fff;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .header-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    height: 54px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 48px;
+  }
+
+  /* Brand */
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+  .brand-icon {
+    font-size: 20px;
+    line-height: 1;
+  }
+  .brand-text {
+    font-size: 22px;
+    font-weight: 700;
+    color: #1677FF;
+    white-space: nowrap;
+  }
+
+  /* Search box */
+  .search-box {
+    position: relative;
+  }
+  .search-input {
+    width: 200px;
+    height: 36px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background: #F5F5F5;
+    padding: 0 16px;
+    font-size: 13px;
+    color: #1A1A1A;
+    outline: none;
+    transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+  }
+  .search-input::placeholder {
+    color: #BFBFBF;
+    font-weight: 400;
+  }
+  .search-input:focus {
+    background: #fff;
+    border-color: #1677FF;
+    box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+  }
+
+  .search-desktop {
+    display: block;
+  }
+  .search-mobile {
+    display: none;
+  }
+
+  /* Nav row with pills */
+  .nav-row {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px 12px;
+  }
+
+  .nav-scroll {
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-scroll::-webkit-scrollbar {
+    display: none;
+  }
+
+  .pill-list {
+    display: flex;
+    gap: 8px;
+    white-space: nowrap;
+  }
+
+  /* Pill buttons */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 16px;
+    padding: 6px 16px;
+    font-size: 13px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.15s;
+    flex-shrink: 0;
+    background: var(--pill-bg);
+    color: var(--pill-text);
+  }
+  .pill:hover {
+    opacity: 0.85;
+  }
+  .pill:focus-visible {
+    outline: 2px solid #1677FF;
+    outline-offset: 2px;
+  }
+  .pill-active {
+    background: #1677FF;
+    color: #fff;
+  }
+
+  /* Tablet: 768-1439px */
+  @media (max-width: 1439px) {
+    .header-inner {
+      padding: 0 24px;
+    }
+    .nav-row {
+      padding: 0 24px 12px;
+    }
+    .pill-list {
+      gap: 6px;
+    }
+  }
+
+  /* Mobile: <768px */
+  @media (max-width: 767px) {
+    .header-inner {
+      height: 48px;
+      padding: 0 16px;
+    }
+    .brand-text {
+      font-size: 18px;
+    }
+    .nav-row {
+      padding: 0 16px 10px;
+    }
+    .pill {
+      min-height: 44px;
+      padding: 10px 16px;
+    }
+    .search-desktop {
+      display: none;
+    }
+    .search-mobile {
+      display: block;
+      padding-top: 8px;
+    }
+    .search-mobile .search-input {
+      width: 100%;
+      height: 44px;
+    }
+  }
+</style>
+
+<script>
+  // Collect valid domain slugs from the rendered tabs (single source of truth)
+  function getValidDomains(): Set<string> {
+    const tabs = document.querySelectorAll('[role="tablist"] [role="tab"]');
+    const slugs = new Set<string>();
+    tabs.forEach((tab) => {
+      const d = tab.getAttribute('data-domain');
+      if (d) slugs.add(d);
+    });
+    return slugs;
+  }
+
+  // AbortController for cleaning up listeners between page transitions
+  let filterAbort: AbortController | null = null;
+
+  function initDomainFilter() {
+    // Tear down previous listeners to prevent accumulation (Issue #2 fix)
+    if (filterAbort) {
+      filterAbort.abort();
+    }
+    filterAbort = new AbortController();
+    const { signal } = filterAbort;
+
+    const tablist = document.querySelector('[role="tablist"]');
+    if (!tablist) return;
+
+    const tabs = Array.from(
+      tablist.querySelectorAll('[role="tab"]'),
+    ) as HTMLElement[];
+    const sections = Array.from(
+      document.querySelectorAll('.domain-section[data-domain]'),
+    ) as HTMLElement[];
+    const validDomains = getValidDomains();
+
+    // Read initial domain from URL params with validation (Issue #1 fix)
+    function getUrlDomain(): string {
+      const params = new URLSearchParams(window.location.search);
+      const raw = params.get('domain');
+      if (raw === null) return 'all';
+      // Only accept known domain slugs; reject anything else
+      return validDomains.has(raw) ? raw : 'all';
+    }
+
+    // Update URL without creating history entry
+    function syncUrl(domain: string): void {
+      const url = new URL(window.location.href);
+      if (domain === 'all') {
+        url.searchParams.delete('domain');
+      } else {
+        url.searchParams.set('domain', domain);
+      }
+      history.replaceState(null, '', url.toString());
+    }
+
+    // Apply filter: update pills + show/hide sections
+    function applyFilter(domain: string): void {
+      // Validate domain before applying (Issue #1 fix)
+      if (domain !== 'all' && !validDomains.has(domain)) {
+        domain = 'all';
+      }
+
+      // Update pill states
+      tabs.forEach((tab) => {
+        const tabDomain = tab.getAttribute('data-domain') ?? '';
+        const isActive = tabDomain === domain;
+        tab.classList.toggle('pill-active', isActive);
+        tab.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        tab.setAttribute('tabindex', isActive ? '0' : '-1');
+      });
+
+      // Show/hide domain sections + update aria-hidden (Issue #5 fix)
+      sections.forEach((section) => {
+        const sectionDomain = section.getAttribute('data-domain') ?? '';
+        const shouldHide = domain !== 'all' && sectionDomain !== domain;
+        section.classList.toggle('domain-hidden', shouldHide);
+        section.setAttribute('aria-hidden', shouldHide ? 'true' : 'false');
+      });
+
+      syncUrl(domain);
+    }
+
+    // Click handler for pills (with signal for cleanup)
+    tabs.forEach((tab) => {
+      tab.addEventListener(
+        'click',
+        () => {
+          const domain = tab.getAttribute('data-domain') ?? 'all';
+          applyFilter(domain);
+        },
+        { signal },
+      );
+    });
+
+    // Keyboard navigation (WAI-ARIA Tabs pattern)
+    tablist.addEventListener(
+      'keydown',
+      (e) => {
+        const event = e as KeyboardEvent;
+        const current = document.activeElement as HTMLElement;
+        const idx = tabs.indexOf(current);
+        if (idx === -1) return;
+
+        let next = -1;
+        if (event.key === 'ArrowRight') {
+          next = (idx + 1) % tabs.length;
+        } else if (event.key === 'ArrowLeft') {
+          next = (idx - 1 + tabs.length) % tabs.length;
+        } else if (event.key === 'Home') {
+          next = 0;
+        } else if (event.key === 'End') {
+          next = tabs.length - 1;
+        }
+
+        if (next !== -1) {
+          event.preventDefault();
+          tabs[next].focus();
+          // Arrow keys also activate the tab (Issue #3 fix)
+          const domain = tabs[next].getAttribute('data-domain') ?? 'all';
+          applyFilter(domain);
+        }
+
+        // Enter or Space activates the focused pill
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          const domain = current.getAttribute('data-domain') ?? 'all';
+          applyFilter(domain);
+        }
+      },
+      { signal },
+    );
+
+    // Restore filter state from URL on page load
+    const initialDomain = getUrlDomain();
+    if (initialDomain !== 'all') {
+      applyFilter(initialDomain);
+    }
+  }
+
+  // Run on initial load and on Astro page transitions
+  initDomainFilter();
+  document.addEventListener('astro:after-swap', initDomainFilter);
+</script>
+
+<script>
+  // Header search box: empty-input guard, keyword echo, Escape key
+  let searchAbort: AbortController | null = null;
+
+  /** Sanitize user input: strip angle brackets to prevent XSS vectors */
+  function sanitizeSearchQuery(raw: string): string {
+    return raw.replace(/[<>]/g, '').trim().slice(0, 200);
+  }
+
+  function initHeaderSearch(): void {
+    if (searchAbort) searchAbort.abort();
+    searchAbort = new AbortController();
+    const { signal } = searchAbort;
+
+    const forms = document.querySelectorAll<HTMLFormElement>(
+      '.header .search-box',
+    );
+    if (forms.length === 0) return;
+
+    // Echo current ?q= param into all header search inputs (sanitized)
+    const params = new URLSearchParams(window.location.search);
+    const currentQuery = sanitizeSearchQuery(params.get('q') ?? '');
+
+    forms.forEach((form) => {
+      const input = form.querySelector<HTMLInputElement>('input[name="q"]');
+      if (!input) return;
+
+      // Keyword echo: fill input with sanitized query from URL
+      if (currentQuery) {
+        input.value = currentQuery;
+      }
+
+      // Empty input guard: block submit when value is blank
+      form.addEventListener(
+        'submit',
+        (e: SubmitEvent) => {
+          const trimmed = input.value.trim();
+          if (!trimmed) {
+            e.preventDefault();
+            input.focus();
+            // Accessible feedback: set temporary validation message
+            input.setAttribute('aria-invalid', 'true');
+            input.setAttribute('title', '请输入搜索关键词');
+            // Clear aria-invalid after user starts typing
+            const clearInvalid = () => {
+              input.removeAttribute('aria-invalid');
+              input.removeAttribute('title');
+              input.removeEventListener('input', clearInvalid);
+            };
+            input.addEventListener('input', clearInvalid, { signal });
+          }
+        },
+        { signal },
+      );
+
+      // Escape key: clear input and blur
+      input.addEventListener(
+        'keydown',
+        (e: KeyboardEvent) => {
+          if (e.key === 'Escape') {
+            e.preventDefault();
+            input.value = '';
+            input.blur();
+          }
+        },
+        { signal },
+      );
+    });
+  }
+
+  // Use a module-level flag to prevent duplicate astro:after-swap listeners
+  // (Issue #4: script re-execution could accumulate listeners)
+  if (!(window as any).__headerSearchBound) {
+    (window as any).__headerSearchBound = true;
+    document.addEventListener('astro:after-swap', initHeaderSearch);
+  }
+  initHeaderSearch();
+</script>

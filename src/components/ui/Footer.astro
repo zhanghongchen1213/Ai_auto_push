@@ -1,0 +1,73 @@
+---
+import { siteConfig } from '../../config/site';
+
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer" data-pagefind-ignore>
+  <div class="footer-inner">
+    <p class="copyright">
+      &copy; {currentYear} {siteConfig.author}. All rights reserved.
+    </p>
+    <a
+      href="https://github.com/xiaozhangxuezhang/Ai_auto_push"
+      target="_blank"
+      rel="noopener noreferrer"
+      class="github-link"
+    >
+      GitHub
+    </a>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    border-top: 1px solid #f0f0f0;
+    background: #fff;
+    padding: 24px 48px;
+  }
+  .footer-inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 13px;
+    color: #8C8C8C;
+  }
+  .copyright {
+    margin: 0;
+  }
+  .github-link {
+    color: #1677FF;
+    text-decoration: none;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+  .github-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1439px) {
+    .site-footer {
+      padding: 24px;
+    }
+  }
+  @media (max-width: 767px) {
+    .site-footer {
+      padding: 16px;
+    }
+    .footer-inner {
+      flex-direction: column;
+      gap: 8px;
+      text-align: center;
+    }
+    .github-link {
+      min-width: 44px;
+      justify-content: center;
+      padding: 0 8px;
+    }
+  }
+</style>

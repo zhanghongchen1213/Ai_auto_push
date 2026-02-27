@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+/* Box-sizing reset for predictable sizing */
+*,
+*::before,
+*::after {
+	box-sizing: border-box;
+}
+
+/* Prevent horizontal overflow at the page level */
+html {
+	overflow-x: hidden;
+}
+
+/* Site-wide custom properties — based on UX design specification */
+:root {
+	/* Brand & Primary */
+	--color-brand: #1677FF;
+	--color-bg: #F5F7FA;
+	--color-card: #FFFFFF;
+	--color-search-bg: #F5F5F5;
+
+	/* Text hierarchy */
+	--color-text: #1A1A1A;
+	--color-text-secondary: #595959;
+	--color-text-muted: #8C8C8C;
+	--color-text-placeholder: #BFBFBF;
+
+	/* Semantic */
+	--color-link: #1677FF;
+	--color-success: #059669;
+	--color-warning: #D97706;
+	--color-badge-bg: #E6F4FF;
+
+	/* Domain pill colors */
+	--color-domain-ai-bg: #F0F5FF;
+	--color-domain-ai-text: #1677FF;
+	--color-domain-ecom-bg: #FFF7E6;
+	--color-domain-ecom-text: #D46B08;
+	--color-domain-startup-bg: #F6FFED;
+	--color-domain-startup-text: #389E0D;
+	--color-domain-github-bg: #F9F0FF;
+	--color-domain-github-text: #722ED1;
+}
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+	margin: 0;
+	padding: 0;
+	background-color: var(--color-bg);
+	color: var(--color-text);
+}
+
+/* Badge pulse animation for NEW domain badges */
+@keyframes badge-pulse {
+	0%, 100% {
+		transform: scale(1);
+		opacity: 1;
+	}
+	50% {
+		transform: scale(1.1);
+		opacity: 0.85;
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.new-badge {
+		animation: none;
+	}
+}
+
+/* Responsive: prevent images from overflowing viewport */
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Responsive: ensure touch-friendly tap targets on mobile (WCAG 2.5.5) */
+@media (max-width: 767px) {
+	a,
+	button,
+	[role="tab"] {
+		min-height: 44px;
+	}
+}

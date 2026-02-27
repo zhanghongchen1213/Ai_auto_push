@@ -48,31 +48,31 @@ story_location: _bmad-output/implementation-artifacts
 
 development_status:
   # Epic 1: 项目基础与每日资讯展示
-  epic-1: in-progress
-  1-1-project-initialization: ready-for-dev
-  1-2-content-collections-schema: backlog
-  1-3-base-layout-header: backlog
-  1-4-daily-news-homepage: backlog
-  1-5-domain-filter-color-coding: backlog
-  1-6-responsive-cross-device: backlog
+  epic-1: done
+  1-1-project-initialization: done
+  1-2-content-collections-schema: done
+  1-3-base-layout-header: done
+  1-4-daily-news-homepage: done
+  1-5-domain-filter-color-coding: done
+  1-6-responsive-cross-device: done
   epic-1-retrospective: optional
 
   # Epic 2: 历史导航与日期浏览
-  epic-2: backlog
-  2-1-date-dynamic-routing: backlog
-  2-2-prev-next-date-navigation: backlog
-  2-3-calendar-popup-date-selection: backlog
+  epic-2: done
+  2-1-date-dynamic-routing: done
+  2-2-prev-next-date-navigation: done
+  2-3-calendar-popup-date-selection: done
   epic-2-retrospective: optional
 
   # Epic 3: 搜索功能
-  epic-3: backlog
-  3-1-pagefind-search-integration: backlog
-  3-2-search-result-navigation: backlog
-  3-3-header-persistent-search-box: backlog
+  epic-3: done
+  3-1-pagefind-search-integration: done
+  3-2-search-result-navigation: done
+  3-3-header-persistent-search-box: done
   epic-3-retrospective: optional
 
   # Epic 4: Skills 自动化内容管道
-  epic-4: backlog
+  epic-4: in-progress
   4-1-pipeline-entry-domain-scheduler: backlog
   4-2-news-fetch-module: backlog
   4-3-ai-content-filter-summary: backlog

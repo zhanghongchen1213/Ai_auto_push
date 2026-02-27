@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import DateNavigation from '../components/ui/DateNavigation.astro';
+import NewsList from '../components/news/NewsList.astro';
+import { siteConfig } from '../config/site';
+import { getLatestDate, getEntriesByDate, getAdjacentDates, getAllDates } from '../lib/content-utils';
+
+const latestDate = await getLatestDate();
+const entries = latestDate ? await getEntriesByDate(latestDate) : [];
+const adjacent = latestDate ? await getAdjacentDates(latestDate) : { prev: null, next: null };
+const allDates = await getAllDates();
+---
+
+<BaseLayout title={siteConfig.title} description={siteConfig.description}>
+	{latestDate && (
+		<DateNavigation date={latestDate} prevDate={adjacent.prev} nextDate={adjacent.next} availableDates={allDates} />
+	)}
+	{latestDate ? (
+		<NewsList date={latestDate} entries={entries} />
+	) : (
+		<p class="empty-state">暂无资讯数据</p>
+	)}
+</BaseLayout>

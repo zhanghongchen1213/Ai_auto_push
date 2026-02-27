@@ -1,0 +1,76 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/ui/Header.astro';
+import Footer from '../components/ui/Footer.astro';
+import { siteConfig } from '../config/site';
+import type { DomainSlug } from '../config/domains';
+
+interface Props {
+	title?: string;
+	description?: string;
+	activeDomain?: DomainSlug | 'all';
+}
+
+const {
+	title = siteConfig.title,
+	description = siteConfig.description,
+	activeDomain = 'all',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang={siteConfig.lang}>
+	<head>
+		<BaseHead title={title} description={description} />
+	</head>
+	<body>
+		<a href="#main-content" class="skip-link">跳转到主要内容</a>
+		<Header activeDomain={activeDomain} />
+		<main id="main-content" class="main-content">
+			<div class="content-container">
+				<slot />
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.skip-link {
+		position: absolute;
+		top: -100%;
+		left: 16px;
+		z-index: 100;
+		padding: 8px 16px;
+		background: #1677FF;
+		color: #fff;
+		border-radius: 0 0 8px 8px;
+		font-size: 14px;
+		text-decoration: none;
+	}
+	.skip-link:focus {
+		top: 0;
+	}
+	.main-content {
+		min-height: calc(100vh - 54px - 73px);
+	}
+	.content-container {
+		max-width: 1440px;
+		margin: 0 auto;
+		padding: 24px 48px;
+	}
+
+	@media (max-width: 1439px) {
+		.content-container {
+			padding: 16px 24px;
+		}
+	}
+	@media (max-width: 767px) {
+		.main-content {
+			min-height: calc(100vh - 48px - 65px);
+		}
+		.content-container {
+			padding: 12px 16px;
+		}
+	}
+</style>

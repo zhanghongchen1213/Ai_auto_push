@@ -1,0 +1,713 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { siteConfig } from '../config/site';
+
+const pageTitle = `搜索 - ${siteConfig.title}`;
+const pageDescription = '搜索历史资讯内容，支持跨日期、跨领域关键词匹配';
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	<div class="search-page" data-pagefind-ignore>
+		<div class="search-header">
+			<h1 class="search-title">搜索资讯</h1>
+			<p class="search-desc">输入关键词搜索历史资讯，支持跨日期、跨领域匹配</p>
+		</div>
+
+		<!-- Search input -->
+		<div class="search-input-wrap">
+			<svg class="search-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+				<circle cx="7" cy="7" r="5.5" stroke="#BFBFBF" stroke-width="1.5"/>
+				<path d="M11 11L14 14" stroke="#BFBFBF" stroke-width="1.5" stroke-linecap="round"/>
+			</svg>
+			<input
+				id="search-input"
+				type="search"
+				placeholder="输入关键词搜索资讯..."
+				aria-label="搜索资讯"
+				class="search-input"
+				maxlength="200"
+				autocomplete="off"
+			/>
+		</div>
+
+		<!-- Status bar -->
+		<div id="search-status" class="search-status" role="status" aria-live="polite" style="display:none;"></div>
+
+		<!-- Results container -->
+		<div id="search-results" class="search-results" role="region" aria-label="搜索结果">
+			<!-- Skeleton loader -->
+			<div id="search-skeleton" class="skeleton-wrap" style="display:none;">
+				<div class="skeleton-card"><div class="skeleton-pill"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+				<div class="skeleton-card"><div class="skeleton-pill"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+				<div class="skeleton-card"><div class="skeleton-pill"></div><div class="skeleton-title"></div><div class="skeleton-text"></div><div class="skeleton-text short"></div></div>
+			</div>
+
+			<!-- Actual results -->
+			<div id="search-list" class="search-list" style="opacity:0;"></div>
+
+			<!-- Empty state -->
+			<div id="search-empty" class="search-empty" style="display:none;">
+				<div class="empty-icon" aria-hidden="true">
+					<svg width="64" height="64" viewBox="0 0 64 64" fill="none">
+						<circle cx="28" cy="28" r="18" stroke="#D9D9D9" stroke-width="3"/>
+						<path d="M42 42L56 56" stroke="#D9D9D9" stroke-width="3" stroke-linecap="round"/>
+						<text x="22" y="34" font-size="18" fill="#D9D9D9" font-weight="bold">?</text>
+					</svg>
+				</div>
+				<p class="empty-title" id="empty-title-text">未找到相关资讯</p>
+				<div class="empty-suggestions">
+					<p class="suggestion-label">搜索建议：</p>
+					<ul class="suggestion-list">
+						<li>试试更简短的关键词</li>
+						<li>检查是否有拼写错误</li>
+						<li>尝试使用相关的同义词</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</BaseLayout>
+
+<style>
+	.search-page {
+		max-width: 720px;
+		margin: 0 auto;
+		padding: 24px 0;
+	}
+	.search-header {
+		margin-bottom: 24px;
+	}
+	.search-title {
+		font-size: 24px;
+		font-weight: 700;
+		color: #1A1A1A;
+		margin: 0 0 8px;
+	}
+	.search-desc {
+		font-size: 14px;
+		color: #8C8C8C;
+		margin: 0;
+	}
+
+	/* Search input */
+	.search-input-wrap {
+		position: relative;
+		margin-bottom: 20px;
+	}
+	.search-icon {
+		position: absolute;
+		left: 16px;
+		top: 50%;
+		transform: translateY(-50%);
+		pointer-events: none;
+	}
+	.search-input {
+		width: 100%;
+		height: 44px;
+		border-radius: 20px;
+		border: 1px solid transparent;
+		background: #F5F5F5;
+		padding: 0 20px 0 40px;
+		font-size: 15px;
+		color: #1A1A1A;
+		outline: none;
+		transition: background 0.2s, border-color 0.2s, box-shadow 0.2s;
+		box-sizing: border-box;
+	}
+	.search-input::placeholder {
+		color: #BFBFBF;
+	}
+	.search-input:focus {
+		background: #fff;
+		border-color: #1677FF;
+		box-shadow: 0 0 0 2px rgba(22, 119, 255, 0.1);
+	}
+
+	/* Status bar */
+	.search-status {
+		font-size: 14px;
+		color: #595959;
+		margin-bottom: 16px;
+		line-height: 1.5;
+	}
+	.search-status strong {
+		font-weight: 600;
+		color: #1A1A1A;
+	}
+
+	/* Skeleton loader */
+	.skeleton-wrap {
+		display: flex;
+		flex-direction: column;
+		gap: 12px;
+	}
+	.skeleton-card {
+		background: #FAFAFA;
+		border-radius: 8px;
+		padding: 16px 20px;
+		animation: pulse 1.5s ease-in-out infinite;
+	}
+	.skeleton-pill {
+		width: 60px;
+		height: 20px;
+		background: #F0F0F0;
+		border-radius: 10px;
+		margin-bottom: 10px;
+	}
+	.skeleton-title {
+		width: 70%;
+		height: 18px;
+		background: #F0F0F0;
+		border-radius: 4px;
+		margin-bottom: 8px;
+	}
+	.skeleton-text {
+		width: 100%;
+		height: 14px;
+		background: #F0F0F0;
+		border-radius: 4px;
+		margin-bottom: 6px;
+	}
+	.skeleton-text.short {
+		width: 60%;
+	}
+	@keyframes pulse {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.5; }
+	}
+
+	/* Search list transitions */
+	.search-list {
+		transition: opacity 0.2s ease;
+	}
+
+	/* Date group header */
+	.date-group {
+		margin-bottom: 24px;
+	}
+	.date-group-header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 12px;
+	}
+	.date-bar {
+		display: inline-block;
+		width: 4px;
+		height: 20px;
+		background: #1677FF;
+		border-radius: 2px;
+		flex-shrink: 0;
+	}
+	.date-text {
+		font-size: 18px;
+		font-weight: 600;
+		color: #1A1A1A;
+	}
+	.match-count {
+		font-size: 12px;
+		color: #1677FF;
+		background: #E6F4FF;
+		padding: 2px 10px;
+		border-radius: 10px;
+	}
+
+	/* Result cards */
+	.result-card {
+		background: #FAFAFA;
+		border-radius: 8px;
+		padding: 16px 20px;
+		margin-bottom: 12px;
+		text-decoration: none;
+		display: block;
+		color: inherit;
+		transition: box-shadow 0.2s ease;
+		border: 1px solid #F0F0F0;
+	}
+	.result-card:hover {
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+	}
+	.result-card:focus-visible {
+		outline: 2px solid #1677FF;
+		outline-offset: 2px;
+	}
+	.result-card-header {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		margin-bottom: 8px;
+	}
+	.result-domain-pill {
+		display: inline-block;
+		font-size: 12px;
+		font-weight: 500;
+		line-height: 1;
+		padding: 4px 10px;
+		border-radius: 10px;
+		white-space: nowrap;
+	}
+	.result-date {
+		font-size: 12px;
+		color: #8C8C8C;
+	}
+	.result-title {
+		font-size: 16px;
+		font-weight: 600;
+		color: #1A1A1A;
+		line-height: 1.5;
+		margin: 0 0 6px;
+	}
+	.result-excerpt {
+		font-size: 14px;
+		color: #595959;
+		line-height: 1.6;
+		margin: 0;
+		display: -webkit-box;
+		-webkit-line-clamp: 3;
+		-webkit-box-orient: vertical;
+		overflow: hidden;
+	}
+
+	/* Keyword highlight */
+	mark.search-highlight {
+		background: #FEF3C7;
+		color: inherit;
+		padding: 1px 2px;
+		border-radius: 2px;
+	}
+
+	/* Empty state */
+	.search-empty {
+		text-align: center;
+		padding: 60px 20px;
+	}
+	.empty-icon {
+		margin-bottom: 16px;
+	}
+	.empty-title {
+		font-size: 16px;
+		font-weight: 600;
+		color: #1A1A1A;
+		margin: 0 0 16px;
+	}
+	.empty-suggestions {
+		text-align: left;
+		display: inline-block;
+	}
+	.suggestion-label {
+		font-size: 14px;
+		color: #8C8C8C;
+		margin: 0 0 8px;
+	}
+	.suggestion-list {
+		list-style: none;
+		padding: 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 8px;
+	}
+	.suggestion-list li {
+		font-size: 14px;
+		color: #8C8C8C;
+		background: #F5F5F5;
+		padding: 4px 12px;
+		border-radius: 14px;
+	}
+
+	/* Mobile: <768px */
+	@media (max-width: 767px) {
+		.search-page {
+			padding: 16px 0;
+		}
+		.search-title {
+			font-size: 20px;
+		}
+		.search-status {
+			font-size: 13px;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.date-text {
+			font-size: 16px;
+		}
+		.result-card {
+			padding: 12px 16px;
+		}
+		.empty-icon svg {
+			width: 48px;
+			height: 48px;
+		}
+		.suggestion-list {
+			gap: 8px;
+		}
+	}
+</style>
+
+<script>
+	/**
+	 * Domain config for pill colors.
+	 * NOTE: This duplicates src/config/domains.ts because this runs client-side
+	 * and cannot import server-only Astro modules. Keep in sync manually.
+	 * If domains change, update both this map and src/config/domains.ts.
+	 */
+	const DOMAIN_MAP: Record<string, { name: string; pillBg: string; pillText: string; bgColor: string }> = {
+		'ai-tech': { name: 'AI技术', pillBg: '#F0F5FF', pillText: '#1677FF', bgColor: '#EFF6FF' },
+		'cross-border-ecom': { name: '跨境电商', pillBg: '#FFF7E6', pillText: '#D46B08', bgColor: '#ECFDF5' },
+		'product-startup': { name: '产品创业', pillBg: '#F6FFED', pillText: '#389E0D', bgColor: '#FFFBEB' },
+		'github-trending': { name: 'GitHub热门', pillBg: '#F9F0FF', pillText: '#722ED1', bgColor: '#F5F3FF' },
+	};
+
+	/** Sanitize user input - strip all HTML entities and tags robustly */
+	function sanitizeQuery(raw: string): string {
+		// First escape HTML to neutralize any partial/malformed tags,
+		// then strip any residual angle-bracket sequences, then trim.
+		return raw.replace(/[<>]/g, '').trim().slice(0, 200);
+	}
+
+	/** Format date string to Chinese format */
+	function formatDateCN(date: string): string {
+		const [year, month, day] = date.split('-').map(Number);
+		return `${year}年${month}月${day}日`;
+	}
+
+	/** Highlight keywords in text using <mark> tags */
+	function highlightText(text: string, keywords: readonly string[]): string {
+		if (keywords.length === 0) return escapeHtml(text);
+		const safeText = escapeHtml(text);
+		const escaped = keywords.map(k => escapeHtml(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+		const pattern = new RegExp(`(${escaped.join('|')})`, 'gi');
+		return safeText.replace(pattern, '<mark class="search-highlight">$1</mark>');
+	}
+
+	/** Escape HTML special characters (pure string, no DOM allocation) */
+	function escapeHtml(str: string): string {
+		return str
+			.replace(/&/g, '&amp;')
+			.replace(/</g, '&lt;')
+			.replace(/>/g, '&gt;')
+			.replace(/"/g, '&quot;')
+			.replace(/'/g, '&#39;');
+	}
+
+	/** Build a single result card element */
+	function buildResultCard(
+		title: string,
+		excerpt: string,
+		date: string,
+		domainSlug: string,
+		anchor: string,
+		keywords: readonly string[],
+		baseUrl: string,
+	): HTMLAnchorElement {
+		const domain = DOMAIN_MAP[domainSlug] ?? { name: domainSlug, pillBg: '#F5F5F5', pillText: '#595959', bgColor: '#FAFAFA' };
+		const href = `${baseUrl}daily/${date}/#${anchor}`;
+
+		const card = document.createElement('a');
+		card.className = 'result-card';
+		card.href = href;
+		card.setAttribute('tabindex', '0');
+		card.setAttribute('role', 'article');
+		card.setAttribute('aria-label', title);
+		card.style.backgroundColor = domain.bgColor;
+
+		// Header row
+		const header = document.createElement('div');
+		header.className = 'result-card-header';
+
+		const pill = document.createElement('span');
+		pill.className = 'result-domain-pill';
+		pill.style.background = domain.pillBg;
+		pill.style.color = domain.pillText;
+		pill.textContent = domain.name;
+
+		const dateEl = document.createElement('span');
+		dateEl.className = 'result-date';
+		dateEl.textContent = formatDateCN(date);
+
+		header.appendChild(pill);
+		header.appendChild(dateEl);
+
+		// Title
+		const titleEl = document.createElement('h3');
+		titleEl.className = 'result-title';
+		titleEl.innerHTML = highlightText(title, keywords);
+
+		// Excerpt
+		const excerptEl = document.createElement('p');
+		excerptEl.className = 'result-excerpt';
+		excerptEl.innerHTML = highlightText(excerpt, keywords);
+
+		card.appendChild(header);
+		card.appendChild(titleEl);
+		card.appendChild(excerptEl);
+
+		return card;
+	}
+
+	/** Group results by date and render */
+	interface SearchResult {
+		title: string;
+		excerpt: string;
+		date: string;
+		domainSlug: string;
+		anchor: string;
+	}
+
+	function renderResults(
+		results: readonly SearchResult[],
+		keywords: readonly string[],
+		baseUrl: string,
+		container: HTMLElement,
+	): void {
+		container.replaceChildren();
+
+		// Group by date (descending) - O(n) push instead of O(n^2) spread
+		const groups = new Map<string, SearchResult[]>();
+		for (const r of results) {
+			const existing = groups.get(r.date);
+			if (existing) {
+				existing.push(r);
+			} else {
+				groups.set(r.date, [r]);
+			}
+		}
+		const sortedDates = Array.from(groups.keys()).sort((a, b) => b.localeCompare(a));
+
+		for (const date of sortedDates) {
+			const items = groups.get(date) ?? [];
+			const groupEl = document.createElement('div');
+			groupEl.className = 'date-group';
+
+			// Date group header
+			const headerEl = document.createElement('div');
+			headerEl.className = 'date-group-header';
+
+			const bar = document.createElement('span');
+			bar.className = 'date-bar';
+
+			const dateText = document.createElement('span');
+			dateText.className = 'date-text';
+			dateText.textContent = formatDateCN(date);
+
+			const countBadge = document.createElement('span');
+			countBadge.className = 'match-count';
+			countBadge.textContent = `${items.length}条匹配`;
+
+			headerEl.appendChild(bar);
+			headerEl.appendChild(dateText);
+			headerEl.appendChild(countBadge);
+			groupEl.appendChild(headerEl);
+
+			// Cards
+			for (const item of items) {
+				const card = buildResultCard(
+					item.title, item.excerpt, item.date,
+					item.domainSlug, item.anchor, keywords, baseUrl,
+				);
+				groupEl.appendChild(card);
+			}
+
+			container.appendChild(groupEl);
+		}
+	}
+
+	/** Main search initialization - returns cleanup function */
+	async function initSearch(): Promise<(() => void) | null> {
+		const input = document.getElementById('search-input') as HTMLInputElement | null;
+		const statusEl = document.getElementById('search-status');
+		const skeletonEl = document.getElementById('search-skeleton');
+		const listEl = document.getElementById('search-list');
+		const emptyEl = document.getElementById('search-empty');
+		const emptyTitle = document.getElementById('empty-title-text');
+
+		if (!input || !statusEl || !skeletonEl || !listEl || !emptyEl) return null;
+
+		const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+		const pagefindPath = `${base}/pagefind/`;
+
+		let pagefind: any = null;
+		try {
+			pagefind = await import(/* @vite-ignore */ `${pagefindPath}pagefind.js`);
+			await pagefind.init();
+		} catch {
+			listEl.style.opacity = '1';
+			listEl.textContent = '搜索功能加载中，请确保网站已完成构建部署';
+			return null;
+		}
+
+		let debounceTimer: ReturnType<typeof setTimeout> | null = null;
+
+		// Cleanup: cancel any pending debounce from a previous initSearch call
+		// (e.g., after astro:after-swap view transition)
+		function cleanup(): void {
+			if (debounceTimer) {
+				clearTimeout(debounceTimer);
+				debounceTimer = null;
+			}
+		}
+
+		/** Show skeleton, hide others */
+		function showSkeleton(): void {
+			skeletonEl!.style.display = '';
+			listEl!.style.opacity = '0';
+			emptyEl!.style.display = 'none';
+		}
+
+		/** Hide skeleton, show results */
+		function showResults(): void {
+			skeletonEl!.style.display = 'none';
+			listEl!.style.opacity = '1';
+		}
+
+		/** Show empty state */
+		function showEmpty(query: string): void {
+			skeletonEl!.style.display = 'none';
+			listEl!.style.opacity = '0';
+			emptyEl!.style.display = '';
+			if (emptyTitle) {
+				emptyTitle.textContent = `未找到与 "${query}" 相关的资讯`;
+			}
+		}
+
+		/** Hide all states */
+		function hideAll(): void {
+			statusEl!.style.display = 'none';
+			skeletonEl!.style.display = 'none';
+			listEl!.style.opacity = '0';
+			listEl!.replaceChildren();
+			emptyEl!.style.display = 'none';
+		}
+
+		/** Perform search */
+		async function doSearch(rawQuery: string): Promise<void> {
+			const query = sanitizeQuery(rawQuery);
+			if (!query) {
+				hideAll();
+				return;
+			}
+
+			showSkeleton();
+			statusEl!.style.display = 'none';
+
+			let search: any;
+			let resultData: any[];
+			try {
+				search = await pagefind.search(query);
+				resultData = await Promise.all(
+					search.results.slice(0, 50).map((r: any) => r.data()),
+				);
+			} catch {
+				showEmpty(query);
+				statusEl!.style.display = 'none';
+				return;
+			}
+
+			// Parse results using sub_results for article-level granularity
+			const keywords = query.split(/\s+/).filter(Boolean);
+			const baseUrl = `${base}/`;
+			const parsed: SearchResult[] = [];
+
+			for (const data of resultData) {
+				// Extract date from page URL: /daily/2026-02-26/
+				const urlMatch = (data.url ?? '').match(/\/daily\/(\d{4}-\d{2}-\d{2})\//);
+				const pageDate = urlMatch?.[1] ?? '';
+				if (!pageDate) continue;
+
+				// Use sub_results if available for article-level results
+				const subs = data.sub_results ?? [];
+				if (subs.length > 0) {
+					for (const sub of subs) {
+						const subUrl = sub.url ?? '';
+						// Extract anchor from sub_result URL hash (heading-news-{domain}-{index})
+						const hashMatch = subUrl.match(/#heading-(news-[^/]+)$/);
+						const anchor = hashMatch?.[1] ?? '';
+						// Extract domain from anchor: news-{domain}-{index}
+						const domainMatch = anchor.match(/^news-(.+)-\d+$/);
+						const domainSlug = domainMatch?.[1] ?? '';
+						const title = sub.title ?? '';
+						const excerpt = (sub.excerpt ?? '').replace(/<[^>]*>/g, '');
+						if (title) {
+							parsed.push({ title, excerpt, date: pageDate, domainSlug, anchor });
+						}
+					}
+				} else {
+					// Fallback: use page-level result
+					const meta = data.meta ?? {};
+					const title = meta.title ?? '';
+					const excerpt = (data.excerpt ?? '').replace(/<[^>]*>/g, '');
+					const anchor = meta.anchor ?? '';
+					const domainSlug = meta.domain_slug ?? '';
+					if (title) {
+						parsed.push({ title, excerpt, date: pageDate, domainSlug, anchor });
+					}
+				}
+			}
+
+			if (parsed.length === 0) {
+				showEmpty(query);
+				statusEl!.style.display = 'none';
+				return;
+			}
+
+			// Status bar - build content off-DOM then swap in one operation
+			// to avoid screen readers announcing an empty intermediate state
+			const totalCount = parsed.length;
+			const countText = totalCount > 100 ? '100+' : String(totalCount);
+			const frag = document.createDocumentFragment();
+			frag.appendChild(document.createTextNode('搜索 "'));
+			const strong = document.createElement('strong');
+			strong.textContent = query;
+			frag.appendChild(strong);
+			frag.appendChild(document.createTextNode(`" · 共 ${countText} 条结果`));
+			statusEl!.replaceChildren(frag);
+			statusEl!.style.display = '';
+
+			// Render grouped results
+			renderResults(parsed, keywords, baseUrl, listEl!);
+			showResults();
+			emptyEl!.style.display = 'none';
+		}
+
+		// Debounced input handler
+		input.addEventListener('input', () => {
+			if (debounceTimer) clearTimeout(debounceTimer);
+			debounceTimer = setTimeout(() => doSearch(input.value), 300);
+		});
+
+		// Escape key: clear and blur
+		input.addEventListener('keydown', (e: KeyboardEvent) => {
+			if (e.key === 'Escape') {
+				input.value = '';
+				input.blur();
+				hideAll();
+			}
+		});
+
+		// Handle URL query param
+		const params = new URLSearchParams(window.location.search);
+		const rawQuery = params.get('q');
+		if (rawQuery) {
+			input.value = sanitizeQuery(rawQuery);
+			doSearch(input.value);
+		}
+		input.focus();
+
+		return cleanup;
+	}
+
+	let _cleanupCurrent: (() => void) | null = null;
+
+	function startSearch() {
+		// Cleanup previous instance before re-initializing
+		if (_cleanupCurrent) _cleanupCurrent();
+		_cleanupCurrent = null;
+		initSearch().then((cleanupFn) => {
+			if (cleanupFn) _cleanupCurrent = cleanupFn;
+		});
+	}
+
+	startSearch();
+	document.addEventListener('astro:after-swap', startSearch);
+</script>

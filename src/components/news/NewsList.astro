@@ -1,0 +1,135 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { domains } from '../../config/domains';
+import type { DomainConfig } from '../../config/domains';
+import { parseNewsItems } from '../../lib/content-utils';
+import type { NewsItem } from '../../lib/content-utils';
+import { formatDateWithWeekday } from '../../lib/date-utils';
+import DomainSection from './DomainSection.astro';
+
+interface Props {
+	date: string;
+	entries: CollectionEntry<'daily'>[];
+}
+
+const { date, entries } = Astro.props;
+
+const hasData = date.length > 0 && entries.length > 0;
+const dateDisplay = hasData ? formatDateWithWeekday(date) : '';
+
+// 计算总资讯条数（不可变）
+const totalCount = entries.reduce((sum, entry) => sum + entry.data.itemCount, 0);
+
+// 按领域 order 排序，构建分组数据（不可变）
+type DomainGroup = { readonly domain: DomainConfig; readonly items: readonly NewsItem[] };
+const groups: readonly DomainGroup[] = domains
+	.map((domainConfig) => {
+		const entry = entries.find((e) => e.data.domain === domainConfig.slug);
+		if (!entry) return null;
+		const items = parseNewsItems(entry.body ?? '');
+		return items.length > 0 ? { domain: domainConfig, items } : null;
+	})
+	.filter((g): g is DomainGroup => g !== null);
+---
+
+<div class="news-list">
+	{groups.length > 0 ? (
+		<>
+			<div class="date-group-header">
+				<span class="date-bar"></span>
+				<span class="date-text">{dateDisplay}</span>
+				<span class="count-badge">{totalCount} 条资讯</span>
+			</div>
+			<div class="domain-groups">
+				{groups.map((g) => (
+					<DomainSection domain={g.domain} items={g.items} date={date} />
+				))}
+			</div>
+		</>
+	) : (
+		<div class="empty-state">
+			<p class="empty-icon">📭</p>
+			<p class="empty-text">暂无资讯内容</p>
+			<p class="empty-hint">当天的资讯尚未发布，请稍后再来查看</p>
+		</div>
+	)}
+</div>
+
+<style>
+	.news-list {
+		width: 100%;
+	}
+	.date-group-header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 20px;
+	}
+	.date-bar {
+		display: inline-block;
+		width: 4px;
+		height: 20px;
+		background: #1677FF;
+		border-radius: 2px;
+		flex-shrink: 0;
+	}
+	.date-text {
+		font-size: 18px;
+		font-weight: 600;
+		color: #1A1A1A;
+	}
+	.count-badge {
+		font-size: 12px;
+		color: #1677FF;
+		background: #E6F4FF;
+		padding: 2px 10px;
+		border-radius: 10px;
+	}
+	.domain-groups {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.empty-state {
+		text-align: center;
+		padding: 60px 20px;
+	}
+	.empty-icon {
+		font-size: 48px;
+		margin: 0 0 16px;
+	}
+	.empty-text {
+		font-size: 18px;
+		font-weight: 600;
+		color: #1A1A1A;
+		margin: 0 0 8px;
+	}
+	.empty-hint {
+		font-size: 14px;
+		color: #8C8C8C;
+		margin: 0;
+	}
+
+	@media (max-width: 767px) {
+		.date-text {
+			font-size: 16px;
+		}
+		.date-group-header {
+			gap: 8px;
+			margin-bottom: 16px;
+		}
+		.count-badge {
+			font-size: 11px;
+			padding: 2px 8px;
+		}
+		.empty-state {
+			padding: 40px 16px;
+		}
+		.empty-icon {
+			font-size: 40px;
+		}
+		.empty-text {
+			font-size: 16px;
+		}
+	}
+</style>

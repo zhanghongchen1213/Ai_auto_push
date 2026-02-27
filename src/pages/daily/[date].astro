@@ -1,0 +1,57 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import DateNavigation from '../../components/ui/DateNavigation.astro';
+import NewsList from '../../components/news/NewsList.astro';
+import { formatDateCN } from '../../lib/date-utils';
+import { siteConfig } from '../../config/site';
+import { compareDates } from '../../lib/date-utils';
+
+interface Props {
+	date: string;
+	entries: CollectionEntry<'daily'>[];
+	prevDate: string | null;
+	nextDate: string | null;
+	allDates: string[];
+}
+
+export async function getStaticPaths() {
+	// 一次性加载全部 entries，避免 N+1 查询
+	const allEntries = await getCollection('daily');
+
+	// 按日期分组（不可变方式）
+	const entriesByDate = allEntries.reduce<Map<string, readonly CollectionEntry<'daily'>[]>>(
+		(map, entry) => {
+			const d = entry.data.date;
+			const existing = map.get(d) ?? [];
+			return new Map([...map, [d, [...existing, entry]]]);
+		},
+		new Map(),
+	);
+
+	// 按日期降序排列后生成路径
+	const dates = Array.from(entriesByDate.keys()).sort((a, b) => compareDates(b, a));
+
+	return dates.map((date, index) => ({
+		params: { date },
+		props: {
+			date,
+			entries: entriesByDate.get(date)!,
+			prevDate: index < dates.length - 1 ? dates[index + 1] : null,
+			nextDate: index > 0 ? dates[index - 1] : null,
+			allDates: dates,
+		},
+	}));
+}
+
+const { date, entries, prevDate, nextDate, allDates } = Astro.props;
+const dateCN = formatDateCN(date);
+const pageTitle = `${dateCN} - ${siteConfig.title}`;
+const pageDescription = `${dateCN}的多领域精选资讯，涵盖${entries.length}个领域的最新动态`;
+---
+
+<BaseLayout title={pageTitle} description={pageDescription}>
+	<DateNavigation date={date} prevDate={prevDate} nextDate={nextDate} availableDates={allDates} />
+	<NewsList date={date} entries={entries} />
+</BaseLayout>

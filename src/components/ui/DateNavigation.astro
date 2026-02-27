@@ -1,0 +1,223 @@
+---
+import { formatDateWithWeekday, isValidDateFormat } from '../../lib/date-utils';
+import CalendarPopup from './CalendarPopup.astro';
+
+interface Props {
+	date: string;
+	prevDate: string | null;
+	nextDate: string | null;
+	availableDates?: string[];
+}
+
+const { date, prevDate, nextDate, availableDates = [] } = Astro.props;
+
+// 安全校验：防止非法日期字符串注入 href
+function safeDateHref(d: string | null): string | null {
+	if (!d || !isValidDateFormat(d)) return null;
+	return `/daily/${d}/`;
+}
+
+const displayDate = formatDateWithWeekday(date);
+
+const prevHref = safeDateHref(prevDate);
+const nextHref = safeDateHref(nextDate);
+
+const prevLabel = prevDate
+	? `前往${formatDateWithWeekday(prevDate)}的资讯`
+	: '没有更早的资讯';
+const nextLabel = nextDate
+	? `前往${formatDateWithWeekday(nextDate)}的资讯`
+	: '没有更新的资讯';
+---
+
+<nav class="date-nav" role="navigation" aria-label="日期导航" data-pagefind-ignore>
+	<div class="date-nav-inner">
+		{prevHref ? (
+			<a href={prevHref} class="nav-btn nav-btn--active" aria-label={prevLabel}>
+				<svg class="nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+					<path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				<span class="nav-text">前一天</span>
+			</a>
+		) : (
+			<span class="nav-btn nav-btn--disabled" aria-disabled="true" aria-label={prevLabel}>
+				<svg class="nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+					<path d="M12.5 15L7.5 10L12.5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				<span class="nav-text">前一天</span>
+			</span>
+		)}
+
+		<div class="date-center">
+			<span class="date-display">{displayDate}</span>
+			<button
+				class="calendar-btn"
+				type="button"
+				aria-label="选择日期"
+				aria-haspopup="dialog"
+				aria-expanded="false"
+			>
+				<svg class="calendar-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+					<rect x="3" y="4" width="14" height="13" rx="2" stroke="currentColor" stroke-width="1.5"/>
+					<path d="M3 8H17" stroke="currentColor" stroke-width="1.5"/>
+					<path d="M7 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+					<path d="M13 2V5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+				</svg>
+			</button>
+			<CalendarPopup currentDate={date} availableDates={availableDates} />
+		</div>
+
+		{nextHref ? (
+			<a href={nextHref} class="nav-btn nav-btn--active" aria-label={nextLabel}>
+				<span class="nav-text">后一天</span>
+				<svg class="nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+					<path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</a>
+		) : (
+			<span class="nav-btn nav-btn--disabled" aria-disabled="true" aria-label={nextLabel}>
+				<span class="nav-text">后一天</span>
+				<svg class="nav-icon" viewBox="0 0 20 20" fill="none" aria-hidden="true">
+					<path d="M7.5 5L12.5 10L7.5 15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+			</span>
+		)}
+	</div>
+</nav>
+
+<style>
+	.date-nav {
+		background: #fff;
+		border-radius: 8px;
+		padding: 12px 20px;
+		margin-bottom: 16px;
+		box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+	}
+
+	.date-nav-inner {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 12px;
+	}
+
+	/* Navigation buttons - shared */
+	.nav-btn {
+		display: inline-flex;
+		align-items: center;
+		gap: 4px;
+		padding: 8px 12px;
+		border-radius: 6px;
+		font-size: 14px;
+		font-weight: 500;
+		line-height: 1;
+		text-decoration: none;
+		transition: background-color 0.2s, color 0.2s;
+		min-height: 44px;
+		min-width: 44px;
+		justify-content: center;
+	}
+
+	.nav-btn--active {
+		color: #1677ff;
+		cursor: pointer;
+	}
+	.nav-btn--active:hover {
+		background: #f0f5ff;
+	}
+	.nav-btn--active:focus-visible {
+		outline: 2px solid #1677ff;
+		outline-offset: 2px;
+	}
+
+	.nav-btn--disabled {
+		color: #d9d9d9;
+		cursor: not-allowed;
+		opacity: 0.5;
+	}
+
+	.nav-icon {
+		width: 16px;
+		height: 16px;
+		flex-shrink: 0;
+	}
+
+	/* Center date display */
+	.date-center {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		flex-shrink: 0;
+	}
+
+	.date-display {
+		font-size: 16px;
+		font-weight: 600;
+		color: #1a1a1a;
+		white-space: nowrap;
+	}
+
+	.calendar-btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		padding: 0;
+		border: 1px solid #e5e5e5;
+		border-radius: 6px;
+		background: #fff;
+		color: #8c8c8c;
+		cursor: pointer;
+		transition: border-color 0.2s, color 0.2s;
+	}
+	.calendar-btn:hover:not(:disabled) {
+		border-color: #1677ff;
+		color: #1677ff;
+	}
+	.calendar-btn:focus-visible {
+		outline: 2px solid #1677ff;
+		outline-offset: 2px;
+	}
+	.calendar-btn[aria-expanded="true"] {
+		border-color: #1677ff;
+		color: #1677ff;
+	}
+
+	.calendar-icon {
+		width: 18px;
+		height: 18px;
+	}
+
+	/* Mobile: hide text, keep arrows */
+	@media (max-width: 767px) {
+		.date-nav {
+			padding: 10px 12px;
+			margin-bottom: 12px;
+		}
+		.nav-text {
+			display: none;
+		}
+		.nav-btn {
+			padding: 8px;
+		}
+		.date-display {
+			font-size: 14px;
+		}
+	}
+</style>
+
+<script>
+// Wire up calendar button to CalendarPopup
+document.querySelectorAll<HTMLElement>('.calendar-btn').forEach((btn) => {
+	const wrapper = btn.closest('.date-center')?.querySelector<HTMLElement>('.calendar-popup-wrapper');
+	if (!wrapper) return;
+
+	btn.addEventListener('click', () => {
+		const popup = (wrapper as any).__calendarPopup;
+		if (popup) {
+			popup.toggle(btn);
+		}
+	});
+});
+</script>

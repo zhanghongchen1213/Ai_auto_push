@@ -1,0 +1,35 @@
+{
+  "name": "ai-auto-push",
+  "type": "module",
+  "version": "0.1.0",
+  "description": "全自动化多领域智能资讯聚合平台",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && pagefind --site dist --force-language zh-cn",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.13",
+    "@astrojs/rss": "^4.0.15",
+    "@astrojs/sitemap": "^3.7.0",
+    "@tailwindcss/vite": "^4.2.1",
+    "astro": "^5.17.1",
+    "sharp": "^0.34.3",
+    "tailwindcss": "^4.2.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "sharp"
+    ]
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.6",
+    "jsdom": "^28.1.0",
+    "pagefind": "^1.4.0",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.18"
+  }
+}
