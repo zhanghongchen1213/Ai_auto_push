@@ -2,54 +2,36 @@
 title: "跨境电商日报"
 domain: "cross-border-ecom"
 date: "2026-02-27"
-itemCount: 8
-generatedAt: "2026-02-27T19:32:00+08:00"
+itemCount: 5
+generatedAt: "2026-02-27T22:02:00+08:00"
 ---
 
-## 法国3月1日起对Shein/Temu/AliExpress小包裹征收2欧元新税
+## 法国3月1日起对Shein、Temu等平台小包裹征收每件2欧元新税
 
-法国将于2026年3月1日起正式实施小包裹税，对所有来自欧盟以外、价值低于150欧元的包裹按每件商品征收2欧元附加税，主要针对Shein、Temu和AliExpress等中国跨境电商平台。该税收被纳入法国2026年财政法案，预计可带来约5亿欧元收入，属过渡性措施，将持续至2026年12月底。此外，欧盟层面还将于7月起叠加3欧元的统一税费。分析人士指出，该税对低客单价平台冲击最大，可能推高消费者购物成本，但也有观点认为其实际抑制效果有限，难以从根本上改变中国平台的价格优势。
+法国将于2026年3月1日正式实施"小包裹税"（taxe petits colis），对所有来自欧盟以外国家、价值低于150欧元的进口商品按每件2欧元征收关税，7月1日起将进一步上调至每件3欧元。该税种主要针对Shein、Temu、AliExpress等中国跨境电商平台的高频低价小包裹模式。值得注意的是，税费按商品件数而非包裹数计算——例如一个包裹内含两件商品则需缴纳4欧元。此举是欧盟层面取消150欧元以下小额包裹免税政策的一部分，标志着跨境电商"免税小包"时代在欧洲正式终结，将显著推高中国卖家对欧出口成本。
 
-**来源：** [La Dépêche](https://www.ladepeche.fr/2026/02/27/shein-temu-le-prix-de-vos-petits-colis-va-augmenter-a-partir-du-1er-mars-13245577.php)
+**来源：** [Le Parisien](https://www.leparisien.fr/economie/consommation/shein-temu-aliexpress-cinq-minutes-pour-comprendre-la-taxe-petits-colis-en-vigueur-au-1er-mars-25-02-2026-QZUUAN6PBRHAXFJENGE5NBWF4E.php) | **原文：** [01net - 小包裹税详解](https://www.01net.com/actualites/vos-colis-shein-temu-et-aliexpress-vont-vous-couter-plus-cher-des-le-1er-mars.html)
 
-## 法国小包裹税被批"隔靴搔痒"，难以真正遏制Shein和Temu
+## 欧盟多国同步收紧跨境电商小包裹关税，2026成"合规元年"
 
-法国环保媒体Reporterre发文指出，即将于3月1日生效的每件2欧元小包裹税实际上是"杯水车薪"，难以真正遏制Shein和Temu等中国电商巨头的扩张。文章分析称，这些平台凭借极低的生产成本和高效的供应链体系，2欧元的附加成本对其整体价格竞争力影响甚微。同时，消费者对低价商品的需求依然旺盛，税收措施更多是政治姿态而非有效的市场调控手段。该税收预计到2026年底届满，届时将由欧盟统一的跨境电商税收框架取代。
+欧盟27国财长于2025年12月达成协议，自2026年7月1日起对所有价值低于150欧元的跨境电商小包裹征收每件3欧元的固定关税，正式废除已执行多年的小额包裹免税政策。与此同时，日本自2026年1月1日起取消了执行36年的"1万日元以下进口免税"政策，所有跨境进口商品均需缴纳10%消费税；泰国、墨西哥等国也在同步收紧监管。业内分析认为，2026年可被视为跨境电商的"合规元年"，全球主要市场正在系统性关闭低价值包裹的免税通道，对依赖小包直发模式的Temu、SHEIN等平台冲击尤为明显。
 
-**来源：** [Reporterre](https://reporterre.net/La-taxe-sur-les-petits-colis-un-coup-d-epee-dans-l-eau-contre-Shein-et-Temu)
+**来源：** [Euronews](https://www.euronews.com/my-europe/2025/12/12/eu-countries-agree-temporary-3-flat-customs-fee-for-small-imported-parcels) | **原文：** [南华早报 - EU targets China's Shein and Temu](https://www.scmp.com/news/china/article/3336292/eu-targets-chinas-shein-and-temu-new-fees-low-value-parcels)
 
-## Mercado Libre在中国开设大型物流中心，正面迎战Temu和Shein
+## 三部门发布跨境电商出口退运商品税收优惠政策，有效期延至2027年底
 
-拉美电商巨头Mercado Libre在其2025年度财报中披露，已在中国建立大型物流中心，目前已开始向拉美五大核心市场发货。公司表示，预计中国-拉美走廊将成为2026年增量增长和投资的重点领域，将持续扩展"从中国直发"（fulfilled-from-China）模式。此举被视为Mercado Libre对Temu和Shein在拉美市场快速扩张的战略回应——此前该公司曾公开呼吁监管机构限制中国平台的不公平竞争。通过在中国直接建立供应链基础设施，Mercado Libre可以缩短配送时间、降低运营成本，将中国低价商品的威胁转化为自身物流网络的收入来源。
+2月9日，财政部、海关总署、税务总局联合发布2026年第16号公告，明确跨境电子商务出口退运商品税收优惠政策。公告规定，对2026年1月1日至2027年12月31日期间在跨境电商海关监管代码（1210、9610、9710、9810）项下申报出口，因滞销、退货原因自出口之日起6个月内原状退运进境的商品（不含食品），免征进口关税和进口环节增值税、消费税，出口时已征收的出口关税准予退还。该政策延续了此前的退运免税安排，为跨境电商卖家在全球关税环境趋紧背景下提供了重要的成本缓冲，尤其利好面临高退货率的服装、消费电子等品类卖家。
 
-**来源：** [Forbes Argentina](https://www.forbesargentina.com/negocios/mercado-libre-aterriza-china-centro-logistico-competir-temu-shein-n86752)
+**来源：** [新浪财经](https://finance.sina.com.cn/jjxw/2026-02-09/doc-inhmfivi9212409.shtml) | **原文：** [贵州税务局 - 财政部公告全文](https://guizhou.chinatax.gov.cn/wjjb/zcfgk/szfl/jckss/202602/t20260210_89481471.html)
 
-## Temu三年逆袭以24%市场份额追平亚马逊，重塑全球电商格局
+## 全球及亚太B2C电商与在线支付市场趋势报告发布：跨境电商成核心增长引擎
 
-据锦品出海报道，Temu自2022年上线以来仅用三年时间便在全球跨境电商市场取得24%的份额，与亚马逊持平。与此同时，Shein份额稳定在9%，而Wish、eBay、速卖通AliExpress则分别出现95%、68%、33%的份额下滑。Temu的增长显著挤压了传统平台的市场空间，其"全托管+半托管"模式和极致低价策略成为核心驱动力。分析指出，Temu的崛起正在重新定义全球电商竞争格局，迫使各平台加速调整战略以应对来自中国供应链的价格冲击。
-
-**来源：** [锦品出海](https://glosellers.com/61319.html)
-
-## Temu成为2025年全球电商应用下载量冠军
-
-据AMZ123援引Sensor Tower发布的《2026年移动应用市场报告》，2025年全球移动应用下载量、应用内购买收入和用户使用时长均创历史新高，AI应用成为推动增长的重要力量。在电商领域，Temu和Shein分别位列全球在线购物应用下载量前两名。Temu凭借激进的全球扩张策略和社交裂变营销，在北美、欧洲和东南亚市场持续获取新用户。报告同时指出，ChatGPT跃升为全球下载量第二高的应用（仅次于TikTok），AI与电商的融合趋势日益明显。
-
-**来源：** [AMZ123跨境导航](https://www.amz123.com/t/ufqsAw7Y)
-
-## Shopee举办2026品牌峰会，发布新平台能力助力品牌增长
-
-东南亚及台湾地区领先电商平台Shopee近日举办Brands Summit 2026，汇聚品牌方、合作伙伴和行业领袖，共同探讨数字商务竞争日益激烈背景下的品牌增长新路径。峰会上Shopee发布了多项新平台能力，包括增强的品牌数据分析工具、升级的广告投放系统以及更精细化的用户运营方案，旨在帮助品牌在东南亚市场实现更高效的获客和转化。此次峰会反映出东南亚电商市场正从价格战向品牌化、精细化运营转型的趋势。
-
-**来源：** [Rappler](https://www.rappler.com/brandrap/shopee-brands-summit-2026/)
-
-## Kale Logistics推出跨境电商物流新平台，服务航空货运与电商卖家
-
-印度物流科技公司Kale Logistics Solutions宣布推出全新跨境电商平台，旨在帮助航空公司、电商零售商和货主更高效地管理单件或大批量包裹的跨境运输。该平台提供端到端的透明度、运营管控和合规支持，覆盖从订单生成到最终交付的全流程。随着全球跨境电商包裹量持续增长，传统航空货运体系面临巨大的数字化升级压力，Kale的新平台正是针对这一痛点提供解决方案，有望降低中小卖家的跨境物流门槛。
-
-**来源：** [Air Cargo News](https://www.aircargonews.net/e-commerce-logistics/2026/02/kale-launches-cross-border-e-commerce-platform/)
-
-## 亚太B2C电商与在线支付市场趋势报告发布，跨境电商与数字钱包成增长引擎
-
-GlobeNewsWire于2月27日发布亚太地区B2C电商与在线支付创新市场趋势分析报告。报告指出，数字支付基础设施持续扩展，AI集成加速推进，但组织层面的数字化差距仍然存在。关键市场机遇包括：通过社交电商和跨境电商扩大B2C规模、通过数字钱包增加非现金交易量。报告特别强调，跨境电商与社交电商的融合正在成为亚太地区电商增长的核心驱动力，而数字支付的普及为跨境交易提供了更便捷的基础设施支撑。
+2月27日，ResearchAndMarkets发布《2026年全球及亚太B2C电商与在线支付创新市场趋势分析》报告。报告指出，数字支付基础设施持续扩张，AI技术在电商支付领域的集成加速推进，但企业在组织能力层面仍存在明显差距。报告特别强调，通过社交电商和跨境电商拓展B2C市场是当前最大的增长机会之一。亚太地区跨境电商以27.5%的年复合增长率领跑全球，预计到2030年市场规模将大幅扩张。对于中国跨境卖家而言，数字钱包、本地化支付方式的接入能力正成为进入新兴市场的关键竞争要素。
 
 **来源：** [GlobeNewsWire](https://www.globenewswire.com/news-release/2026/02/27/3246323/28124/en/Global-and-Asia-Pacific-B2C-E-Commerce-Innovations-in-Online-Payments-Market-Trends-Analysis-2026-Digital-Payments-Infrastructure-Expands-AI-Integration-Advances-Yet-Organizational.html)
+
+## 低价时代终结：关税冲击下Temu单周销售额同比下滑17%，SHEIN下滑23%
+
+据多家行业媒体近期报道，在美国全面取消小额包裹关税豁免、欧盟同步收紧监管的双重压力下，跨境电商低价模式正遭受前所未有的冲击。数据显示，在关税调整并尝试涨价后，Temu单周销售额同比下滑17%，SHEIN下滑23%。亚马逊卖家则试图通过供应链优化和仓配前置来消化成本压力。业内普遍认为，2026年跨境电商正从"流量驱动、低价倾销"的粗放阶段，全面进入"拼系统、拼管理、拼长期能力"的新周期。精细化运营、多平台布局和品牌化转型成为卖家生存的必选项，纯低价策略的生存空间正在急剧收窄。
+
+**来源：** [搜狐 - 低价时代结束，2026年跨境电商变了](https://www.sohu.com/a/975892765_609544) | **原文：** [易仓科技 - 低价时代真的结束了](https://www.eccang.com/news/4563)

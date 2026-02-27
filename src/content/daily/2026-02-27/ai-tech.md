@@ -2,96 +2,96 @@
 title: "AI技术日报"
 domain: "ai-tech"
 date: "2026-02-27"
-itemCount: 15
-generatedAt: "2026-02-27T19:35:00+08:00"
+itemCount: 16
+generatedAt: "2026-02-27T21:55:00+08:00"
 ---
 
-## [Brave] Anthropic 拒绝五角大楼最后通牒，坚守 Claude AI 安全红线
+## [Brave] Anthropic 拒绝五角大楼"最终提案"，坚守AI安全红线
 
-Anthropic CEO Dario Amodei 于2月26日发表博文，明确表示公司"出于良知无法同意"五角大楼的要求。此前国防部长 Pete Hegseth 向 Amodei 发出最后通牒：要么在周五前给予军方对 Claude 模型的无限制访问权限，否则将被列为"供应链风险"并取消价值2亿美元的合同。Anthropic 坚持不允许 Claude 用于大规模国内监控或全自主武器系统，这一立场获得多方关注，成为AI伦理与国防需求博弈的标志性事件。
+Anthropic CEO Dario Amodei 正式拒绝美国国防部的"最终提案"，该提案要求Anthropic取消Claude模型的安全护栏，允许军方不受限制地使用。Anthropic坚持两条底线：不允许Claude用于大规模国内监控，也不允许用于无人类监督的自主武器系统（如AI自主决定杀伤目标的无人机）。五角大楼威胁援引《国防生产法》强制征用，并将Anthropic列为"供应链风险"承包商。目前Claude是唯一获批在五角大楼机密网络上运行的AI模型，这场对峙被视为AI军事应用伦理的标志性事件。
 
-**来源：** [The Washington Post](https://www.washingtonpost.com/technology/2026/02/26/anthropic-pentagon-rejects-demand-claude/)
+**来源：** [The Guardian](https://www.theguardian.com/us-news/2026/feb/26/anthropic-pentagon-claude)
 
-## [Brave] Google 发布 Nano Banana 2，病毒式AI图像生成工具迎来重大升级
+## [Brave] Google 发布 Nano Banana 2 图像生成模型，正式名称 Gemini 3.1 Flash Image
 
-Google 于2月26日正式推出 Nano Banana 2，这是其爆红AI图像生成工具的第二代版本。初代 Nano Banana 于2025年8月上线后迅速走红，四天内为 Gemini 应用带来1300万新用户，截至10月中旬已生成超50亿张图片。新版本在保持速度的同时大幅提升了画质，达到"工作室级"创作水准。该工具已被整合到 Google Messages、Chrome 等多个产品中，进一步巩固了 Google 在AI图像生成领域的领先地位。
+Google DeepMind 发布 Nano Banana 2（正式名称 Gemini 3.1 Flash Image），将此前 Nano Banana Pro 的高级图像生成能力与 Gemini Flash 的速度相结合。新模型支持最高4K分辨率输出，能执行复杂指令生成高保真图像，API成本降低最高40%。Nano Banana 2 已成为 Gemini 应用中所有模式（Fast、Thinking、Pro）的默认图像生成模型，同时覆盖 AI Mode、Google Lens、Flow 创意工作室等平台，并在 AI Studio 和 Vertex AI 中提供预览。
 
-**来源：** [CNBC](https://www.cnbc.com/2026/02/26/google-launches-nano-banana-2-updating-its-viral-ai-image-generator.html)
+**来源：** [Google Blog](https://blog.google/innovation-and-ai/technology/ai/nano-banana-2/)
 
-## [Brave] OpenAI 宣布将伦敦打造为美国以外最大研究中心
+## [Brave] Nvidia Q4财报：数据中心收入623亿美元，同比增长75%
 
-OpenAI 于2月26日宣布，将把伦敦办公室扩建为其在美国以外最大的研究中心，称英国的技术生态系统是投资和开发新AI系统的理想环境。此举将加剧与 Google DeepMind 在顶尖AI人才方面的竞争。OpenAI 表示伦敦团队已在支持公司最新突破方面发挥重要作用，扩建计划将进一步强化其全球研究布局，也被视为对英国AI产业的"巨大信任票"。
-
-**来源：** [Reuters](https://www.reuters.com/world/uk/openai-make-london-its-biggest-research-hub-outside-us-2026-02-26/)
-
-## [Brave] Nvidia Q4 财报创纪录：营收681亿美元，AI芯片需求持续攀升
-
-Nvidia 于2月25日发布FY2026 Q4财报，营收达681亿美元，同比增长73%，超出华尔街预期。数据中心业务收入达623亿美元，占总营收91%以上。净利润飙升94%至429.6亿美元。CEO 黄仁勋宣布"Agentic AI拐点已到来"，CFO Colette Kress 表示 Blackwell 和 Rubin 芯片的营收机会已超过此前预估的5000亿美元。下一代 Vera Rubin 架构将于今年晚些时候推出，与 Meta 的大规模多年合作协议也已扩展。
+Nvidia发布2026财年第四季度财报，总收入681.3亿美元，同比增长73%。数据中心业务收入达创纪录的623亿美元，同比增长75%，占总收入超91%。每股收益1.62美元，同比增长82%。公司预计2027财年Q1收入约780亿美元。尽管业绩全面超预期，但股价盘后一度下跌5.5%，市值蒸发约2600亿美元，投资者对AI泡沫的担忧情绪加剧。Morgan Stanley称这是半导体行业历史上"最大且最干净的超预期"。
 
 **来源：** [CNBC](https://www.cnbc.com/2026/02/25/nvidia-nvda-earnings-report-q4-2026.html)
 
-## [Brave] DeepSeek 对美国芯片厂商封锁最新AI模型V4，优先支持华为
+## [Brave] DeepSeek 拒绝向美国芯片厂商提供最新AI模型
 
-据 Reuters 独家报道，DeepSeek 在即将发布的 V4 模型中未向 Nvidia 和 AMD 提供访问权限，而是给予包括华为在内的中国芯片厂商数周的优化先发优势。该模型原计划在农历新年前后发布。此举标志着中国AI公司在技术脱钩背景下的战略转向。同时有消息称 DeepSeek 可能试图移除使用美国AI芯片训练的技术痕迹，并计划公开宣称使用华为芯片完成训练。
+据Reuters独家报道，中国AI公司DeepSeek在即将发布的新模型中，未向Nvidia和AMD提供早期访问权限进行性能优化，而是让华为等中国芯片厂商提前数周获得适配机会。此举标志着中美AI技术脱钩进一步加深。DeepSeek此前凭借开源高性能模型（DeepSeek V3、R1）以远低于OpenAI、Google和Anthropic的成本搅动全球AI市场，引发了一场全球AI API价格战。
 
 **来源：** [Reuters](https://www.reuters.com/world/china/deepseek-withholds-latest-ai-model-us-chipmakers-including-nvidia-sources-say-2026-02-25/)
 
-## [Brave] Samsung Galaxy S26 系列发布，Galaxy AI 功能全面升级
+## [Brave] OpenAI 宣布伦敦将成为其美国以外最大研究中心
 
-Samsung 于2月26日在 Galaxy Unpacked 2026 上发布 Galaxy S26、S26 Plus 和 S26 Ultra。S26 Ultra 搭载业界首创"Privacy Display"隐私屏幕技术，Galaxy AI 功能大幅增强，引入 Agentic AI 可自主处理日程安排、通讯摘要和研究任务。Samsung 还确认将 Perplexity 作为 S26 系列的AI代理选项集成到 Galaxy AI 中，AI功能直接嵌入相机应用，标志着端侧AI能力的又一次飞跃。
+OpenAI 宣布将伦敦打造为其在美国以外最大的研究中心，理由是英国拥有世界级的机器学习和科学人才生态。此举使OpenAI与Google DeepMind在英国顶尖AI研究人才的争夺上形成直接竞争。OpenAI此前已在伦敦设有办公室，此次扩张标志着其全球化研究布局的重大升级，也反映了英国在全球AI竞赛中的战略地位提升。
 
-**来源：** [The Verge](https://www.theverge.com/tech/883932/samsung-unpacked-2026-live-updates-galaxy-s26-announcement)
+**来源：** [WIRED](https://www.wired.com/story/openai-expands-london-office-major-research-hub/)
 
-## [Brave] Oasis Security 发现 OpenClaw 严重安全漏洞，可完全接管开发者AI代理
+## [Brave] Samsung Galaxy Unpacked 2026：Galaxy S26系列发布，主打Agentic AI
 
-安全公司 Oasis Security 于2月26日披露了 OpenClaw 中的一个关键漏洞链（命名为"ClawJacked"），攻击者可通过任意网站静默接管开发者的AI代理，无需任何可见指示。攻击者可指示代理搜索 Slack 历史中的API密钥、读取私人消息、从连接设备中窃取文件或在任何配对节点上执行任意 shell 命令。研究人员发现超过4万个暴露的 OpenClaw 实例，对于典型集成环境等同于完整工作站沦陷。
+Samsung在Galaxy Unpacked 2026大会上发布Galaxy S26、S26 Plus和S26 Ultra，主题为"真正Agentic AI的开端"。S26 Ultra搭载骁龙8 Elite Gen 5处理器，首创像素级"Privacy Display"隐私屏幕。AI功能全面升级：集成Perplexity作为AI Agent选项，新增"Now Nudge"智能建议功能，Circle to Search增强为全场景扫描，Audio Eraser支持第三方应用降噪。Galaxy AI在内容摘要、翻译、朗读等能力上进一步扩展。
 
-**来源：** [Oasis Security](https://www.oasis.security/blog/openclaw-vulnerability)
+**来源：** [Samsung Newsroom](https://news.samsung.com/global/galaxy-unpacked-2026-highlights-from-galaxy-unpacked-the-beginning-of-truly-agentic-ai)
 
-## [Brave] ElastixAI 完成1800万美元种子轮融资，FPGA AI超算出隐身模式
+## [Brave] AI驱动的全球RAM短缺危机：智能手机出货量或创十年最大跌幅
 
-ElastixAI 宣布完成1800万美元种子轮融资并正式走出隐身模式，推出基于 FPGA 的AI超级计算机。该公司通过软件-机器学习-硬件协同设计，实现LLM推理总拥有成本降低最高50倍、功耗减少80%。其硬件-软件协同优化方案在执行LLM操作时密度远超通用GPU内核，为大模型推理的成本和能效问题提供了全新解决路径。
+据IDC报告，AI数据中心对内存芯片的巨大需求正引发全球RAM严重短缺，微软、亚马逊、OpenAI、Google等巨头大量采购可用内存芯片。东北大学教授Matteo Rinaldi指出这是"AI驱动的结构性内存需求冲击"，与疫情期间的芯片短缺性质不同。短缺导致内存价格飙升，9000卢比以下智能手机可能"永久性不经济"，全球智能手机出货量面临十年来最大降幅。
+
+**来源：** [TechCrunch](https://techcrunch.com/2026/02/26/memory-shortage-could-cause-the-biggest-smartphone-shipments-dip-in-over-a-decade/)
+
+## [Brave] 2月中国AI模型调用量首超美国，四款大模型霸榜全球前五
+
+据全球最大AI模型API聚合平台OpenRouter数据，2026年2月中国AI模型调用量三周大涨127%，首次超越美国。2月9日至15日当周，中国模型以4.12万亿Token调用量超过美国的2.94万亿Token。MiniMax贡献1.44万亿Token增量，月之暗面Kimi K2.5凭借原生多模态架构和Agent并行处理能力调用量激增。全球前五中中国占据四席，国产算力需求正经历指数级增长。
+
+**来源：** [36氪](https://36kr.com/p/3700980530851712)
+
+## [Brave] CoreWeave Q4财报：收入指引不及预期，股价下跌8%
+
+AI云计算基础设施公司CoreWeave发布Q4财报，尽管2026年股价已累计上涨36%，但季度收入指引令市场失望，股价下跌8%。CoreWeave为Google和OpenAI等AI模型开发商提供GPU云服务，CEO Michael Intrator表示2026年资本支出将从2025年的154亿美元增至至少300亿美元。公司Q4净亏损扩大至2.84亿美元，反映出AI基础设施领域"烧钱换规模"的竞争态势。
+
+**来源：** [CNBC](https://www.cnbc.com/2026/02/26/coreweave-crwv-q4-earnings-report-2025.html)
+
+## [Brave] ElastixAI 完成1800万美元种子轮融资，用FPGA挑战GPU推理霸权
+
+西雅图AI初创公司ElastixAI走出隐身模式，完成1800万美元种子轮融资。公司通过软件-机器学习-硬件协同设计，利用FPGA服务器实现LLM推理，声称可将总拥有成本降低最高50倍，功耗降低80%。其硬件-软件协同优化方案在执行LLM操作时密度远超通用GPU内核，为AI推理基础设施提供了GPU之外的新选择。
 
 **来源：** [FinSMEs](https://www.finsmes.com/2026/02/elastixai-raises-18m-in-seed-funding.html)
 
-## [Brave] Cloudflare 推出 Moltworker：无需硬件的自托管AI个人助手
+## [Brave] Cloudflare 发布 Moltworker：自托管AI个人助手方案
 
-Cloudflare 发布 Moltworker，这是一个中间件 Worker 和适配脚本，允许在 Cloudflare 的 Sandbox SDK 和开发者平台 API 上运行 Moltbot（前身为 Clawdbot）。用户无需任何新硬件即可自托管AI个人助手。同时 Cloudflare 还推出了 Code Mode for Workers AI，一种技术方案可将完整API架构压缩到1000个 token 内，使LLM代理能以最低延迟执行精确的工具调用。
+Cloudflare发布Moltworker，一个基于Workers平台的自托管AI个人助手中间件。Moltworker将Moltbot（前身为Clawdbot）运行在Cloudflare的Sandbox SDK和开发者平台API上，用户无需额外硬件即可部署私有AI助手。方案包含入口Worker作为API路由器和代理，受Cloudflare Access保护，为开发者提供了一种轻量级、安全的AI Agent自托管路径。
 
 **来源：** [Cloudflare Blog](https://blog.cloudflare.com/moltworker-self-hosted-ai-agent/)
 
-## [Brave] Capxel 发布 LLM-LD：首个让网站内容可被AI原生读取的开放标准
+## [Brave] ASML宣布下一代High-NA EUV光刻机已可量产AI芯片
 
-AI原生数据公司 Capxel 宣布正式推出 LLM-LD（Large Language Model Linked Data），这是首个专为让网站内容可被AI系统、检索管道和自主代理原生读取而设计的开放标准。该规范为品牌提供了结构化框架，使其内容能在AI驱动的搜索、推荐引擎和自主代理中被有效呈现，标志着Web内容与AI系统交互方式的重要演进。
+据Reuters独家报道，荷兰光刻机巨头ASML宣布其下一代High-NA EUV光刻工具已准备好进行芯片量产，这是AI芯片制造的关键里程碑。当前一代EUV工具正接近制造复杂AI芯片的技术极限，High-NA EUV机器对于芯片厂商按时交付AI芯片路线图、满足激增的AI算力需求至关重要。此突破将直接影响ChatGPT等AI聊天机器人背后的算力基础设施升级节奏。
+
+**来源：** [Reuters](https://www.reuters.com/business/asml-says-next-gen-euv-tools-ready-mass-produce-chips-marking-key-shift-ai-chip-2026-02-26/)
+
+## [Brave] Capxel 发布 LLM-LD：首个让网站内容对AI可读的开放标准
+
+AI数据公司Capxel发布LLM-LD（Large Language Model Linked Data），这是首个专为让网站内容对大语言模型、检索管道和自主Agent原生可读而设计的开放标准。LLM-LD免费开源，任何开发者、代理商或平台均可无许可费实现，无供应商锁定。Capxel同时提供企业级托管部署和持续优化服务。该标准旨在解决当前AI系统抓取和理解网页内容时的结构化数据缺失问题。
 
 **来源：** [MarTech Series](https://martechseries.com/predictive-ai/ai-platforms-machine-learning/capxel-launches-llm-ld-the-first-open-standard-for-making-websites-readable-by-ai-agents/)
 
 ## [Brave] 自适应草稿模型利用空闲时间将LLM训练速度提升一倍
 
-TechXplore 报道了一项新的自适应训练方法：在大语言模型训练过程中，利用空闲处理器动态训练一个较小的"草稿模型"来预测输出，再由主模型进行验证。这种方法有效利用了训练过程中的计算资源空闲期，将LLM训练速度提升了约一倍，为降低大模型训练成本和时间提供了创新思路。
+TechXplore报道了一项新研究：自适应草稿模型（Adaptive Drafter Model）通过利用GPU空闲时间来加速LLM训练，实现了训练速度翻倍的效果。该方法在不增加额外硬件成本的情况下，通过智能调度和推测性计算优化训练流程，为大规模语言模型训练提供了一种高效的加速方案，有望显著降低AI模型训练的时间和能源成本。
 
 **来源：** [TechXplore](https://techxplore.com/news/2026-02-drafter-downtime-llm.html)
 
-## [Brave] TELUS 研究揭示"角色提示"可扭曲AI模型道德判断
+## [Brave] 旧金山联储：AI相关活动前景为2026年经济展望增添不确定性
 
-TELUS Digital 研究中心联合圣保罗大学AI与机器学习中心发布新研究，评估了包括 GPT、Claude、Gemini 和 Grok 在内的16个模型家族。研究发现"角色提示"（persona prompting）——即要求AI模型在对话中扮演特定角色——会导致模型的道德判断发生偏移，对相同问题产生不一致的回答。这一发现对AI安全对齐和企业级AI部署具有重要警示意义。
-
-**来源：** [IT Brief Asia](https://itbrief.asia/story/telus-warns-persona-prompts-sway-ai-moral-judgements)
-
-## [Brave] 旧金山联储报告：AI相关活动前景为2026年经济展望增添不确定性
-
-旧金山联邦储备银行于2月26日发布 FedViews 报告，指出AI相关活动的前景为2026年经济展望增添了显著不确定性。报告认为尽管美国经济继续以稳健步伐推进，劳动力市场在2025年大部分时间降温后趋于稳定，但AI基础设施投资的快速增长及其对各行业的潜在颠覆效应，使得经济预测面临更大挑战。市场参与者预期2026年将进一步向中性利率宽松。
+旧金山联邦储备银行发布2月FedViews报告，指出AI相关活动的前景为2026年经济展望增添了显著不确定性。报告分析了AI投资热潮对宏观经济的影响，指出在当前适度紧缩的货币政策立场下，市场参与者预期2026年将进一步向中性利率方向宽松。超级大型科技公司2026年资本支出预计至少6300亿美元，其中大部分用于数据中心和AI处理器，这一规模的投资对经济走向产生深远影响。
 
 **来源：** [San Francisco Fed](https://www.frbsf.org/research-and-insights/publications/fedviews/2026/02/sf-fedviews-february-26-2026/)
-
-## [Brave] Sarvam AI 发布印度本土训练的105B和30B大语言模型
-
-印度AI公司 Sarvam AI 于2026年2月推出两款在印度本土训练的大语言模型，参数规模分别为1050亿和300亿。这些模型针对多种印度语言和代码混合文本进行了优化训练，是印度"主权AI"战略的重要组成部分。此举标志着印度在自主大模型研发领域迈出关键一步，也反映了全球AI竞争从美中双极向多极化发展的趋势。
-
-**来源：** [GlobeNewsWire](https://www.globenewswire.com/news-release/2026/02/26/3245397/0/en/Large-Language-Model-Market-Forecasted-to-Reach-USD-149-89-Billion-by-2035-Driven-by-AI-Automation-and-Open-Source-Adoption.html)
-
-## [Brave] Pulumi 发布2026年AI预测：Agentic AI成为DevOps核心趋势
-
-Pulumi 博客发布2026年AI预测报告，指出 Agentic AI 已成为 DevOps 工程师的核心关注趋势。报告提到 AWS 通过 Amazon Bedrock AgentCore 拥抱了这一模式，现已支持代码解释能力，兼容 CrewAI、LangGraph、OpenAI SDK 等任意代理框架，并提供记忆、浏览器工具和可观测性功能。报告认为AI代理将从实验阶段进入生产部署，基础设施即代码与AI的深度融合将重塑云原生开发范式。
-
-**来源：** [Pulumi Blog](https://www.pulumi.com/blog/ai-predictions-2026-devops-guide/)
