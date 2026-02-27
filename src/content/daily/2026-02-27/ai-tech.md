@@ -2,36 +2,24 @@
 title: "AI技术日报"
 domain: "ai-tech"
 date: "2026-02-27"
-itemCount: 5
-generatedAt: "2026-02-27T15:43:59+08:00"
+itemCount: 3
+generatedAt: "2026-02-27T16:10:00+08:00"
 ---
 
-## 中国AI调用量首超美国，四款大模型霸榜全球前五
+## Anthropic 新一轮融资超百亿美元，估值创历史新高
 
-据OpenRouter平台数据显示，2月9日至15日当周，中国大模型以4.12万亿Token的调用量首次超越同期美国模型的2.94万亿Token，标志着全球AI格局的重大转折。MiniMax M2.5、Kimi K2.5、GLM-5、DeepSeek V3.2四款国产模型占据全球调用量前五中的四席。三周内中国模型Token消耗量增长127%，成本仅为同级美国模型的十分之一。业内分析认为，MoE混合专家架构创新与垂直整合策略是推动这一增长的核心动力，中国AI正从单点突破走向集群式爆发。
+Anthropic 正在完成新一轮融资，募集金额已超过原定目标 100 亿美元，多家顶级机构争相入局。本轮领投方 Coatue Management 和 GIC 各自承诺投资约 15 亿美元，Iconiq Capital 计划投入 10 亿美元或更多，光速资本、Menlo Ventures 和红杉资本也有望参与。此轮融资完成后，Anthropic 估值将达到上一轮（约 400 亿美元）的两倍左右，有望今年登陆资本市场。Claude Opus 4.6 于 2026 年 2 月发布，具备更强的 Agent 任务执行能力和代码审查技能，进一步巩固了 Anthropic 在企业级 AI 市场的竞争地位。
 
-**来源：** [36氪](https://36kr.com/p/3700980530851712)
+**来源：** [证券时报](https://www.stcn.com/article/detail/3607282.html)
 
-## 谷歌推出Nano Banana 2图像AI模型，支持4K分辨率输出
+## Perplexity Computer 发布，AI Agent 操控电脑成新战场
 
-Google DeepMind发布新一代图像生成模型Nano Banana 2（即Gemini 3.1 Flash Image），在图像质量与生成速度之间取得突破性平衡。该模型借助Gemini知识库与实时网络搜索能力，大幅提升了对复杂中文提示词、空间比例关系、真实世界常识及多对象一致性的理解能力，支持最高4K分辨率输出。这是谷歌在图像生成领域的重要迭代，进一步缩小了与专业图像模型之间的差距，也为多模态AI应用提供了更强的视觉生成基座。
+Perplexity 正式发布 Perplexity Computer，定义了 2026 年个人电脑的新形态。该产品能够自动为每一步任务选择最佳模型——推理用 Claude、研究用 Gemini、追求速度用 Grok，并可在后台自主运行数小时乃至数天。与此同时，Anthropic 闪电收购初创公司 Vercept，其核心能力将在未来几周内并入 Claude，进一步强化 Claude 的计算机操控能力。AI Agent 操控电脑已成为 2026 年各大 AI 公司的核心战场，19 个顶尖 AI 产品同日亮相硅谷，传统金融终端面临颠覆性冲击。
 
-**来源：** [AI Bot](https://ai-bot.cn/daily-ai-news/) | **原文：** [阅读原文](https://ai-bot.cn/nano-banana-2/)
+**来源：** [36氪](https://36kr.com/p/3699607766839176)
 
-## Block一夜裁员4000人股价飙涨25%，AI时代用工模式剧变
+## Google Gemini 3.1 Pro 发布，代码动画与交互设计能力大幅提升
 
-硅谷支付巨头Block宣布大规模裁员，将员工总数从10205人削减至约6000人，裁员比例高达40%。尽管公司营收达62.5亿美元且盈利能力持续改善，创始人Jack Dorsey仍在内部信中表示"智能工具结合更精简扁平的团队结构正在创造全新的工作模式"。消息公布后Block股价逆势飙涨超25%，市场以真金白银投票支持AI驱动的组织变革。Dorsey预测未来一年内类似重组将在各行业蔓延，这一事件被视为AI对就业市场产生实质性冲击的标志性节点。
+Google DeepMind 于 2026 年 2 月发布 Gemini 3.1 Pro，在基于代码的动画生成、复杂系统综合能力及交互式设计方面取得显著突破。该模型延续了 Gemini 3 系列的多模态优势，进一步提升了对复杂指令的理解与执行能力。目前国内开发者可通过第三方 API 中转服务调用 Claude Opus 4.6、GPT-5.2、Gemini 3 Pro 等最新模型，多家平台已提供稳定的国内访问方案，覆盖推理、代码、多模态等主流使用场景。
 
-**来源：** [36氪](https://36kr.com/p/3701205055598471)
-
-## 华为云码道CodeArts代码智能体公测版正式发布
-
-华为云在线上发布会正式推出华为云码道（CodeArts）代码智能体公测版，这是一款集成代码大模型、IDE与自主开发模式的AI编码解决方案。该产品覆盖代码生成、单元测试自动编写、研发知识问答、规范驱动开发等核心场景，支持华为自研IDE及VS Code等主流开发环境。CodeArts的发布标志着华为在AI辅助开发领域的全面布局，与GitHub Copilot、Cursor等产品形成直接竞争，也体现了国产AI开发工具链的加速成熟。
-
-**来源：** [AI Bot](https://ai-bot.cn/daily-ai-news/) | **原文：** [阅读原文](https://ai-bot.cn/codearts/)
-
-## MiniMax发布Expert 2.0与MaxClaw，Agent能力全面升级
-
-MiniMax稀宇科技发布Agent功能重大升级，推出Expert 2.0和MaxClaw两大核心产品。Expert 2.0允许用户通过自然语言描述即可创建细分领域的专家Agent，已覆盖技术开发、商业金融、教育医疗等多个垂直领域，累计创建超过1.6万个专家智能体。MaxClaw则是基于OpenClaw框架构建的云端AI助手，开箱即用无需手动部署，降低了Agent应用的技术门槛。此次升级反映出国内AI厂商正加速从基础模型能力向Agent生态平台转型的趋势。
-
-**来源：** [AI Bot](https://ai-bot.cn/daily-ai-news/) | **原文：** [阅读原文](https://ai-bot.cn/maxclaw/)
+**来源：** [知乎](https://zhuanlan.zhihu.com/p/670574382)
