@@ -1,4 +1,5 @@
 {
+  "packageManager": "pnpm@10.4.1",
   "name": "ai-auto-push",
   "type": "module",
   "version": "0.1.0",
