@@ -10,9 +10,11 @@ interface Props {
 	domain: DomainSlug;
 	anchorId?: string;
 	date?: string;
+	originalUrl?: string;
 }
 
-const { title, summary, sourceUrl, sourceName, domain, anchorId, date } = Astro.props;
+const { title, summary, sourceUrl, sourceName, domain, anchorId, date, originalUrl } = Astro.props;
+const linkUrl = originalUrl || sourceUrl;
 
 const domainConfig = domains.find((d) => d.slug === domain);
 const bgColor = domainConfig?.bgColor ?? '#FFFFFF';
@@ -29,14 +31,14 @@ const domainName = domainConfig?.name ?? domain;
 		<span class="source-info" data-pagefind-meta="source">{sourceName}</span>
 	</div>
 	<h3 class="card-title" data-pagefind-meta="title" id={anchorId ? `heading-${anchorId}` : undefined}>
-		<a href={sourceUrl} target="_blank" rel="noopener noreferrer">
+		<a href={linkUrl} target="_blank" rel="noopener noreferrer">
 			{title}
 		</a>
 	</h3>
 	<p class="card-summary">{summary}</p>
 	<a
 		class="read-more"
-		href={sourceUrl}
+		href={linkUrl}
 		target="_blank"
 		rel="noopener noreferrer"
 		aria-label={`阅读原文：${title}`}

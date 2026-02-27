@@ -28,6 +28,7 @@ const { domain, items, date } = Astro.props;
 				summary={item.summary}
 				sourceUrl={item.sourceUrl}
 				sourceName={item.sourceName}
+				originalUrl={item.originalUrl}
 				domain={domain.slug}
 				anchorId={`news-${domain.slug}-${index + 1}`}
 				date={date}

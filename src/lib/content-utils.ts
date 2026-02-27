@@ -12,6 +12,7 @@ export interface NewsItem {
   summary: string;
   sourceUrl: string;
   sourceName: string;
+  originalUrl?: string;
 }
 
 /** 允许的 URL 协议白名单 */
@@ -53,8 +54,21 @@ export function parseNewsItems(body: string): readonly NewsItem[] {
       /\*\*来源[：:]\*\*\s*\[([^\]]+)\]\(([^)]+)\)/,
     );
     const rawUrl = sourceMatch?.[2] ?? "#";
-    const sourceUrl = sanitizeUrl(rawUrl);
     const sourceName = sourceMatch?.[1] ?? "未知来源";
+
+    // 提取可选的原文链接：| **原文：** [text](url)
+    const originalMatch = section.match(
+      /\|\s*\*\*原文[：:]\*\*\s*\[([^\]]*)\]\(([^)]+)\)/,
+    );
+    const rawOriginalUrl = originalMatch?.[2];
+    const originalUrl = rawOriginalUrl
+      ? sanitizeUrl(rawOriginalUrl)
+      : undefined;
+
+    // 优先使用原文 URL 作为 sourceUrl，保证"阅读原文"指向实际文章
+    const sourceUrl = sanitizeUrl(
+      originalUrl && originalUrl !== "#" ? rawOriginalUrl! : rawUrl,
+    );
 
     // 摘要 = 去掉标题行和来源行后的段落文本
     const summary = lines
@@ -64,7 +78,7 @@ export function parseNewsItems(body: string): readonly NewsItem[] {
       .filter(Boolean)
       .join(" ");
 
-    return [...acc, { title, summary, sourceUrl, sourceName }];
+    return [...acc, { title, summary, sourceUrl, sourceName, originalUrl }];
   }, []);
 
   return Object.freeze(items);
