@@ -361,6 +361,8 @@ cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git add src/content
 
 可用 4 个并行子 agent 同时处理 4 个领域：
 
+**子 agent 超时配置：** `runTimeoutSeconds: 1200`（20 分钟）。AI技术领域需要五层数据采集，耗时较长，必须给予充足时间。
+
 每个子 agent 负责阶段 1-3（爬取站点、搜索补充、日期过滤、筛选摘要、写文件），主 agent 负责阶段 4（Git 发布）。
 
 子 agent 的 prompt 应包含：
