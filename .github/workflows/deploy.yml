@@ -3,13 +3,6 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
-    paths-ignore:
-      # pipeline 数据提交不触发部署；由 workflow_run 接管
-      - "src/content/**"
-  workflow_run:
-    workflows: ["Daily Pipeline"]
-    types: [completed]
-    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -23,10 +16,6 @@ concurrency:
 
 jobs:
   build:
-    # workflow_run 触发时，仅在上游 pipeline 成功后才构建
-    if: >-
-      github.event_name != 'workflow_run' ||
-      github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
