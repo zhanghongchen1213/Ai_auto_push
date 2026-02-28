@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { parseOpportunityMarkdown } from '../../lib/opportunity-utils';
+import { parseOpportunityMarkdown, renderMd } from '../../lib/opportunity-utils';
 
 interface Props {
 	entry: CollectionEntry<'daily'>;
@@ -29,20 +29,20 @@ const detailUrl = `/Ai_auto_push/daily/${date}/opportunity`;
 		{searchDomains && (
 			<div class="opp-card">
 				<div class="opp-card-title">今日检索领域</div>
-				<div class="opp-card-body">{searchDomains}</div>
+				<div class="opp-card-body" set:html={renderMd(searchDomains)} />
 			</div>
 		)}
 		{opp.exploredItems.length > 0 && (
 			<div class="opp-card">
 				<div class="opp-card-title">尝试探索内容（{opp.exploredItems.length}）</div>
-				<div class="opp-card-body">{opp.exploredItems.map(item => <div>{item}</div>)}</div>
+				<div class="opp-card-body">{opp.exploredItems.map(item => <div set:html={renderMd(item)} />)}</div>
 			</div>
 		)}
 		{opp.discardedItems.length > 0 && (
 			<div class="opp-card">
 				<div class="opp-card-title">无价值方案及淘汰理由（{opp.discardedItems.length}）</div>
 				<div class="opp-card-body">
-					{opp.discardedItems.slice(0, 3).map(d => <div>- {d.title}：{d.reason}</div>)}
+					{opp.discardedItems.slice(0, 3).map(d => <div><strong>{d.title}</strong>：{d.reason}</div>)}
 					{opp.discardedItems.length > 3 && <div class="opp-more">...共 {opp.discardedItems.length} 条</div>}
 				</div>
 			</div>
@@ -54,7 +54,7 @@ const detailUrl = `/Ai_auto_push/daily/${date}/opportunity`;
 			{isCommercializable ? (
 				<>
 					<div class="opp-final-name">{proposalName}</div>
-					<div class="opp-card-body">{opp.finalSection.split('\n').find(l => l && !l.startsWith('#') && !l.startsWith('###')) ?? ''}</div>
+					<div class="opp-card-body" set:html={renderMd(opp.finalSection.split('\n').find(l => l && !l.startsWith('#') && !l.startsWith('###')) ?? '')} />
 					{proposalScore && <div class="opp-final-meta">评分：{proposalScore} / 10 · 证据链完整</div>}
 					<a href={detailUrl} class="opp-detail-link">查看方案详情 →</a>
 				</>
@@ -79,6 +79,10 @@ const detailUrl = `/Ai_auto_push/daily/${date}/opportunity`;
 	.opp-card { background: #fff; border-radius: 8px; padding: 12px; }
 	.opp-card-title { font-size: 13px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px; }
 	.opp-card-body { font-size: 13px; color: #6B7280; line-height: 1.6; }
+	.opp-card-body :global(ul) { margin: 4px 0; padding-left: 20px; }
+	.opp-card-body :global(li) { margin: 2px 0; }
+	.opp-card-body :global(a) { color: #2563EB; text-decoration: none; }
+	.opp-card-body :global(strong) { color: #374151; }
 	.opp-card-final { background: #ECFDF5; }
 	.opp-card-none { background: #F9FAFB; }
 	.opp-final-name { font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 4px; }

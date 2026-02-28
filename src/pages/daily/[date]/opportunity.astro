@@ -4,7 +4,7 @@ import { render } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import { formatDateCN } from '../../../lib/date-utils';
 import { compareDates } from '../../../lib/date-utils';
-import { parseOpportunityMarkdown } from '../../../lib/opportunity-utils';
+import { parseOpportunityMarkdown, renderMd } from '../../../lib/opportunity-utils';
 import { siteConfig } from '../../../config/site';
 
 export async function getStaticPaths() {
@@ -57,41 +57,41 @@ const backUrl = `/Ai_auto_push/daily/${date}`;
 		{opp.searchDomains && (
 			<section class="detail-section section-domains">
 				<h2>今日检索领域</h2>
-				<p>{opp.searchDomains}</p>
+				<div class="section-body" set:html={renderMd(opp.searchDomains)} />
 			</section>
 		)}
 
 		{opp.exploredItems.length > 0 && (
 			<section class="detail-section">
 				<h2>尝试探索内容（{opp.exploredItems.length}）</h2>
-				{opp.exploredItems.map(item => <p>{item}</p>)}
+				{opp.exploredItems.map(item => <div set:html={renderMd(item)} />)}
 			</section>
 		)}
 
 		{opp.discardedItems.length > 0 && (
 			<section class="detail-section">
 				<h2>无价值方案及淘汰理由（{opp.discardedItems.length}）</h2>
-				{opp.discardedItems.map(d => <p>- {d.title}：{d.reason}</p>)}
+				{opp.discardedItems.map(d => <p><strong>{d.title}</strong>：{d.reason}</p>)}
 			</section>
 		)}
 
 		<section class={`detail-section ${isCommercializable ? 'section-final' : ''}`}>
 			<h2>{isCommercializable ? '最终确认的可商业化方案' : '最终方案'}</h2>
 			{isCommercializable && proposalName && <div class="final-name">{proposalName}</div>}
-			<div class="section-body">{opp.finalSection}</div>
+			<div class="section-body" set:html={renderMd(opp.finalSection)} />
 		</section>
 
 		{opp.evidenceSection && (
 			<section class="detail-section">
 				<h2>证据链</h2>
-				<div class="section-body">{opp.evidenceSection}</div>
+				<div class="section-body" set:html={renderMd(opp.evidenceSection)} />
 			</section>
 		)}
 
 		{opp.validationPlan && (
 			<section class="detail-section section-plan">
 				<h2>验证计划</h2>
-				<div class="section-body">{opp.validationPlan}</div>
+				<div class="section-body" set:html={renderMd(opp.validationPlan)} />
 			</section>
 		)}
 
@@ -114,7 +114,12 @@ const backUrl = `/Ai_auto_push/daily/${date}`;
 	.detail-section { background: #F9FAFB; border-radius: 8px; padding: 16px; margin-bottom: 12px; }
 	.detail-section h2 { font-size: 14px; font-weight: 600; color: #1A1A1A; margin: 0 0 8px; }
 	.detail-section p { font-size: 13px; color: #6B7280; line-height: 1.6; margin: 4px 0; }
-	.section-body { font-size: 13px; color: #6B7280; line-height: 1.6; white-space: pre-line; }
+	.section-body { font-size: 13px; color: #6B7280; line-height: 1.6; }
+	.section-body :global(h3) { font-size: 14px; font-weight: 600; color: #1A1A1A; margin: 12px 0 6px; }
+	.section-body :global(ul) { margin: 4px 0; padding-left: 20px; }
+	.section-body :global(li) { margin: 2px 0; }
+	.section-body :global(a) { color: #2563EB; text-decoration: none; }
+	.section-body :global(strong) { color: #374151; }
 	.section-domains { background: #FFFBEB; }
 	.section-domains h2 { color: #92400E; }
 	.section-final { background: #ECFDF5; }
