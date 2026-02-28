@@ -81,6 +81,8 @@ Claude Code 原生商业机会发现管道。基于历史记忆智能选择探�
 | persist | 文件写入失败 | mkdir -p 后重试 1 次 |
 | publish | Git push 失败 | 最多重试 2 次 |
 
+> **限流保护**: HTTP 429 时指数退避（1s→2s→4s→8s，最多 3 次）；HTTP 403 时切换 Jina Reader 代理；同域 WebFetch 间隔 ≥ 500ms；尊重 Retry-After 头。
+
 **核心原则：** 串行依赖，关键阶段失败即终止，避免产出不完整日报。
 
 ## Git 发布规范
@@ -197,7 +199,21 @@ IT IS CRITICAL THAT YOU FOLLOW THESE STEPS EXACTLY:
 1. 调用 **WebSearch** 搜索该域的 `searchQuery`
 2. 对返回的每条搜索结果，记录标题、URL、摘要片段
 3. 如果某个域 WebSearch 失败或返回空结果，记录 `[WARN] {platform}: search failed, skipping`，跳过继续
+
+> **搜索降级链**: WebSearch 限流时，使用 Serper.dev 备用：
+> `curl -s "https://google.serper.dev/search" -H "X-API-KEY: $SERPER_API_KEY" -H "Content-Type: application/json" -d '{"q":"QUERY","gl":"cn","hl":"zh-cn","num":10}'`
+> Serper 也失败则跳过该域，记录警告。
 4. 对摘要 < 80 字的条目，可选用 **WebFetch** 抓取 URL 提取更多文本（失败则保留已有摘要）。每个域最多 WebFetch 2 条，全局最多 WebFetch 6 条
+
+> **WebFetch 代理规则**:
+> - 对中文域名（含 `.cn`、`.com.cn`、`zhihu.com`、`xiaohongshu.com`、`v2ex.com`、`coolapk.com`、`tieba.baidu.com`、`weibo.com`）的 WebFetch，URL 前加 `https://r.jina.ai/` 前缀
+> - 示例：`WebFetch https://r.jina.ai/https://www.zhihu.com/search?q=xxx`
+> - Jina 返回 HTTP 4xx/5xx 时，移除前缀直连重试 1 次
+> - 非中文域名（App Store、Google Play 等）直接 WebFetch，不加前缀
+
+> **缓存策略**: 每次 WebFetch 前执行 `bash scripts/cache-fetch.sh check <url>` 检查 24h 缓存。
+> 命中（HIT）则跳过抓取；未命中（MISS）则正常 WebFetch，成功后执行 `bash scripts/cache-fetch.sh save <url>` 写入缓存。
+> 每轮开始前执行 `bash scripts/cache-fetch.sh clean 24` 清理过期缓存。
 
 **全部失败检查：** 如果所有域均失败（rawResults 为空），输出 `[STAGE_FAILED] retrieve | duration={ms} | error=all sources failed` 并终止管道。
 
@@ -327,6 +343,12 @@ adPatterns = ["优惠", "限时", "点击购买", "折扣", "促销", "领券"]
    - 从未选中的域中补充 2-3 个新域
 4. 回到 **Step 2（检索）** 执行新一轮检索，新候选追加到 `allRawCandidates`
 5. 对新候选重新执行 3.1-3.5
+
+> **多轮搜索限流**:
+> - 每轮 WebSearch 调用间隔 ≥ 2s（同一轮内的 5 个域依次执行，非并行）
+> - 第 2 轮开始前等待 10s 冷却
+> - 第 3 轮开始前等待 20s 冷却
+> - 单次管道运行 WebSearch 总调用上限：20 次（超过则停止搜索，使用已有结果）
 
 **若 `qualifiedCandidates` 为空且 `currentRound >= maxRounds - 1`：**
 - 接受 no_viable_proposal 结果，进入 3.6

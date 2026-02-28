@@ -15,7 +15,7 @@ Claude Code 原生内容管道。AI技术领域采用五层数据采集（WebFet
 |------|------|------|
 | `BRAVE_API_KEY` | Brave Search API，用于 ai-tech 领域补充搜索 | 是（ai-tech 的 Brave 层） |
 
-**BRAVE_API_KEY**: `BSAZ3NQPSBnzVf3BP8CFS_ivmRb3phE`
+**BRAVE_API_KEY**: 从环境变量 `$BRAVE_API_KEY` 读取（见 `.env` 文件）
 
 ## 架构
 
@@ -28,6 +28,37 @@ AI技术领域（五层）:
   WebFetch(专业站点) + WebSearch(补充搜索)
   → 严格日期过滤 → AI筛选摘要(最多10条) → Write Markdown → Git推送
 ```
+
+> **Anti-限流策略**: 中文站点通过 Jina Reader (`r.jina.ai`) 代理访问，避免 IP 限制。
+> Jina 免费额度：无 API Key 20 req/min，有 Key 200 req/min。
+> 如果 Jina 返回错误，降级为直连 WebFetch。
+
+### 搜索降级链
+
+当搜索 API 遇到限流或错误时，按以下顺序降级：
+
+1. **Brave Search API**（主力）— 使用 `$BRAVE_API_KEY`
+2. → 如果返回 HTTP 429 或错误 → **Serper.dev**（备用）
+   ```bash
+   curl -s "https://google.serper.dev/search" \
+     -H "X-API-KEY: $SERPER_API_KEY" \
+     -H "Content-Type: application/json" \
+     -d '{"q":"QUERY","gl":"cn","hl":"zh-cn","num":10,"tbs":"qdr:d"}'
+   ```
+3. → 如果 Serper 也失败 → **WebSearch**（Claude 内置）
+4. → 如果 WebSearch 限流 → 跳过搜索层，依赖其他数据层，记录警告
+
+> Serper.dev 免费额度：2,500 请求/月，足够每日使用。
+
+## 缓存策略
+
+每次 WebFetch 前检查本地缓存（24h TTL），避免重复抓取：
+
+1. 执行 `bash scripts/cache-fetch.sh check <url>` 检查缓存
+2. 如果返回 `HIT`，使用缓存内容，跳过 WebFetch
+3. 如果返回 `MISS`，正常执行 WebFetch
+4. WebFetch 成功后，将结果通过 `bash scripts/cache-fetch.sh save <url>` 写入缓存
+5. 管道开始前执行 `bash scripts/cache-fetch.sh clean 24` 清理过期缓存
 
 ## 领域配置
 
@@ -77,9 +108,9 @@ IT IS CRITICAL THAT YOU FOLLOW THESE STEPS EXACTLY:
 
 **第一层：专业站点爬取（WebFetch）**
 
-1. 爬取 `https://ai-bot.cn/daily-ai-news/` — 提取当日 AI 资讯列表
-2. 爬取 `https://www.jiqizhixin.com/` — 机器之心首页最新文章
-3. 爬取 `https://36kr.com/information/AI/` — 36氪 AI 频道
+1. 爬取 `https://r.jina.ai/https://ai-bot.cn/daily-ai-news/` — 提取当日 AI 资讯列表
+2. 爬取 `https://r.jina.ai/https://www.jiqizhixin.com/` — 机器之心首页最新文章
+3. 爬取 `https://r.jina.ai/https://36kr.com/information/AI/` — 36氪 AI 频道
 
 **第二层：RSS 订阅源（WebFetch 抓取 RSS feed XML，解析标题/链接/日期）**
 
@@ -145,7 +176,7 @@ GitHub Releases 解析规则：
 ```bash
 curl -s "https://api.search.brave.com/res/v1/web/search?q=QUERY&freshness=pd&count=10" \
   -H "Accept: application/json" \
-  -H "X-Subscription-Token: BSAZ3NQPSBnzVf3BP8CFS_ivmRb3phE"
+  -H "X-Subscription-Token: $BRAVE_API_KEY"
 ```
 
 Brave Search 查询（至少执行 4 次）：
@@ -182,9 +213,9 @@ Brave Search 查询（至少执行 4 次）：
 
 **专业站点爬取（WebFetch 优先）：**
 
-1. 爬取 `https://www.cifnews.com/` — 雨果跨境首页最新资讯
-2. 爬取 `https://www.hugo.com/` — Hugo 跨境电商资讯
-3. 爬取 `https://36kr.com/information/cross-border/` — 36氪跨境频道
+1. 爬取 `https://r.jina.ai/https://www.cifnews.com/` — 雨果跨境首页最新资讯
+2. 爬取 `https://r.jina.ai/https://www.hugo.com/` — Hugo 跨境电商资讯
+3. 爬取 `https://r.jina.ai/https://36kr.com/information/cross-border/` — 36氪跨境频道
 
 **WebSearch 补充搜索（至少 3 次）：**
 
@@ -199,9 +230,9 @@ Brave Search 查询（至少执行 4 次）：
 
 **专业站点爬取（WebFetch 优先）：**
 
-1. 爬取 `https://36kr.com/information/venture/` — 36氪创投频道
-2. 爬取 `https://www.iheima.com/` — i黑马创业资讯
-3. 爬取 `https://www.chinaventure.com.cn/` — 投中网
+1. 爬取 `https://r.jina.ai/https://36kr.com/information/venture/` — 36氪创投频道
+2. 爬取 `https://r.jina.ai/https://www.iheima.com/` — i黑马创业资讯
+3. 爬取 `https://r.jina.ai/https://www.chinaventure.com.cn/` — 投中网
 
 **WebSearch 补充搜索（至少 3 次）：**
 
@@ -217,7 +248,7 @@ Brave Search 查询（至少执行 4 次）：
 
 1. 爬取 `https://github.com/trending` — GitHub 官方 Trending 页面
 2. 爬取 `https://github.com/trending?since=daily` — 当日热门
-3. 爬取 `https://hellogithub.com/` — HelloGitHub 中文开源推荐
+3. 爬取 `https://r.jina.ai/https://hellogithub.com/` — HelloGitHub 中文开源推荐
 
 **WebSearch 补充搜索（至少 3 次）：**
 
@@ -394,3 +425,19 @@ cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git add src/content
 | 单个领域失败 | 继续处理其他领域，最终报告中标记失败 |
 | 日期不匹配 | 严格丢弃非当日内容，不做降级处理 |
 | ai-tech 去重冲突 | 标题相似度 > 70% 视为同一事件，保留评分最高的 |
+
+### 限流保护协议
+
+所有 HTTP 请求遵循以下规则：
+
+| 状况 | 处理方式 |
+|------|---------|
+| HTTP 429 (Too Many Requests) | 指数退避：等待 2^n 秒（1s→2s→4s→8s），最多重试 3 次 |
+| HTTP 403 (IP 封禁) | 切换到 Jina Reader 代理（`r.jina.ai` 前缀）；已用 Jina 则跳过 |
+| 连接超时 | 等待 2s 后重试 1 次，仍失败则跳过 |
+| Retry-After 响应头 | 尊重该头部指定的等待时间 |
+
+**请求间隔要求：**
+- 同域名 WebFetch 调用间隔 ≥ 500ms
+- Brave/Serper API 调用间隔 ≥ 1s
+- 并行域之间无间隔限制（不同域可并行）
