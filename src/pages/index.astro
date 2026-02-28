@@ -2,13 +2,16 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import DateNavigation from '../components/ui/DateNavigation.astro';
 import NewsList from '../components/news/NewsList.astro';
+import OpportunitySection from '../components/opportunity/OpportunitySection.astro';
 import { siteConfig } from '../config/site';
 import { getLatestDate, getEntriesByDate, getAdjacentDates, getAllDates } from '../lib/content-utils';
 
 const latestDate = await getLatestDate();
-const entries = latestDate ? await getEntriesByDate(latestDate) : [];
+const allEntries = latestDate ? await getEntriesByDate(latestDate) : [];
 const adjacent = latestDate ? await getAdjacentDates(latestDate) : { prev: null, next: null };
 const allDates = await getAllDates();
+const opportunityEntry = allEntries.find((e) => e.data.domain === 'commercial-opportunity');
+const entries = allEntries.filter((e) => e.data.domain !== 'commercial-opportunity');
 ---
 
 <BaseLayout title={siteConfig.title} description={siteConfig.description}>
@@ -20,4 +23,5 @@ const allDates = await getAllDates();
 	) : (
 		<p class="empty-state">暂无资讯数据</p>
 	)}
+	{opportunityEntry && <OpportunitySection entry={opportunityEntry} />}
 </BaseLayout>

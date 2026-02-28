@@ -148,3 +148,19 @@ export async function getAdjacentDates(
     next: index > 0 ? dates[index - 1] : null,
   };
 }
+
+/**
+ * 按日期查询商业机会日报 entry
+ * 无数据时返回 undefined（静默降级）
+ */
+export async function getOpportunityByDate(
+  date: string,
+): Promise<CollectionEntry<"daily"> | undefined> {
+  if (!isValidDateFormat(date)) return undefined;
+  const entries = await getCollection("daily", (entry) => {
+    return (
+      entry.data.date === date && entry.data.domain === "commercial-opportunity"
+    );
+  });
+  return entries[0];
+}

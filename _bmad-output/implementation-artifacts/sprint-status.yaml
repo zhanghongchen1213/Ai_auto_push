@@ -1,4 +1,4 @@
-# generated: 2026-02-26
+# generated: 2026-02-28
 # project: Ai_auto_push
 # project_key: NOKEY
 # tracking_system: file-system
@@ -40,64 +40,57 @@
 # - 目的：释放上下文窗口空间，防止长任务链导致 "prompt is too long" 中断
 # - 执行时机：story 状态更新为 done 之后、开始下一个 story 之前
 
-generated: 2026-02-26
+generated: 2026-02-28
 project: Ai_auto_push
 project_key: NOKEY
 tracking_system: file-system
 story_location: _bmad-output/implementation-artifacts
 
 development_status:
-  # Epic 1: 项目基础与每日资讯展示
+  # Epic 1: 基线工程与每日资讯首页体验
   epic-1: done
   1-1-project-initialization: done
   1-2-content-collections-schema: done
-  1-3-base-layout-header: done
-  1-4-daily-news-homepage: done
-  1-5-domain-filter-color-coding: done
-  1-6-responsive-cross-device: done
+  1-3-homepage-domain-rendering: done
+  1-4-responsive-accessibility-homepage: done
   epic-1-retrospective: optional
 
-  # Epic 2: 历史导航与日期浏览
+  # Epic 2: 日期导航与历史回溯
   epic-2: done
   2-1-date-dynamic-routing: done
-  2-2-prev-next-date-navigation: done
-  2-3-calendar-popup-date-selection: done
+  2-2-calendar-popup-date-selection: done
+  2-3-prev-next-date-navigation: done
   epic-2-retrospective: optional
 
-  # Epic 3: 搜索功能
+  # Epic 3: 搜索与结果跳转
   epic-3: done
   3-1-pagefind-search-integration: done
-  3-2-search-result-navigation: done
-  3-3-header-persistent-search-box: done
+  3-2-search-results-structured-display: done
+  3-3-direct-jump-from-search-results: done
   epic-3-retrospective: optional
 
-  # Epic 4: Skills 自动化内容管道
+  # Epic 4: 资讯 Skills 自动化生产与发布
   epic-4: done
-  4-1-pipeline-entry-domain-scheduler: done
-  4-2-news-fetch-module: done
-  4-3-ai-content-filter-summary: done
-  4-4-markdown-format-output: done
-  4-5-git-auto-commit-push: done
-  4-6-skills-config-domain-extension: done
+  4-1-news-orchestration-skill-and-scheduler: done
+  4-2-domain-skill-spec-and-extensibility: done
+  4-3-news-markdown-standard-output: done
+  4-4-auto-push-and-deploy-trigger: done
   epic-4-retrospective: optional
 
-  # Epic 5: 系统可靠性、容错与部署
+  # Epic 5: 可靠性、容错与运维可观测
   epic-5: done
-  5-1-domain-failure-isolation: done
-  5-2-git-commit-observability: done
-  5-3-manual-trigger-recovery: done
-  5-4-error-log-persistence: done
-  5-5-github-actions-cicd-pipeline: done
+  5-1-domain-level-isolation-and-degraded-publish: done
+  5-2-observability-logs-and-error-retention: done
+  5-3-manual-recovery-and-retry-mechanism: done
   epic-5-retrospective: optional
 
   # Epic 6: 商业机会日报全自主链路
-  epic-6: in-progress
-  6-1-opportunity-orchestration-skill: backlog
-  6-2-multi-source-retrieval-normalization: backlog
-  6-3-two-stage-scoring: backlog
-  6-4-final-decision-discard-logging: backlog
-  6-5-opportunity-markdown-generation: backlog
-  6-6-homepage-opportunity-rendering: backlog
-  6-7-auto-push-30d-metrics: backlog
-  6-8-opportunity-detail-page-navigation: ready-for-dev
+  epic-6: done
+  6-1-opportunity-orchestration-skill-and-boundary: done
+  6-2-multi-source-retrieval-normalization: done
+  6-3-two-stage-screening-and-scoring-model: done
+  6-4-final-proposal-confirmation-and-discard-log: done
+  6-5-opportunity-daily-report-generation-and-write: done
+  6-6-homepage-opportunity-section-and-history: done
+  6-7-auto-push-30d-metrics: done
   epic-6-retrospective: optional

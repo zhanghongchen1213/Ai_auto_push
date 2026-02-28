@@ -1,0 +1,132 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+	entry: CollectionEntry<'daily'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await entry.render();
+
+const isOpportunity = data.domain === 'commercial-opportunity';
+const finalStatus = isOpportunity ? (data as { finalStatus: string }).finalStatus : undefined;
+const statusLabel = finalStatus === 'commercializable' ? '可商业化' : finalStatus === 'no_viable_proposal' ? '无可用方案' : '';
+const statusClass = finalStatus === 'commercializable' ? 'status-success' : finalStatus ? 'status-none' : '';
+---
+
+<section class="opportunity-section" aria-label="商业机会日报">
+	<div class="section-header">
+		<span class="color-bar"></span>
+		<h2 class="section-title">
+			<span class="domain-icon">💰</span>
+			商业机会日报
+		</h2>
+		{statusLabel && <span class={`status-badge ${statusClass}`}>{statusLabel}</span>}
+	</div>
+	<div class="opportunity-content prose">
+		<Content />
+	</div>
+</section>
+
+<style>
+	.opportunity-section {
+		margin-top: 28px;
+		margin-bottom: 28px;
+	}
+	.section-header {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		margin-bottom: 12px;
+	}
+	.color-bar {
+		display: inline-block;
+		width: 4px;
+		height: 20px;
+		background-color: #E6A23C;
+		border-radius: 2px;
+		flex-shrink: 0;
+	}
+	.section-title {
+		font-size: 16px;
+		font-weight: 600;
+		color: #1A1A1A;
+		margin: 0;
+		display: flex;
+		align-items: center;
+		gap: 6px;
+	}
+	.domain-icon {
+		font-size: 16px;
+	}
+	.status-badge {
+		font-size: 12px;
+		padding: 2px 10px;
+		border-radius: 10px;
+	}
+	.status-success {
+		color: #389E0D;
+		background: #F6FFED;
+	}
+	.status-none {
+		color: #8C8C8C;
+		background: #F5F5F5;
+	}
+	.opportunity-content {
+		background: #FFFBEB;
+		border: 1px solid #FDE68A;
+		border-radius: 8px;
+		padding: 20px;
+		line-height: 1.7;
+	}
+	.opportunity-content :global(h2) {
+		font-size: 15px;
+		font-weight: 600;
+		color: #1A1A1A;
+		margin: 20px 0 8px;
+		padding-bottom: 4px;
+		border-bottom: 1px solid #FDE68A;
+	}
+	.opportunity-content :global(h2:first-child) {
+		margin-top: 0;
+	}
+	.opportunity-content :global(p) {
+		font-size: 14px;
+		color: #4A4A4A;
+		margin: 6px 0;
+	}
+	.opportunity-content :global(ul) {
+		padding-left: 20px;
+		margin: 6px 0;
+	}
+	.opportunity-content :global(li) {
+		font-size: 14px;
+		color: #4A4A4A;
+		margin: 4px 0;
+	}
+	.opportunity-content :global(a) {
+		color: #E6A23C;
+		text-decoration: underline;
+	}
+	.opportunity-content :global(strong) {
+		color: #1A1A1A;
+	}
+
+	@media (max-width: 767px) {
+		.opportunity-section {
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		.section-header {
+			gap: 8px;
+			margin-bottom: 10px;
+		}
+		.section-title {
+			font-size: 15px;
+		}
+		.opportunity-content {
+			padding: 14px;
+		}
+	}
+</style>

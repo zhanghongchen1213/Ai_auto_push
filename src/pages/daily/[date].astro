@@ -4,6 +4,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import DateNavigation from '../../components/ui/DateNavigation.astro';
 import NewsList from '../../components/news/NewsList.astro';
+import OpportunitySection from '../../components/opportunity/OpportunitySection.astro';
 import { formatDateCN } from '../../lib/date-utils';
 import { siteConfig } from '../../config/site';
 import { compareDates } from '../../lib/date-utils';
@@ -45,7 +46,9 @@ export async function getStaticPaths() {
 	}));
 }
 
-const { date, entries, prevDate, nextDate, allDates } = Astro.props;
+const { date, entries: allEntries, prevDate, nextDate, allDates } = Astro.props;
+const opportunityEntry = allEntries.find((e) => e.data.domain === 'commercial-opportunity');
+const entries = allEntries.filter((e) => e.data.domain !== 'commercial-opportunity');
 const dateCN = formatDateCN(date);
 const pageTitle = `${dateCN} - ${siteConfig.title}`;
 const pageDescription = `${dateCN}的多领域精选资讯，涵盖${entries.length}个领域的最新动态`;
@@ -54,4 +57,5 @@ const pageDescription = `${dateCN}的多领域精选资讯，涵盖${entries.len
 <BaseLayout title={pageTitle} description={pageDescription}>
 	<DateNavigation date={date} prevDate={prevDate} nextDate={nextDate} availableDates={allDates} />
 	<NewsList date={date} entries={entries} />
+	{opportunityEntry && <OpportunitySection entry={opportunityEntry} />}
 </BaseLayout>
