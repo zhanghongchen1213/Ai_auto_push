@@ -29,6 +29,9 @@ const opportunitySchema = z.object({
   retrievedCount: z.number().int().nonnegative(),
   scoredCount: z.number().int().nonnegative(),
   eliminatedCount: z.number().int().nonnegative(),
+  searchDomains: z.string().optional(),
+  proposalName: z.string().optional(),
+  proposalScore: z.string().optional(),
   generatedAt: generatedAtField,
 });
 

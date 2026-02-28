@@ -57,5 +57,5 @@ const pageDescription = `${dateCN}的多领域精选资讯，涵盖${entries.len
 <BaseLayout title={pageTitle} description={pageDescription}>
 	<DateNavigation date={date} prevDate={prevDate} nextDate={nextDate} availableDates={allDates} />
 	<NewsList date={date} entries={entries} />
-	{opportunityEntry && <OpportunitySection entry={opportunityEntry} />}
+	{opportunityEntry && <OpportunitySection entry={opportunityEntry} date={date} />}
 </BaseLayout>

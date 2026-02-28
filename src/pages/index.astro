@@ -23,5 +23,5 @@ const entries = allEntries.filter((e) => e.data.domain !== 'commercial-opportuni
 	) : (
 		<p class="empty-state">暂无资讯数据</p>
 	)}
-	{opportunityEntry && <OpportunitySection entry={opportunityEntry} />}
+	{opportunityEntry && latestDate && <OpportunitySection entry={opportunityEntry} date={latestDate} />}
 </BaseLayout>

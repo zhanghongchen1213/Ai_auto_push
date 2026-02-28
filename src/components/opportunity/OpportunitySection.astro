@@ -1,133 +1,93 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { render } from 'astro:content';
+import { parseOpportunityMarkdown } from '../../lib/opportunity-utils';
 
 interface Props {
 	entry: CollectionEntry<'daily'>;
+	date: string;
 }
 
-const { entry } = Astro.props;
-const { data } = entry;
-const { Content } = await render(entry);
+const { entry, date } = Astro.props;
+const { data, body } = entry;
+const opp = parseOpportunityMarkdown(body ?? '');
 
-const isOpportunity = data.domain === 'commercial-opportunity';
-const finalStatus = isOpportunity ? (data as { finalStatus: string }).finalStatus : undefined;
-const statusLabel = finalStatus === 'commercializable' ? '可商业化' : finalStatus === 'no_viable_proposal' ? '无可用方案' : '';
-const statusClass = finalStatus === 'commercializable' ? 'status-success' : finalStatus ? 'status-none' : '';
+const isCommercializable = (data as any).finalStatus === 'commercializable';
+const proposalName = (data as any).proposalName ?? '';
+const proposalScore = (data as any).proposalScore ?? '';
+const searchDomains = (data as any).searchDomains ?? opp.searchDomains;
+const detailUrl = `/Ai_auto_push/daily/${date}/opportunity`;
 ---
 
-<section class="opportunity-section" aria-label="商业机会日报">
-	<div class="section-header">
-		<span class="color-bar"></span>
-		<h2 class="section-title">
-			<span class="domain-icon">💰</span>
-			商业机会日报
-		</h2>
-		{statusLabel && <span class={`status-badge ${statusClass}`}>{statusLabel}</span>}
+<section class="opp-section" aria-label="商业机会日报">
+	<div class="opp-title-row">
+		<span class="opp-dot"></span>
+		<span class="opp-title">商业机会日报</span>
+		<span class="opp-tag">每日 1 个可执行方案</span>
 	</div>
-	<div class="opportunity-content prose">
-		<Content />
+	<p class="opp-intro">一次触发，自动完成多源检索、双阶段筛选、淘汰记录与最终方案确认。</p>
+	<div class="opp-panel">
+		{searchDomains && (
+			<div class="opp-card">
+				<div class="opp-card-title">今日检索领域</div>
+				<div class="opp-card-body">{searchDomains}</div>
+			</div>
+		)}
+		{opp.exploredItems.length > 0 && (
+			<div class="opp-card">
+				<div class="opp-card-title">尝试探索内容（{opp.exploredItems.length}）</div>
+				<div class="opp-card-body">{opp.exploredItems.map(item => <div>{item}</div>)}</div>
+			</div>
+		)}
+		{opp.discardedItems.length > 0 && (
+			<div class="opp-card">
+				<div class="opp-card-title">无价值方案及淘汰理由（{opp.discardedItems.length}）</div>
+				<div class="opp-card-body">
+					{opp.discardedItems.slice(0, 3).map(d => <div>- {d.title}：{d.reason}</div>)}
+					{opp.discardedItems.length > 3 && <div class="opp-more">...共 {opp.discardedItems.length} 条</div>}
+				</div>
+			</div>
+		)}
+		<div class={`opp-card ${isCommercializable ? 'opp-card-final' : 'opp-card-none'}`}>
+			<div class="opp-card-title" style={isCommercializable ? 'color:#166534' : ''}>
+				{isCommercializable ? '最终确认的可商业化方案' : '今日最终结论'}
+			</div>
+			{isCommercializable ? (
+				<>
+					<div class="opp-final-name">{proposalName}</div>
+					<div class="opp-card-body">{opp.finalSection.split('\n').find(l => l && !l.startsWith('#') && !l.startsWith('###')) ?? ''}</div>
+					{proposalScore && <div class="opp-final-meta">评分：{proposalScore} / 10 · 证据链完整</div>}
+					<a href={detailUrl} class="opp-detail-link">查看方案详情 →</a>
+				</>
+			) : (
+				<>
+					<div class="opp-card-body">今日无可用方案。所有候选均未达到商业化阈值或证据链不完整。</div>
+					<a href={detailUrl} class="opp-detail-link">查看详情 →</a>
+				</>
+			)}
+		</div>
 	</div>
 </section>
 
 <style>
-	.opportunity-section {
-		margin-top: 28px;
-		margin-bottom: 28px;
-	}
-	.section-header {
-		display: flex;
-		align-items: center;
-		gap: 10px;
-		margin-bottom: 12px;
-	}
-	.color-bar {
-		display: inline-block;
-		width: 4px;
-		height: 20px;
-		background-color: #E6A23C;
-		border-radius: 2px;
-		flex-shrink: 0;
-	}
-	.section-title {
-		font-size: 16px;
-		font-weight: 600;
-		color: #1A1A1A;
-		margin: 0;
-		display: flex;
-		align-items: center;
-		gap: 6px;
-	}
-	.domain-icon {
-		font-size: 16px;
-	}
-	.status-badge {
-		font-size: 12px;
-		padding: 2px 10px;
-		border-radius: 10px;
-	}
-	.status-success {
-		color: #389E0D;
-		background: #F6FFED;
-	}
-	.status-none {
-		color: #8C8C8C;
-		background: #F5F5F5;
-	}
-	.opportunity-content {
-		background: #FFFBEB;
-		border: 1px solid #FDE68A;
-		border-radius: 8px;
-		padding: 20px;
-		line-height: 1.7;
-	}
-	.opportunity-content :global(h2) {
-		font-size: 15px;
-		font-weight: 600;
-		color: #1A1A1A;
-		margin: 20px 0 8px;
-		padding-bottom: 4px;
-		border-bottom: 1px solid #FDE68A;
-	}
-	.opportunity-content :global(h2:first-child) {
-		margin-top: 0;
-	}
-	.opportunity-content :global(p) {
-		font-size: 14px;
-		color: #4A4A4A;
-		margin: 6px 0;
-	}
-	.opportunity-content :global(ul) {
-		padding-left: 20px;
-		margin: 6px 0;
-	}
-	.opportunity-content :global(li) {
-		font-size: 14px;
-		color: #4A4A4A;
-		margin: 4px 0;
-	}
-	.opportunity-content :global(a) {
-		color: #E6A23C;
-		text-decoration: underline;
-	}
-	.opportunity-content :global(strong) {
-		color: #1A1A1A;
-	}
-
+	.opp-section { margin: 28px 0; }
+	.opp-title-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+	.opp-dot { width: 8px; height: 8px; border-radius: 4px; background: #D97706; flex-shrink: 0; }
+	.opp-title { font-size: 15px; font-weight: 600; color: #D97706; }
+	.opp-tag { font-size: 12px; font-weight: 500; color: #92400E; background: #FEF3C7; padding: 3px 10px; border-radius: 10px; }
+	.opp-intro { font-size: 14px; color: #6B7280; line-height: 1.6; margin: 0 0 12px; }
+	.opp-panel { background: #FFFBEB; border-radius: 8px; padding: 16px; display: flex; flex-direction: column; gap: 12px; }
+	.opp-card { background: #fff; border-radius: 8px; padding: 12px; }
+	.opp-card-title { font-size: 13px; font-weight: 600; color: #1A1A1A; margin-bottom: 6px; }
+	.opp-card-body { font-size: 13px; color: #6B7280; line-height: 1.6; }
+	.opp-card-final { background: #ECFDF5; }
+	.opp-card-none { background: #F9FAFB; }
+	.opp-final-name { font-size: 15px; font-weight: 600; color: #1A1A1A; margin-bottom: 4px; }
+	.opp-final-meta { font-size: 12px; font-weight: 500; color: #166534; margin-top: 6px; }
+	.opp-detail-link { font-size: 12px; font-weight: 600; color: #2563EB; text-decoration: none; display: inline-block; margin-top: 8px; }
+	.opp-more { font-size: 12px; color: #9CA3AF; margin-top: 4px; }
 	@media (max-width: 767px) {
-		.opportunity-section {
-			margin-top: 20px;
-			margin-bottom: 20px;
-		}
-		.section-header {
-			gap: 8px;
-			margin-bottom: 10px;
-		}
-		.section-title {
-			font-size: 15px;
-		}
-		.opportunity-content {
-			padding: 14px;
-		}
+		.opp-section { margin: 20px 0; }
+		.opp-panel { padding: 12px; gap: 10px; }
+		.opp-card { padding: 10px; }
 	}
 </style>
