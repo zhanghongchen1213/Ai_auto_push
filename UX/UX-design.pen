@@ -925,6 +925,269 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "frame",
+              "id": "waNJV",
+              "name": "商业机会日报区块",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "f8738",
+                  "name": "oppTitleRow",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 4,
+                      "id": "upUML",
+                      "name": "oppDot",
+                      "fill": "#D97706",
+                      "width": 8,
+                      "height": 8
+                    },
+                    {
+                      "type": "text",
+                      "id": "AC5In",
+                      "name": "oppTitle",
+                      "fill": "#D97706",
+                      "content": "商业机会日报",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "f1ajN",
+                      "name": "oppTag",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 10,
+                      "padding": [
+                        3,
+                        10
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "aLwiZ",
+                          "name": "oppTagText",
+                          "fill": "#92400E",
+                          "content": "每日 1 个可执行方案",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "HWNVW",
+                  "name": "oppIntro",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "一次触发，自动完成多源检索、双阶段筛选、淘汰记录与最终方案确认。",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "uaWko",
+                  "name": "oppPanel",
+                  "width": "fill_container",
+                  "fill": "#FFFBEB",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "UQx1h",
+                      "name": "domainsCard",
+                      "width": "fill_container",
+                      "fill": "$bg-card",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "x4IRu",
+                          "name": "domainsTitle",
+                          "fill": "$text-primary",
+                          "content": "今日检索领域",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "L1pjn",
+                          "name": "domainsText",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "小红书、知乎、豆瓣小组、App Store 差评、黑猫投诉、B 站评论",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "WLPvS",
+                      "name": "exploreCard",
+                      "width": "fill_container",
+                      "fill": "$bg-card",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "MrjCT",
+                          "name": "exploreTitle",
+                          "fill": "$text-primary",
+                          "content": "尝试探索内容（3）",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "Y2IaV",
+                          "name": "exploreText",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "1. 跨境选品评论自动聚类\n2. 独立开发者定价复盘工具\n3. App 差评驱动的功能机会雷达",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "twTQT",
+                      "name": "discardCard",
+                      "width": "fill_container",
+                      "fill": "$bg-card",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xBdAW",
+                          "name": "discardTitle",
+                          "fill": "$text-primary",
+                          "content": "无价值方案及淘汰理由（2）",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "1smrA",
+                          "name": "discardText",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "- AI 摘要写作助手：大厂同质化严重，竞争壁垒低\n- 海外 SaaS 套壳站：需求不刚需，付费意愿弱",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "kIH3Z",
+                      "name": "finalCardEntry",
+                      "width": "fill_container",
+                      "fill": "#ECFDF5",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 12,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "SX9Af",
+                          "name": "finalTitle",
+                          "fill": "#166534",
+                          "content": "最终确认的可商业化方案",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "4p6Ez",
+                          "name": "finalName",
+                          "fill": "$text-primary",
+                          "content": "《跨境商家差评机会雷达》",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "LXogL",
+                          "name": "finalDesc",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "自动聚合跨境商家在多平台差评中的高频痛点，输出可直接上线的微 SaaS 机会与首周验证路径。",
+                          "lineHeight": 1.6,
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "normal"
+                        },
+                        {
+                          "type": "text",
+                          "id": "YgBcl",
+                          "name": "finalMeta",
+                          "fill": "#166534",
+                          "content": "评分：8.9 / 10 · 证据链完整 · 预计 2 周可验证 MVP",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "8egdV",
+                          "name": "detailEntry",
+                          "fill": "$brand-primary",
+                          "content": "查看方案详情 →",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -2419,6 +2682,243 @@
                   "content": "Deno 3.0带来了完整的Node.js兼容层，支持直接运行npm包，同时保持了Deno在安全性和开发体验上的优势。"
                 }
               }
+            },
+            {
+              "type": "frame",
+              "id": "jV2Et",
+              "name": "商业机会日报区块",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "9yvOK",
+                  "name": "oppTitleRow",
+                  "width": "fill_container",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "rectangle",
+                      "cornerRadius": 3,
+                      "id": "WT6Cv",
+                      "name": "oppDot",
+                      "fill": "#D97706",
+                      "width": 6,
+                      "height": 6
+                    },
+                    {
+                      "type": "text",
+                      "id": "fwt1I",
+                      "name": "oppTitle",
+                      "fill": "#D97706",
+                      "content": "商业机会日报",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "sFOvO",
+                      "name": "oppTag",
+                      "fill": "#FEF3C7",
+                      "cornerRadius": 10,
+                      "padding": [
+                        2,
+                        8
+                      ],
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "xZUPp",
+                          "name": "oppTagText",
+                          "fill": "#92400E",
+                          "content": "每日 1 案",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "aPyL7",
+                  "name": "oppPanel",
+                  "width": "fill_container",
+                  "fill": "#FFFBEB",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 10,
+                  "padding": 10,
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "e4rGT",
+                      "name": "domainsCard",
+                      "width": "fill_container",
+                      "fill": "$bg-card",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "VEgGj",
+                          "name": "domainsTitle",
+                          "fill": "$text-primary",
+                          "content": "今日检索领域",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "KSCVh",
+                          "name": "domainsText",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "小红书 / 知乎 / 豆瓣 / App Store / 黑猫",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "J7Aln",
+                      "name": "exploreCard",
+                      "width": "fill_container",
+                      "fill": "$bg-card",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "A0ol0",
+                          "name": "exploreTitle",
+                          "fill": "$text-primary",
+                          "content": "尝试探索内容（3）",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "GoN0u",
+                          "name": "exploreText",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "跨境选品评论聚类；独立开发者定价复盘；差评机会雷达。",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "V6W2j",
+                      "name": "discardCard",
+                      "width": "fill_container",
+                      "fill": "$bg-card",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "GfjSv",
+                          "name": "discardTitle",
+                          "fill": "$text-primary",
+                          "content": "无价值方案及淘汰理由（2）",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "n5T4D",
+                          "name": "discardText",
+                          "fill": "$text-secondary",
+                          "textGrowth": "fixed-width",
+                          "width": "fill_container",
+                          "content": "摘要写作助手：同质化高；海外套壳站：付费意愿弱。",
+                          "lineHeight": 1.5,
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "normal"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "RKjc6",
+                      "name": "finalCardEntryMobile",
+                      "width": "fill_container",
+                      "fill": "#ECFDF5",
+                      "cornerRadius": 8,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 10,
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "9OK4f",
+                          "name": "finalTitle",
+                          "fill": "#166534",
+                          "content": "最终确认方案",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "zqACW",
+                          "name": "finalName",
+                          "fill": "$text-primary",
+                          "content": "跨境商家差评机会雷达",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": "600"
+                        },
+                        {
+                          "type": "text",
+                          "id": "lfWGU",
+                          "name": "finalMeta",
+                          "fill": "#166534",
+                          "content": "评分 8.9 / 10 · 预计 2 周验证 MVP",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "500"
+                        },
+                        {
+                          "type": "text",
+                          "id": "cJLN4",
+                          "name": "detailEntry",
+                          "fill": "$brand-primary",
+                          "content": "查看详情 →",
+                          "fontFamily": "Inter",
+                          "fontSize": 11,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
             }
           ]
         }
@@ -3694,6 +4194,936 @@
                       "fontWeight": "600"
                     }
                   ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "aMadG",
+      "x": -220,
+      "y": 600,
+      "name": "OpportunityDetail-Desktop",
+      "width": 1440,
+      "fill": "$bg-page",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "QHo84",
+          "name": "oppDeskHeader",
+          "width": "fill_container",
+          "height": 54,
+          "fill": "$bg-card",
+          "padding": [
+            0,
+            48
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "uNOpK",
+              "name": "logo",
+              "fill": "$brand-primary",
+              "content": "📡 资讯雷达",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": "700"
+            },
+            {
+              "type": "frame",
+              "id": "sU7yZ",
+              "name": "headerRight",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "id": "3B03B",
+                  "type": "ref",
+                  "ref": "1tPAu",
+                  "name": "dateNavInst"
+                },
+                {
+                  "type": "icon_font",
+                  "id": "zH0to",
+                  "name": "calIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "calendar",
+                  "iconFontFamily": "lucide",
+                  "fill": "$brand-primary"
+                },
+                {
+                  "type": "text",
+                  "id": "sZ6Ln",
+                  "name": "openCalendar",
+                  "fill": "$brand-primary",
+                  "content": "打开日历 ▾",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "500"
+                },
+                {
+                  "id": "Jch3m",
+                  "type": "ref",
+                  "ref": "lBzjR",
+                  "name": "searchInst"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "lvs2r",
+          "name": "oppDeskDivider",
+          "fill": "#E5E7EB",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "zfLPp",
+          "name": "DetailContent",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            20,
+            48
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "NjsyY",
+              "name": "BackRow",
+              "width": "fill_container",
+              "gap": 8,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "Hp4En",
+                  "name": "backIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "chevron-left",
+                  "iconFontFamily": "lucide",
+                  "fill": "$brand-primary"
+                },
+                {
+                  "type": "text",
+                  "id": "3BLln",
+                  "name": "backText",
+                  "fill": "$brand-primary",
+                  "content": "返回当日简报",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "gPUVI",
+              "name": "detailTitle",
+              "fill": "$text-primary",
+              "content": "商业机会详情 · 2026年2月28日",
+              "fontFamily": "Inter",
+              "fontSize": 24,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "6Jxfp",
+              "name": "detailSubtitle",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "方案名称：跨境商家差评机会雷达。该方案由系统在多源检索与双阶段筛选后自动确认。",
+              "lineHeight": 1.6,
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "CI3lJ",
+              "name": "MetricsRow",
+              "width": "fill_container",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "hblw1",
+                  "name": "ScoreCard",
+                  "width": 300,
+                  "fill": "$bg-card",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oRTva",
+                      "name": "scoreLabel",
+                      "fill": "$text-secondary",
+                      "content": "综合评分",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "q1mZu",
+                      "name": "scoreValue",
+                      "fill": "$text-primary",
+                      "content": "8.9 / 10",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "zQy7c",
+                  "name": "ConfidenceCard",
+                  "width": 300,
+                  "fill": "$bg-card",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "sMJ5N",
+                      "name": "confidenceLabel",
+                      "fill": "$text-secondary",
+                      "content": "证据置信度",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "FTsiA",
+                      "name": "confidenceValue",
+                      "fill": "#166534",
+                      "content": "高（18 条有效证据）",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "SpfBU",
+                  "name": "DecisionCard",
+                  "width": 300,
+                  "fill": "$bg-card",
+                  "cornerRadius": 8,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 12,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "49KQ6",
+                      "name": "decisionLabel",
+                      "fill": "$text-secondary",
+                      "content": "最终结论",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "500"
+                    },
+                    {
+                      "type": "text",
+                      "id": "HLUD3",
+                      "name": "decisionValue",
+                      "fill": "#166534",
+                      "content": "可商业化，进入验证",
+                      "fontFamily": "Inter",
+                      "fontSize": 18,
+                      "fontWeight": "700"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "YEmXM",
+              "name": "SearchDomainsSection",
+              "width": "fill_container",
+              "fill": "#FFFBEB",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "1ZIne",
+                  "name": "domainsTitle",
+                  "fill": "#92400E",
+                  "content": "今日检索领域",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "NDxk5",
+                  "name": "domainsBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "小红书、知乎、豆瓣小组、App Store 差评、闲鱼求购、黑猫投诉、B 站评论、微博超话",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GBaPF",
+              "name": "AttemptsSection",
+              "width": "fill_container",
+              "fill": "$bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "RkvKD",
+                  "name": "attemptsTitle",
+                  "fill": "$text-primary",
+                  "content": "尝试探索内容（3）",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "bd1rX",
+                  "name": "attemptsBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "1. 跨境选品评论自动聚类：聚焦高频负面词提取。\n2. 独立开发者定价复盘：聚焦续费流失原因。\n3. App 差评机会雷达：聚焦重复投诉与未满足需求。",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "swNeT",
+              "name": "DiscardedSection",
+              "width": "fill_container",
+              "fill": "$bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "3TZfU",
+                  "name": "discardTitle",
+                  "fill": "$text-primary",
+                  "content": "无价值方案及淘汰理由（2）",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "zWOm1",
+                  "name": "discardBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "- AI 摘要写作助手：同质化严重，无法形成防御性。\n- 海外 SaaS 套壳站：需求不刚需，目标用户付费意愿不足。",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "GOxJS",
+              "name": "FinalOpportunitySection",
+              "width": "fill_container",
+              "fill": "#ECFDF5",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "5iFeP",
+                  "name": "finalTitle",
+                  "fill": "#166534",
+                  "content": "最终确认的可商业化方案",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "0N9oL",
+                  "name": "finalName",
+                  "fill": "$text-primary",
+                  "content": "跨境商家差评机会雷达",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": "700"
+                },
+                {
+                  "type": "text",
+                  "id": "xvX9z",
+                  "name": "finalBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "核心痛点：中小跨境商家难以从分散差评中快速识别高价值改进机会。\n目标用户：年营收 50 万 - 500 万人民币的跨境卖家与其运营团队。\n解决方案：自动采集多平台差评并聚类成机会主题，输出优先级与落地建议。\n变现路径：订阅制（基础版 299/月，团队版 999/月）。",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "bEKY5",
+              "name": "EvidenceSection",
+              "width": "fill_container",
+              "fill": "$bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "3GG8N",
+                  "name": "evidenceTitle",
+                  "fill": "$text-primary",
+                  "content": "证据链（来源 URL + 关键引文 + 时间戳）",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "WxZyt",
+                  "name": "evidenceBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "1) 小红书（2026-02-28 08:21）：\"近30天退货率飙升，评论太分散，找不到根因\"\n2) 知乎（2026-02-27 22:10）：\"每天看几十条差评，仍判断不了优先改哪个问题\"\n3) 黑猫投诉（2026-02-27 18:42）：\"售后响应慢导致复购骤降\"",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "edHdZ",
+              "name": "ValidationPlanSection",
+              "width": "fill_container",
+              "fill": "#FFF7E6",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "orQzo",
+                  "name": "planTitle",
+                  "fill": "#D46B08",
+                  "content": "2 周验证计划",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "uyI9I",
+                  "name": "planBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "第 1-3 天：构建数据采集与聚类原型。\n第 4-7 天：邀请 5 位卖家试用，收集可操作性反馈。\n第 8-10 天：补齐优先级算法与机会卡片模板。\n第 11-14 天：上线最小收费试点并观察首批付费转化。",
+                  "lineHeight": 1.6,
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "gHBgf",
+              "name": "DetailNavRow",
+              "width": "fill_container",
+              "gap": 16,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "viTDE",
+                  "name": "sourceLink",
+                  "fill": "$brand-primary",
+                  "content": "查看原始证据链接 →",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "GOOFI",
+                  "name": "backLink",
+                  "fill": "$brand-primary",
+                  "content": "返回当日首页 →",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "500"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "rPOiv",
+      "x": 5960,
+      "y": 600,
+      "name": "OpportunityDetail-Mobile",
+      "width": 390,
+      "fill": "$bg-page",
+      "layout": "vertical",
+      "children": [
+        {
+          "type": "frame",
+          "id": "kxTQV",
+          "name": "oppMobileHeader",
+          "width": "fill_container",
+          "height": 48,
+          "fill": "$bg-card",
+          "padding": [
+            0,
+            16
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "bvcaL",
+              "name": "logo",
+              "fill": "$brand-primary",
+              "content": "📡 资讯雷达",
+              "fontFamily": "Inter",
+              "fontSize": 18,
+              "fontWeight": "700"
+            },
+            {
+              "type": "icon_font",
+              "id": "H5FDC",
+              "name": "menuIcon",
+              "width": 20,
+              "height": 20,
+              "iconFontName": "menu",
+              "iconFontFamily": "lucide",
+              "fill": "$text-primary"
+            }
+          ]
+        },
+        {
+          "type": "rectangle",
+          "id": "jo92P",
+          "name": "oppMobileDivider",
+          "fill": "#E5E7EB",
+          "width": "fill_container",
+          "height": 1
+        },
+        {
+          "type": "frame",
+          "id": "m5ocx",
+          "name": "DetailContent",
+          "width": "fill_container",
+          "layout": "vertical",
+          "gap": 12,
+          "padding": [
+            12,
+            16
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "Ov5vd",
+              "name": "BackRow",
+              "width": "fill_container",
+              "gap": 6,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "icon_font",
+                  "id": "bElG0",
+                  "name": "backIcon",
+                  "width": 16,
+                  "height": 16,
+                  "iconFontName": "chevron-left",
+                  "iconFontFamily": "lucide",
+                  "fill": "$brand-primary"
+                },
+                {
+                  "type": "text",
+                  "id": "mDe9C",
+                  "name": "backText",
+                  "fill": "$brand-primary",
+                  "content": "返回简报",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "UFwie",
+              "name": "detailTitle",
+              "fill": "$text-primary",
+              "content": "商业机会详情",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": "700"
+            },
+            {
+              "type": "text",
+              "id": "dtJVT",
+              "name": "detailSubtitle",
+              "fill": "$text-secondary",
+              "textGrowth": "fixed-width",
+              "width": "fill_container",
+              "content": "跨境商家差评机会雷达 · 2026-02-28",
+              "lineHeight": 1.5,
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": "normal"
+            },
+            {
+              "type": "frame",
+              "id": "eDlkG",
+              "name": "MetricsPanel",
+              "width": "fill_container",
+              "fill": "#FFFBEB",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 4,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "QkUug",
+                  "name": "score",
+                  "fill": "#92400E",
+                  "content": "综合评分：8.9 / 10",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "dq0kH",
+                  "name": "confidence",
+                  "fill": "$text-secondary",
+                  "content": "证据置信度：高（18 条有效证据）",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "aYAbD",
+                  "name": "decision",
+                  "fill": "#166534",
+                  "content": "最终结论：可商业化，进入验证",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "6RUER",
+              "name": "SearchDomainsSection",
+              "width": "fill_container",
+              "fill": "$bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "iQAUb",
+                  "name": "domainsTitle",
+                  "fill": "$text-primary",
+                  "content": "今日检索领域",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "lZZd7",
+                  "name": "domainsBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "小红书 / 知乎 / 豆瓣 / App Store / 黑猫 / B站",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "OQOai",
+              "name": "AttemptsSection",
+              "width": "fill_container",
+              "fill": "$bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "z9lSk",
+                  "name": "attemptsTitle",
+                  "fill": "$text-primary",
+                  "content": "尝试探索内容（3）",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "XmSqn",
+                  "name": "attemptsBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "评论聚类；定价复盘；差评机会雷达。",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "0ixjg",
+              "name": "DiscardedSection",
+              "width": "fill_container",
+              "fill": "$bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "VIotO",
+                  "name": "discardTitle",
+                  "fill": "$text-primary",
+                  "content": "无价值方案及淘汰理由（2）",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "RnKNr",
+                  "name": "discardBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "摘要助手：同质化高；海外套壳站：付费意愿弱。",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "QYcAz",
+              "name": "FinalOpportunitySection",
+              "width": "fill_container",
+              "fill": "#ECFDF5",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "w3qZj",
+                  "name": "finalTitle",
+                  "fill": "#166534",
+                  "content": "最终确认方案",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "SQnfZ",
+                  "name": "finalBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "自动识别高频差评痛点，给出优先级与可执行改进建议。",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "d0kh4",
+              "name": "EvidenceSection",
+              "width": "fill_container",
+              "fill": "$bg-card",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ZN2i9",
+                  "name": "evidenceTitle",
+                  "fill": "$text-primary",
+                  "content": "证据链",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "Ohc83",
+                  "name": "evidenceBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "小红书：\"评论太分散找不到根因\"；知乎：\"每天看差评仍难排序问题\"。",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "fWUfA",
+              "name": "ValidationPlanSection",
+              "width": "fill_container",
+              "fill": "#FFF7E6",
+              "cornerRadius": 8,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 10,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "6aSoF",
+                  "name": "planTitle",
+                  "fill": "#D46B08",
+                  "content": "2 周验证计划",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "QMMGc",
+                  "name": "planBody",
+                  "fill": "$text-secondary",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "前 7 天验证问题优先级；后 7 天上线收费试点并观察转化。",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "normal"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "jZvAu",
+              "name": "DetailNavRow",
+              "width": "fill_container",
+              "gap": 12,
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "o4b74",
+                  "name": "sourceLink",
+                  "fill": "$brand-primary",
+                  "content": "查看证据 →",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
+                },
+                {
+                  "type": "text",
+                  "id": "sIOOC",
+                  "name": "backLink",
+                  "fill": "$brand-primary",
+                  "content": "返回首页 →",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "500"
                 }
               ]
             }

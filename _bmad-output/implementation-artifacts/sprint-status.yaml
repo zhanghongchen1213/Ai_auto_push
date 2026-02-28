@@ -89,3 +89,15 @@ development_status:
   5-4-error-log-persistence: done
   5-5-github-actions-cicd-pipeline: done
   epic-5-retrospective: optional
+
+  # Epic 6: 商业机会日报全自主链路
+  epic-6: in-progress
+  6-1-opportunity-orchestration-skill: backlog
+  6-2-multi-source-retrieval-normalization: backlog
+  6-3-two-stage-scoring: backlog
+  6-4-final-decision-discard-logging: backlog
+  6-5-opportunity-markdown-generation: backlog
+  6-6-homepage-opportunity-rendering: backlog
+  6-7-auto-push-30d-metrics: backlog
+  6-8-opportunity-detail-page-navigation: ready-for-dev
+  epic-6-retrospective: optional
