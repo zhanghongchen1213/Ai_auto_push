@@ -9,6 +9,8 @@ description: "自动化内容管道：用 WebFetch 爬取专业资讯网站 + RS
 
 Claude Code 原生内容管道。AI技术领域采用五层数据采集（WebFetch 专业站点 + RSS 订阅 + GitHub Releases + Brave Search + WebSearch），其他领域采用 WebFetch + WebSearch 双层采集。自身 AI 能力筛选摘要，Write 工具生成 Markdown，Bash 执行 Git 发布。
 
+> **⚠️ 强制要求：管道完成后必须执行 `git push` 推送到 GitHub。这是不可跳过的最终步骤。无论任何情况（部分领域失败、内容较少、网络波动），只要有文件生成就必须 commit + push。禁止在推送前询问用户确认。**
+
 ## 环境变量
 
 | 变量 | 用途 | 必需 |
