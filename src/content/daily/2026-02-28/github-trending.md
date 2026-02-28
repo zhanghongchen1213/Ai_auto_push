@@ -3,65 +3,65 @@ title: "GitHub热门日报"
 domain: "github-trending"
 date: "2026-02-28"
 itemCount: 10
-generatedAt: "2026-02-28T21:41:00+08:00"
+generatedAt: "2026-02-28T21:54:00+08:00"
 ---
 
-## OpenClaw — 史上增长最快的开源 AI Agent 框架
+## OpenCode — 开源终端AI编程Agent爆发式增长
 
-OpenClaw 是由奥地利开发者 Peter Steinberger 在 2025 年 11 月作为周末项目创建的开源自主 AI Agent 框架，短短 90 天内从零飙升至 190,000+ GitHub Stars，成为 GitHub 历史上增长最快的开源项目之一。它支持通过 WhatsApp、Telegram、Slack 等消息平台运行自主任务，可管理邮件、自动化工作流、控制桌面操作。2026 年 2 月 14 日，创始人宣布加入 OpenAI，项目将移交至开源基金会管理。语言：TypeScript/Python。值得关注：它定义了"持久化 AI Agent"这一新品类，但也暴露了严重的 RCE 安全漏洞，引发了关于 Agent 安全的行业讨论。
+OpenCode 是一款开源AI编程代理，支持在终端、IDE和桌面环境中运行，目前已突破100,000 GitHub Stars，月活开发者超250万。它支持75+大模型提供商（包括Claude、GPT、Gemini等），提供交互式TUI和非交互式脚本模式。1月份曾两周内暴涨18,000 Stars，成为2026年增长最快的开发工具之一。对于习惯终端工作流的开发者来说，OpenCode是Claude Code和GitHub Copilot的强力开源替代品，社区活跃度极高，700+贡献者持续迭代。
 
-**来源：** [Wikipedia](https://en.wikipedia.org/wiki/OpenClaw) | **原文：** [OpenClaw GitHub](https://github.com/nicepkg/openclaw)
+**来源：** [OpenCode](https://github.com/opencode-ai/opencode)
 
-## HKUDS/nanobot — 超轻量级 AI Agent（仅 4000 行代码）
+## OpenPlanter — 开源递归AI调查Agent
 
-nanobot 是香港大学数据智能实验室（HKUDS）于 2026 年 2 月 2 日发布的超轻量级个人 AI 助手，仅用约 4,000 行 Python 代码实现了核心 Agent 功能，体积比 OpenClaw 的 430,000+ 行代码小 99%。2 月份获得 92,940 颗 Star，成为当月 TrendShift 排行榜冠军。它支持多 LLM 提供商（OpenRouter、Anthropic、OpenAI、DeepSeek 等）和多消息平台，采用技能扩展架构和 Agent 循环设计。语言：Python。值得关注：极简主义设计理念证明了"少即是多"，适合作为轻量级单用途 Agent 部署。
+OpenPlanter 是一个基于大语言模型的递归调查Agent，配备终端UI界面。它能摄取企业注册信息、竞选财务记录、游说披露、政府合同等异构数据集，跨数据源进行实体解析，自动发现隐藏关联。支持OpenAI gpt-5.2、Anthropic claude-opus-4-6等前沿模型，被称为"Palantir的社区版"。项目创建于2026年2月20日，一周内获得1,310+ Stars，在MarkTechPost等科技媒体引发广泛讨论，标志着Agentic AI从理论走向实用的重要信号。
 
-**来源：** [nanobot.club](https://nanobot.club/) | **原文：** [GitHub](https://github.com/HKUDS/nanobot)
+**来源：** [OpenPlanter](https://github.com/ShinMegamiBoson/OpenPlanter)
 
-## GitHub gh-aw — 用 Markdown 编写 GitHub Actions 的 Agentic Workflows
+## alibaba/zvec — 阿里开源"向量数据库的SQLite"
 
-GitHub 官方推出的 Agentic Workflows（gh-aw）正在重塑 CI/CD 流程。开发者不再需要编写复杂的 YAML 配置，而是用自然语言 Markdown 文件描述想要的自动化行为，AI Agent 会自动执行。支持 GitHub Copilot、Claude（Anthropic）和 OpenAI Codex 作为执行引擎，可实现 Issue 自动分类、CI 失败分析、文档维护、测试覆盖率提升等任务。由 GitHub Next 和微软研究院联合开发，目前处于技术预览阶段。语言：Go/Markdown。值得关注：这是 GitHub 将 AI Agent 深度集成到开发工作流的标志性举措。
+Zvec 是阿里巴巴开源的轻量级进程内向量数据库，被誉为"向量数据库的SQLite"。它设计为直接嵌入应用程序，无需独立部署服务，只需 pip install zvec 即可运行生产级向量搜索。底层引擎与阿里搜索、推荐、广告系统同源，处理过数十亿级查询。2026年2月初上线GitHub后迅速走红，对于需要在应用中集成语义搜索、RAG检索的开发者来说，Zvec提供了极低门槛的嵌入式方案，是本周嵌入式AI基础设施崛起的代表项目。
 
-**来源：** [GitHub Agentic Workflows](https://github.github.com/gh-aw/) | **原文：** [GitHub](https://github.com/github/gh-aw)
+**来源：** [alibaba/zvec](https://github.com/alibaba/zvec)
 
-## QwenLM/Qwen3-TTS — 阿里云开源语音合成模型家族
+## RightNow-AI/picolm — 10美元开发板上运行10亿参数LLM
 
-Qwen3-TTS 是阿里云通义千问团队于 2026 年 1 月发布的开源 TTS 模型系列，基于 500 万小时语音数据训练，支持中、英、日、韩、德、法、俄等 10 种语言。它集成了三大核心能力：语音生成、语音设计（通过文本描述创建新声音）和语音克隆（3 秒参考音频即可复制说话人音色）。延迟仅 97 毫秒，可在消费级显卡上实现真正的实时对话。采用 Apache-2.0 许可证开源。语言：Python。值得关注：社区测试者普遍认为其质量可与 ElevenLabs 等商业服务媲美甚至超越。
+PicoLM 是一个专为嵌入式设备打造的超轻量LLM推理引擎，能在仅256MB RAM的10美元开发板上运行10亿参数的大语言模型。相比llama.cpp需要200MB+运行时，PicoLM仅需45MB RAM和80KB二进制文件，零依赖。支持ARM NEON和x86 SSE2硬件加速，兼容所有LLaMA架构的GGUF格式模型。项目于2026年2月20日发布，迅速引发嵌入式AI社区关注，对于IoT设备、边缘计算场景的开发者来说，这是将AI能力下沉到极低成本硬件的突破性工具。
 
-**来源：** [Qwen AI](https://qwen-ai.com/tts/) | **原文：** [GitHub](https://github.com/QwenLM/Qwen3-TTS)
+**来源：** [RightNow-AI/picolm](https://github.com/RightNow-AI/picolm)
 
-## jamiepine/voicebox — 开源本地语音克隆工作室
+## Leonxlnx/taste-skill — 让AI告别"审美灾难"的前端品味矫正工具
 
-Voicebox 是一个基于 Qwen3-TTS 的开源语音合成桌面应用，定位为 ElevenLabs 的本地免费替代品。它提供类似 DAW（数字音频工作站）的专业界面，支持模型下载、语音克隆和语音生成，所有处理完全在本地完成，无需联网。目前在 TrendShift 热门榜排名前十，获得约 1,500 颗 Star。语言：TypeScript。值得关注：隐私优先的设计理念让用户完全掌控自己的语音数据，是 AI 语音领域"本地优先"趋势的代表项目。
+taste-skill 是一个专门解决AI生成前端代码"审美灾难"问题的开源项目，适配Cursor、Codex、Claude Code等主流AI编程工具。它通过预设的设计品味规则，阻止AI生成千篇一律的"AI味"界面——那些泛滥的渐变色、圆角卡片和毫无个性的布局。项目一周内获得1,524 Stars，说明大量AI辅助前端开发者深受"vibe-coding slop"困扰。作为Skills生态固化趋势的代表，taste-skill展示了AI工具链中"品味层"的巨大需求。
 
-**来源：** [voicebox.sh](https://voicebox.sh/) | **原文：** [GitHub](https://github.com/jamiepine/voicebox)
+**来源：** [taste-skill](https://github.com/Leonxlnx/taste-skill)
 
-## steipete/summarize — 万能内容摘要 CLI 与浏览器扩展
+## obra/superpowers — AI Agent技能生态的基础框架
 
-Summarize 是一个多功能内容摘要工具，支持 CLI 和 Chrome 侧边栏两种使用方式。只需指向任意 URL、YouTube 视频、播客或本地文件，即可快速提取要点。它采用完整的提取管线：抓取 → 清洗 → Markdown 转换（readability + markitdown），被屏蔽时自动回退到 Firecrawl。支持本地模型、付费模型和免费模型（OpenRouter 免费预设）。目前约 3,400 颗 Star。语言：TypeScript。值得关注：在 AI Agent 时代，快速理解任意内容是基础能力，这个工具填补了 CLI 生态中的重要空白。
+obra/superpowers 是本周Skills生态固化趋势的核心项目之一，它为AI Agent提供了一套标准化的技能（Skills）管理框架。随着Claude Code、OpenCode等终端Agent的普及，开发者需要一种可复用、可分享的方式来扩展Agent能力，superpowers正是为此而生。与huggingface/skills一起，它们正在定义AI Agent技能生态的标准接口。这标志着AI开发从"单一模型调用"向"模块化Agent能力组合"的范式转变，对Agent开发者和工具链构建者具有重要参考价值。
 
-**来源：** [summarize.sh](https://summarize.sh/) | **原文：** [GitHub](https://github.com/steipete/summarize)
+**来源：** [obra/superpowers](https://github.com/obra/superpowers)
 
-## sickn33/antigravity-awesome-skills — 800+ AI Agent 技能合集
+## huggingface/skills — HuggingFace进军Agent技能市场
 
-这是一个为 Claude Code、Antigravity、Cursor 等 AI 编程助手精心策划的技能（Skills）合集，包含 800+ 经过实战检验的高性能技能模板。涵盖代码审查、安全分析、测试生成、文档更新等开发全流程，并集成了 Anthropic 和 Vercel 官方技能。目前约 9,600 颗 Star。语言：Python/Markdown。值得关注：随着 AI 编程助手成为主流开发工具，"技能生态"正在成为新的竞争维度，这个项目是目前最全面的社区技能库。
+HuggingFace推出的skills项目是其进军AI Agent技能生态的重要布局。作为全球最大的AI模型社区，HuggingFace将其模型分发的成功经验延伸到Agent技能领域，提供标准化的技能定义、发现和安装机制。开发者可以像安装npm包一样为自己的AI Agent添加新能力。与obra/superpowers和taste-skill一起，构成了本周GitHub Trending的一大主题——Skills生态正在从实验阶段走向标准化。对于构建AI应用的团队来说，这意味着Agent能力的复用成本将大幅降低。
 
-**来源：** [TrendShift](https://trendshift.io/) | **原文：** [GitHub](https://github.com/sickn33/antigravity-awesome-skills)
+**来源：** [huggingface/skills](https://github.com/huggingface/skills)
 
-## vercel-labs/agent-browser — AI Agent 专用浏览器自动化 CLI
+## OpenClaw — 史上增长最快的GitHub仓库持续领跑
 
-Vercel Labs 推出的 agent-browser 是专为 AI Agent 设计的浏览器自动化命令行工具。与传统的 Playwright MCP 或 Chrome DevTools MCP 不同，它从 Agent 视角重新设计了浏览器交互方式，让 AI 能以更智能的方式与网页交互。截至 2026 年 1 月已获得约 8,900 颗 Star 和 461 个 Fork。语言：TypeScript。值得关注：2026 年 AI 浏览器市场预计从 45 亿美元增长至 768 亿美元（CAGR 32.8%），agent-browser 是这一赛道的重要开源基础设施。
+OpenClaw（前身Clawdbot）被评为GitHub历史上增长最快的仓库，是领先的Claude Agent编排平台。它支持部署智能多Agent集群、协调自主工作流、构建对话式AI系统。作为本周Trending的常驻项目，OpenClaw生态的衍生工具（如Kalshi/Polymarket预测市场工具集群）也在本周大量涌现。对于希望构建复杂AI Agent系统的开发者来说，OpenClaw提供了从单Agent到多Agent编排的完整解决方案，其生态繁荣度在2026年2月达到新高。
 
-**来源：** [TrendShift](https://trendshift.io/) | **原文：** [GitHub](https://github.com/vercel-labs/agent-browser)
+**来源：** [OpenClaw](https://github.com/openclaw)
 
-## hummingbot/hummingbot — 开源高频加密货币交易机器人
+## ashishpatel26/500-AI-Agents-Projects — 500个AI Agent项目合集
 
-Hummingbot 是一个帮助用户创建和部署高频加密货币交易机器人的开源软件，目前拥有约 16,400 颗 Star。它支持多种交易策略，包括做市、套利和流动性挖矿，可连接主流中心化和去中心化交易所。近期在 TrendShift 热门榜上表现活跃，持续获得社区关注。语言：Python。值得关注：在 DeFi 和量化交易持续升温的背景下，Hummingbot 为个人开发者提供了机构级交易工具的开源替代方案。
+这是一个精心策划的AI Agent用例合集，涵盖医疗、金融、教育、零售等多个行业的500个AI Agent项目。每个项目都附有开源实现链接和实际应用场景说明，展示了AI Agent如何在各垂直领域落地。作为资源索引类项目，它持续获得关注，是了解AI Agent应用全景的最佳入口。对于正在探索AI Agent商业化方向的开发者和创业者来说，这个合集提供了丰富的灵感来源和技术参考，帮助快速定位有价值的细分赛道。
 
-**来源：** [TrendShift](https://trendshift.io/) | **原文：** [GitHub](https://github.com/hummingbot/hummingbot)
+**来源：** [500-AI-Agents-Projects](https://github.com/ashishpatel26/500-AI-Agents-Projects)
 
-## TypeScript 超越 Python 成为 GitHub 最常用语言
+## RuVector — Rust编写的高性能向量图神经网络数据库
 
-根据 GitHub Octoverse 报告，2025 年 8 月 TypeScript 首次超越 Python 和 JavaScript，成为 GitHub 上使用最多的编程语言。过去一年 TypeScript 新增超过 100 万贡献者，是所有语言中绝对增长量最大的。与此同时，TIOBE 2026 年 2 月指数显示 Python 仍以 21.81% 的评分稳居第一（峰值为 2025 年 7 月的 26.98%），Rust 以 83% 的满意度连续两年蝉联"最受喜爱语言"，Go 则在云原生和 AI 工具链领域持续增长。这一趋势反映了 AI 驱动的全栈开发对类型安全的强烈需求。
+RuVector 是一个用Rust编写的高性能、实时、自学习的向量图神经网络数据库，近日登上GitHub Trending首页。它将向量搜索与图神经网络结合，支持实时数据摄取和自适应学习，适用于推荐系统、知识图谱、语义搜索等场景。Rust语言保证了内存安全和极致性能，日增3,600+ Stars的速度令人瞩目。与alibaba/zvec一起，RuVector代表了RAG/向量搜索领域的持续升温趋势，也体现了Rust在AI基础设施领域的加速渗透，是2026年2月最值得关注的新兴数据库项目之一。
 
-**来源：** [GitHub Blog](https://github.blog/news-insights/octoverse/) | **原文：** [WebProNews](https://www.webpronews.com/pythons-iron-grip-on-programming-tightens-as-rust-and-go-shake-up-the-old-guard-inside-the-tiobe-index-shifts-of-2026/)
+**来源：** [RuVector](https://github.com/trending)

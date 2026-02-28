@@ -2,114 +2,102 @@
 title: "AI技术日报"
 domain: "ai-tech"
 date: "2026-02-28"
-itemCount: 18
-generatedAt: "2026-02-28T21:41:50+08:00"
+itemCount: 16
+generatedAt: "2026-02-28T21:55:00+08:00"
 ---
 
-## [Brave] OpenAI 完成 1100 亿美元史上最大规模私募融资，估值达 7300 亿美元
+## [Brave] OpenAI与五角大楼达成AI部署协议，Anthropic遭联邦禁令
 
-OpenAI 于2月27日宣布完成 1100 亿美元的超大规模融资，由亚马逊（500亿美元）、英伟达（300亿美元）和软银（300亿美元）领投，公司投前估值达到 7300 亿美元。CEO Sam Altman 表示公司正进入"前沿 AI 从研究走向全球日常使用"的新阶段。这是科技史上最大的私募融资之一，较去年10月的5000亿美元估值大幅跃升。AWS 将成为 OpenAI 前沿模型的独家第三方云服务商。
+OpenAI CEO Sam Altman宣布公司已与美国国防部达成协议，将在五角大楼的机密网络中部署其AI模型。该协议在特朗普总统下令联邦机构停止使用Anthropic AI技术数小时后宣布。协议明确禁止"国内大规模监控"并要求"人类对武力使用负责"。此前Anthropic因拒绝放弃对自主武器和监控的使用限制，与五角大楼关系破裂。Bloomberg报道称，此举标志着AI军事应用领域的重大格局变化，OpenAI填补了Anthropic留下的空白。
 
-**来源：** [Forbes](https://www.forbes.com/sites/mikestunson/2026/02/27/openai-raises-110-billion-in-latest-round-valuing-firm-at-730-billion/)
+**来源：** [Bloomberg](https://www.bloomberg.com/news/articles/2026-02-28/openai-gives-pentagon-access-to-models-after-anthropic-dustup)
 
-## [Brave] 美国国防部将 Anthropic 列为"国家安全供应链风险"
+## [Brave] 五角大楼将Anthropic列为供应链风险，AI安全之争升级
 
-美国国防部长 Pete Hegseth 于2月27日宣布将 AI 公司 Anthropic 列为"国家安全供应链风险"，禁止所有与美军有业务往来的承包商与 Anthropic 进行商业活动。此前 Anthropic 拒绝向五角大楼提供其 AI 模型的无限制访问权限，坚持禁止大规模国内监控和完全自主武器的两条红线。Anthropic 此前是唯一在五角大楼机密网络上部署先进语言模型的商业 AI 开发商，合同价值高达2亿美元。
+美国国防部正式将Anthropic列为"供应链风险"，这是AI行业与政府关系的重大转折点。此前Anthropic坚持在其与Palantir合作的军事部署中保留对自主武器和大规模监控的使用限制，遭到五角大楼强烈反对。Google和OpenAI员工发表公开信支持Anthropic的立场。分析人士指出，此事件凸显了AI安全理念与国家安全需求之间的深层矛盾，可能对整个AI行业的政府合作模式产生深远影响。
 
-**来源：** [Washington Post](https://www.washingtonpost.com/technology/2026/02/27/trump-anthropic-claude-drop/)
+**来源：** [TechCrunch](https://techcrunch.com/2026/02/27/pentagon-moves-to-designate-anthropic-as-a-supply-chain-risk/)
 
-## [Brave] OpenAI 与五角大楼达成协议，将 AI 模型部署至机密网络
+## [Brave] OpenAI完成1100亿美元融资，Amazon、Nvidia、SoftBank领投
 
-在 Anthropic 被列入黑名单数小时后，OpenAI CEO Sam Altman 宣布与美国国防部达成协议，将其 AI 模型部署到五角大楼的机密网络中。协议内嵌了禁止大规模国内监控的条款，并要求在使用武力场景中保持人类监督。Altman 在 X 上表示："国防部展现了对安全的深切尊重，以及合作实现最佳结果的意愿。"这标志着 AI 军事应用格局的重大转变。
+OpenAI宣布完成史上最大规模私募融资轮之一，筹集1100亿美元，公司估值飙升至7300-8400亿美元区间。Amazon领投500亿美元并深化合作关系，双方正联合开发基于OpenAI模型的"有状态运行环境"（Stateful Runtime Environment），将通过Amazon Bedrock平台提供服务。Nvidia和SoftBank也参与了本轮投资。OpenAI同时将与AWS的基础设施协议从380亿美元扩大至1000亿美元（8年期）。此轮融资体现了AI领域资本循环的特征——投资者同时也是客户。
 
-**来源：** [CNBC](https://www.cnbc.com/2026/02/27/openai-strikes-deal-with-pentagon-hours-after-rival-anthropic-was-blacklisted-by-trump.html)
+**来源：** [The New York Times](https://www.nytimes.com/2026/02/27/business/openai-funding.html)
 
-## [RSS] ChatGPT 周活跃用户突破 9 亿，付费订阅用户超 5000 万
+## [RSS] ChatGPT周活跃用户突破9亿，逼近10亿里程碑
 
-OpenAI 于2月27日宣布 ChatGPT 周活跃用户已达 9 亿，距离 10 亿大关仅一步之遥。同时付费订阅用户超过 5000 万，企业付费用户达 900 万。相比18个月前，用户量增长了 350%。ChatGPT 产品副总裁 Nick Turley 表示，2026年1月和2月有望成为公司历史上新增订阅用户最多的两个月。这一里程碑巩固了 ChatGPT 作为全球最广泛使用的消费级 AI 产品的地位。
+OpenAI旗下ChatGPT周活跃用户数达到9亿，距离10亿用户大关仅一步之遥。这一数据与1100亿美元融资同步公布，显示ChatGPT在全球AI应用市场的绝对主导地位。分析指出，ChatGPT的用户增长得益于持续的产品迭代（包括GPT-5.2 Pro等新模型）、多模态能力扩展以及企业级应用的深入渗透。同时，韩国市场数据显示Google Gemini正快速追赶，ChatGPT的"铁幕"开始出现裂缝，AI助手市场竞争格局正在演变。
 
 **来源：** [TechCrunch](https://techcrunch.com/2026/02/27/chatgpt-reaches-900m-weekly-active-users/)
 
-## [RSS] Google 和 OpenAI 员工发公开信支持 Anthropic 对抗五角大楼
+## [Brave] Google和OpenAI员工发公开信支持Anthropic拒绝军事AI滥用
 
-Google 和 OpenAI 的员工联名发表公开信，支持 Anthropic 在五角大楼事件中的立场。信中表达了对 AI 安全红线的支持，认为 Anthropic 坚持禁止大规模监控和完全自主武器的原则是正确的。这封公开信反映了 AI 行业内部对军事应用边界的深层分歧，也凸显了 AI 伦理与国家安全之间日益紧张的关系。
+Google和OpenAI的员工联合发表公开信，声援Anthropic在五角大楼争端中的立场。公开信强调AI技术不应被用于自主武器系统和大规模监控，呼吁行业建立明确的军事AI使用红线。这是AI行业内部首次出现跨公司的集体行动，反映出技术从业者对AI军事化的深层忧虑。事件发生在Anthropic CEO Dario Amodei坚持立场、五角大楼最后通牒到期之际，成为2026年AI伦理领域最具标志性的事件之一。
 
 **来源：** [TechCrunch](https://techcrunch.com/2026/02/27/employees-at-google-and-openai-support-anthropics-pentagon-stand-in-open-letter/)
 
-## [Brave] 中国发布首个人形机器人与具身智能国家标准框架
+## [RSS] AI音乐生成器Suno付费用户突破200万，年收入达3亿美元
 
-据央视报道，中国于2月28日发布了首个国家级人形机器人与具身人工智能标准框架。该文件为人形机器人的设计、制造和部署建立了统一的技术标准和规范体系，涵盖感知、决策、运动控制等核心技术领域。这是全球范围内首个针对具身 AI 的国家级标准框架，标志着中国在人形机器人产业化方面迈出关键一步。
-
-**来源：** [TechNode](https://technode.com/2026/02/28/china-releases-first-national-standard-framework-for-humanoid-robots-and-embodied-ai/)
-
-## [Brave] DeepSeek 即将发布新 AI 模型，华为芯片训练遇阻后转向英伟达
-
-据英国《金融时报》2月28日报道，中国 AI 初创公司 DeepSeek 即将发布其备受期待的新一代 AI 模型。此前 DeepSeek 尝试使用华为芯片进行训练但遭遇失败，被迫将重型计算任务转回英伟达 GPU，华为芯片仅用于较轻量的推理任务。此事凸显了中国在 AI 芯片自主化道路上面临的工程现实挑战，也为北京的科技独立战略蒙上阴影。
-
-**来源：** [Financial Times via OneNewsPage](https://www.onenewspage.com/n/Business/1zte55oiiy/DeepSeek-to-release-long-awaited-AI-model-in.htm)
-
-## [WebSearch] Google DeepMind 发布 Gemini 3.1 Pro，ARC-AGI-2 得分翻倍
-
-Google DeepMind 于2月19日发布 Gemini 3.1 Pro，这是 Gemini 3 系列的重大升级。该模型在 ARC-AGI-2 基准测试中获得 77.1% 的得分，是前代的两倍多，在16项行业基准中的13项中名列前茅。Gemini 3.1 Pro 支持100万 token 上下文窗口，专为复杂推理、代理工作流和多模态任务设计。不过其首次响应延迟达29秒，在实时交互场景中仍有改进空间。
-
-**来源：** [Computer Tech](https://computertech.co/gemini-3-1-pro-review-2026-features-benchmarks-pricing-and-verdict/)
-
-## [RSS] AI 音乐平台 Suno 付费用户突破 200 万，年收入达 3 亿美元
-
-AI 音乐生成平台 Suno 宣布其付费订阅用户已突破 200 万，年经常性收入（ARR）达到 3 亿美元。CEO Mikey Shulman 在 LinkedIn 上分享了这一里程碑。值得注意的是，仅三个月前 Suno 在融资时年收入还是 2 亿美元，单季度增长 50% 在科技行业堪称罕见。目前已有超过 1 亿人使用过该平台，尽管 AI 音乐版权争议仍在持续。
+AI音乐生成平台Suno宣布其付费订阅用户已突破200万，年经常性收入（ARR）达到3亿美元。这一里程碑标志着AI生成式音乐从实验阶段正式进入大规模商业化阶段。Suno的快速增长得益于其不断提升的音乐生成质量和用户友好的创作界面，使非专业用户也能轻松创作高质量音乐作品。该数据也引发了音乐行业对AI创作版权和原创性的持续讨论。
 
 **来源：** [TechCrunch](https://techcrunch.com/2026/02/27/ai-music-generator-suno-hits-2-million-paid-subscribers-and-300m-in-annual-recurring-revenue/)
 
-## [RSS] Perplexity 推出新产品 Computer，押注多模型 AI 策略
+## [RSS] Perplexity推出"Computer"新功能，押注多模型AI策略
 
-Perplexity 于2月27日发布新产品"Computer"，这是该公司在多模型 AI 策略上的又一次押注。该产品允许用户在多个 AI 模型之间切换使用，反映了 AI 搜索引擎公司向更广泛的 AI 工具平台转型的趋势。Perplexity 认为用户需要根据不同任务选择不同的 AI 模型，而非被锁定在单一模型生态中。
+Perplexity发布名为"Computer"的新产品功能，允许用户在单一界面中调用多个AI模型完成不同任务。该功能体现了Perplexity"用户需要多种AI模型"的产品理念，通过智能路由将查询分配给最适合的模型处理。这一策略与单一模型提供商形成差异化竞争，满足了用户在不同场景下对模型能力的多样化需求。Perplexity正从AI搜索引擎向综合AI工作平台转型。
 
 **来源：** [TechCrunch](https://techcrunch.com/2026/02/27/perplexitys-new-computer-is-another-bet-that-users-need-many-ai-models/)
 
-## [Brave] MWC 2026：中兴发布搭载字节跳动豆包 AI 助手的 Nubia M153
+## [WebSearch] 中国发布首个人形机器人与具身智能国家标准体系
 
-在巴塞罗那 MWC 2026 大会上，中兴通讯宣布将推出搭载字节跳动"豆包"AI 助手技术预览版的 Nubia M153 智能手机。这是豆包 AI 首次以预装形式出现在智能手机硬件中，标志着字节跳动在 AI 助手领域从软件应用向硬件生态的扩展。该设备将在 MWC 期间进行展示和演示。
+中国正式发布《人形机器人与具身智能标准体系（2026版）》，这是国家层面首个针对人形机器人和具身AI的标准框架。据央视报道，该文件涵盖了机器人硬件规格、AI算法接口、安全测试标准等多个维度，旨在规范快速发展的人形机器人产业。此举被视为中国在具身智能领域抢占标准制定话语权的重要举措，将对国内外机器人企业的产品设计和市场准入产生直接影响。
+
+**来源：** [TechNode](https://technode.com/2026/02/28/china-releases-first-national-standard-framework-for-humanoid-robots-and-embodied-ai/)
+
+## [WebSearch] DeepSeek即将发布新模型，与华为合作减少对Nvidia依赖
+
+据Financial Times报道，中国AI公司DeepSeek正准备发布其备受期待的新一代AI模型，这将是对美国竞争对手的又一次挑战。值得关注的是，DeepSeek已与华为展开合作，致力于减少对Nvidia芯片的依赖。此前DeepSeek凭借V3.2模型在全球AI调用量排行中跻身前五，其高性价比路线持续冲击行业格局。新模型的发布时间和具体性能参数尚未公布，但市场预期其将在推理能力上实现显著突破。
+
+**来源：** [Financial Times via OneNewsPage](https://www.onenewspage.com/n/Business/1zte55oiiy/DeepSeek-to-release-long-awaited-AI-model-in.htm)
+
+## [WebSearch] 2月中国AI调用量首超美国，四款国产大模型霸榜全球前五
+
+据36氪报道，2026年2月16日至22日的全球AI调用量周榜显示，中国AI调用量首次超越美国。暗面的Kimi K2.5、智谱的GLM-5、DeepSeek的V3.2以及MiniMax的M2.5四款国产模型占据全球前五中的四席，合计贡献Top5总调用量的85.7%。其中MiniMax于2月13日发布的M2.5模型上线不足一周便迅速攀升。这一数据标志着中国在AI应用层面的爆发式增长，国产算力需求正经历指数级增长。
+
+**来源：** [36氪](https://36kr.com/p/3700980530851712)
+
+## [Brave] Crypto VC Paradigm扩展至AI和机器人领域，设立15亿美元基金
+
+据华尔街日报报道，知名加密货币风投机构Paradigm宣布将业务范围扩展至AI和机器人领域，设立15亿美元新基金。Paradigm联合创始人Matt Huang此前表示AI领域的发展"太有趣了，不容忽视"，并认为AI与加密货币将有大量交叉领域。这一动向反映了传统科技投资机构对AI赛道的持续加码，也预示着AI与区块链技术融合的新趋势。2026年2月AI相关融资总额已超过1950亿美元，创下历史纪录。
+
+**来源：** [CoinSpectator](https://coinspectator.com/cointelegraph/2026/02/28/crypto-vc-paradigm-expands-into-ai-robotics-with-1-5b-fund-wsj/)
+
+## [RSS] MIT新技术利用空闲处理器时间大幅降低LLM训练成本
+
+MIT主导的研究团队发布了一项新技术，通过利用处理器的空闲时间来加速大语言模型的训练过程，且不牺牲模型精度。该方法能够显著降低LLM训练的计算成本和能耗，对于资源受限的研究机构和中小企业尤为重要。随着大模型参数规模持续增长，训练成本已成为制约AI发展的关键瓶颈之一，这类效率优化技术的突破具有重要的产业价值。
+
+**来源：** [Open Source For You](https://www.opensourceforu.com/2026/02/electronics-cut-llm-training-costs-fast/)
+
+## [RSS] AI正在重塑世界顶级围棋选手的思维方式
+
+MIT Technology Review报道，AI正在深刻改变职业围棋选手的训练和比赛方式。自AlphaGo以来，AI围棋工具已从"对手"演变为"教练"，顶级棋手通过与AI系统的持续互动，发展出了全新的棋局理解和战术思维。研究发现，长期使用AI训练的棋手在创造性走法和全局判断上都有显著提升，但也引发了关于人类创造力是否被AI同质化的讨论。这一案例为AI辅助人类认知提升提供了独特的研究视角。
+
+**来源：** [MIT Technology Review](https://www.technologyreview.com/2026/02/27/1133624/ai-is-rewiring-how-the-worlds-best-go-players-think/)
+
+## [WebSearch] MWC 2026：中兴发布搭载豆包AI助手的Nubia M153
+
+在MWC 2026大会上，中兴通讯发布了搭载字节跳动"豆包"AI助手的Nubia M153智能手机。这是豆包AI首次以预装形式登陆海外市场手机产品，标志着中国AI大模型出海战略的新进展。Nubia M153定位中端市场，豆包AI助手将提供多语言对话、图像理解、智能翻译等功能。此举也反映了手机厂商与AI公司深度绑定的行业趋势，端侧AI正成为智能手机差异化竞争的核心卖点。
 
 **来源：** [TechNode](https://technode.com/2026/02/28/mwc-2026-zte-to-debut-nubia-m153-with-doubao-ai-assistant-preview/)
 
-## [WebSearch] Claude Opus 4.6 与 GPT-5.3 Codex 同日发布，AI 编码竞赛白热化
+## [GitHub Release] llama.cpp发布b8180版本，持续优化本地LLM推理
 
-2月5日，Anthropic 发布了 Claude Opus 4.6（100万 token 上下文窗口），OpenAI 在20分钟后推出 GPT-5.3 Codex。Opus 4.6 定位为编码、代理和企业场景的顶级模型；GPT-5.3 Codex 则将 GPT-5.2 的编码能力与推理能力合二为一，速度提升25%。两大模型的同日对决标志着 AI 编码工具进入新的竞争阶段，开发者选择空间进一步扩大。
+ggerganov/llama.cpp项目于2026年2月28日发布b8180版本。llama.cpp是目前最流行的本地LLM推理框架之一，支持在消费级硬件上高效运行大语言模型。此次更新延续了项目的高频迭代节奏，持续优化量化推理性能、内存管理和模型兼容性。该项目此前还发布了gguf-v0.18.0格式更新，进一步完善了模型文件标准。llama.cpp的活跃开发对推动AI民主化和边缘部署具有重要意义。
 
-**来源：** [Flowtivity AI](https://flowtivity.ai/blog/ai-coding-agents-compared-2026/)
+**来源：** [GitHub](https://github.com/ggerganov/llama.cpp/releases/tag/b8180)
 
-## [RSS] Anthropic CEO 在五角大楼最后期限前坚守 AI 安全立场
+## [Brave] Musk在证词中抨击OpenAI，称"没人因为Grok自杀"
 
-Anthropic CEO Dario Amodei 在五角大楼设定的最后期限前公开表态，坚持公司在 AI 安全方面的两条不可谈判的红线：禁止大规模国内监控和禁止无人类控制的完全自主武器。Amodei 表示"无论来自国防部的恐吓或惩罚如何，都不会改变我们的立场"。这一事件已成为 AI 行业关于技术伦理与政府权力边界的标志性案例。
+Elon Musk在针对OpenAI的诉讼证词中猛烈抨击其前合作伙伴，声称"没有人因为Grok而自杀"，暗指ChatGPT相关的安全事件。这一言论在AI安全社区引发广泛争议。Musk与OpenAI的法律纠纷已持续多年，核心争议围绕OpenAI从非营利转向营利性结构。此案的走向可能对AI行业的组织治理模式和安全责任界定产生重要影响，也折射出AI巨头之间日益激烈的竞争态势。
 
-**来源：** [TechCrunch](https://techcrunch.com/2026/02/26/anthropic-ceo-stands-firm-as-pentagon-deadline-looms/)
-
-## [Brave] Basis 获 1 亿美元 B 轮融资，成为 AI 会计领域首个独角兽
-
-AI 驱动的会计平台 Basis 完成 1 亿美元 B 轮融资，公司估值达到 11.5 亿美元，正式跻身金融科技独角兽行列。Basis 利用代理式 AI（Agentic AI）技术自动化处理复杂的会计和财务工作流程，是 AI 在垂直行业深度应用的典型案例。该轮融资也反映了投资者对 AI 在专业服务领域商业化前景的强烈信心。
-
-**来源：** [Fintech Futures](https://www.fintechfutures.com/ai-in-fintech/february-2026-top-five-ai-stories-of-the-month)
-
-## [RSS] Mistral AI 与全球咨询巨头埃森哲达成合作
-
-法国 AI 初创公司 Mistral AI 于2月26日宣布与全球最大咨询公司之一埃森哲（Accenture）达成合作协议。此次合作将帮助埃森哲的企业客户部署 Mistral 的开源和商业 AI 模型，加速企业级 AI 应用落地。这是欧洲 AI 公司在全球企业市场扩张的重要一步，也体现了大型咨询公司在 AI 转型中扮演的关键渠道角色。
-
-**来源：** [TechCrunch](https://techcrunch.com/2026/02/26/mistral-ai-inks-a-deal-with-global-consulting-giant-accenture/)
-
-## [Brave] 英伟达 CEO 黄仁勋：AI 热潮才刚刚开始
-
-英伟达 CEO 黄仁勋近日表示，人工智能热潮"才刚刚开始"，预计 AI 将"无处不在"。结合 OpenAI 1100 亿美元融资和 2026 年 2 月 AI 相关资本追踪总额超过 1950 亿美元的数据，AI 行业的资本密集度正在达到前所未有的水平。英伟达作为 AI 基础设施的核心供应商，其 GPU 需求持续旺盛，公司在 OpenAI 最新融资中也投入了 300 亿美元。
-
-**来源：** [Fox Business](https://www.foxbusiness.com/category/artificial-intelligence)
-
-## [RSS] Simon Willison 发文探讨 AI 代理编程的实践细节
-
-知名开发者 Simon Willison 于2月27日发表长文"An AI agent coding skeptic tries AI agent coding, in excessive detail"，以 AI 编码怀疑论者的视角详细记录了使用 AI 代理进行编程的完整体验。文章涵盖 Python 和 Rust 项目，深入探讨了代理式编程（Agentic Engineering）的模式、局限性和最佳实践，是理解当前 AI 辅助编程真实水平的重要参考。
-
-**来源：** [Simon Willison's Weblog](https://simonwillison.net/2026/Feb/27/ai-agent-coding-in-excessive-detail/)
-
-## [RSS] Anthropic 向大型开源项目维护者免费提供 Claude Max
-
-Anthropic 于近日宣布向大型开源项目的维护者免费提供六个月的 Claude Max 订阅。Simon Willison 在其博客中报道了这一消息。此举旨在支持开源社区，让关键基础设施的维护者能够利用最先进的 AI 工具提升开发效率。这也是 Anthropic 在开发者生态建设方面的重要投入，有助于增强 Claude 在开发者群体中的影响力。
-
-**来源：** [Simon Willison's Weblog](https://simonwillison.net/2026/Feb/27/claude-max-oss-six-months/)
+**来源：** [TechCrunch](https://techcrunch.com/2026/02/27/musk-bashes-openai-in-deposition-saying-nobody-committed-suicide-because-of-grok/)
