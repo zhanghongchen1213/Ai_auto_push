@@ -357,22 +357,53 @@ generatedAt: "{ISO8601时间戳}"
 - 如果资讯直接来自原始来源（非聚合转载），只需使用单链接格式 `**来源：** [名称](原文URL)`
 
 
-### Step 4: 发布（Publish）
+### Step 4: 格式验证与自动修复（CRITICAL）
+
+**在 Git 提交前必须执行格式验证，确保所有文件符合 schema 要求。**
+
+使用 Bash 执行验证脚本：
+
+```bash
+bash /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push/scripts/validate-content.sh {date}
+```
+
+验证脚本会自动检查并修复以下问题：
+1. ✅ `title`、`domain`、`date` 字段必须用引号包裹
+2. ✅ 必须包含 `itemCount` 字段（自动统计 ## 或 ### 标题数量）
+3. ✅ 必须包含 `generatedAt` 字段（ISO 8601 格式，UTC+8）
+4. ✅ 移除不符合 schema 的字段（如 `tags`、`category` 等）
+
+**验证失败处理：**
+- 如果脚本返回错误（exit code ≠ 0），说明存在无法自动修复的问题
+- 必须手动检查错误信息，修复后重新验证
+- 只有验证通过（exit code = 0）才能继续执行 Git 提交
+
+**验证成功后：**
+- 脚本会输出修复摘要（Fixed: N files）
+- 所有文件已自动修复为符合 schema 的格式
+- 可以安全地执行 Git 提交和推送
+
+
+### Step 5: 发布（Publish）
+
+**在执行 Git 操作前，必须先运行格式验证（Step 4）。**
 
 使用 Bash 工具执行 Git 操作（必须先 cd 到项目目录）：
 
 ```bash
-cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git add src/content/daily/{date}/ && git commit -m "chore: daily update {date} ({success}/{total} domains)" && git push
+cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && bash scripts/validate-content.sh {date} && git add src/content/daily/{date}/ && git commit -m "chore: daily update {date} ({success}/{total} domains)" && git push
 ```
 
 **自动推送（CRITICAL — 强制执行）：**
+- 格式验证 → git add → git commit → git push 必须在同一条命令中执行
+- 使用 `&&` 连接确保前一步成功才执行下一步
+- 如果验证失败（脚本返回非 0），整个命令链会中断，不会执行 git 操作
 - git push 必须自动执行，**禁止**询问用户确认
-- commit 和 push 合并在同一条 Bash 命令中执行，确保全流程无人工干预
-- 这是自动化管道的核心要求：抓取 → 筛选 → 写文件 → commit → push 全程自动完成
+- 这是自动化管道的核心要求：抓取 → 筛选 → 写文件 → **验证修复** → commit → push 全程自动完成
 - 如果部分领域失败，commit message 应反映实际数量
 - push 失败时最多重试 2 次，重试命令：`cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git push`
 
-### Step 5: 汇总报告
+### Step 6: 汇总报告
 
 向用户报告执行结果：
 
@@ -382,6 +413,10 @@ cd /Users/xiaozhangxuezhang/Documents/GitHub/Ai_auto_push && git add src/content
 | 跨境电商 | 成功/失败 | N | 10 | 站点爬取+搜索 |
 | 产品创业 | 成功/失败 | N | 10 | 站点爬取+搜索 |
 | GitHub热门 | 成功/失败 | N | 10 | 站点爬取+搜索 |
+
+**格式验证结果：**
+- 自动修复的文件数量
+- 验证通过状态
 
 提示用户可运行 `pnpm build` 验证构建。
 

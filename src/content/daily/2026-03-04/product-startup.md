@@ -1,7 +1,9 @@
 ---
-title: 产品创业领域资讯
-date: 2026-03-04
-domain: product-startup
+title: "产品创业领域资讯"
+domain: "product-startup"
+date: "2026-03-04"
+itemCount: 10
+generatedAt: "2026-03-04T20:00:00+08:00"
 ---
 
 ## 今日精选

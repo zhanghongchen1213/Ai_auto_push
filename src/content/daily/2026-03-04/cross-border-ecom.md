@@ -1,8 +1,9 @@
 ---
-title: 跨境电商日报
-date: 2026-03-04
-domain: cross-border-ecom
-tags: [跨境电商, 政策, 平台动态, 物流]
+title: "跨境电商日报"
+domain: "cross-border-ecom"
+date: "2026-03-04"
+itemCount: 10
+generatedAt: "2026-03-04T20:00:00+08:00"
 ---
 
 # 跨境电商日报 - 2026年3月4日

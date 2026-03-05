@@ -1,8 +1,9 @@
 ---
-title: GitHub 热门开源项目精选
-date: 2026-03-04
-domain: github-trending
-tags: [开源项目, GitHub, AI, 开发者工具]
+title: "GitHub 热门开源项目精选"
+domain: "github-trending"
+date: "2026-03-04"
+itemCount: 10
+generatedAt: "2026-03-04T20:00:00+08:00"
 ---
 
 # GitHub 热门开源项目精选（2026-03-04）

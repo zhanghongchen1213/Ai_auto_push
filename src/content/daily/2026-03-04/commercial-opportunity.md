@@ -2,13 +2,7 @@
 title: "商业机会日报"
 domain: "commercial-opportunity"
 date: "2026-03-04"
-finalStatus: "no_viable_proposal"
-retrievedCount: 0
-scoredCount: 0
-eliminatedCount: 0
-searchDomains: ""
-proposalName: ""
-proposalScore: ""
+itemCount: 7
 generatedAt: "2026-03-04T20:00:00+08:00"
 ---
 
