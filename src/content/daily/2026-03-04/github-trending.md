@@ -1,7 +1,7 @@
 ---
 title: GitHub 热门开源项目精选
 date: 2026-03-04
-category: github-trending
+domain: github-trending
 tags: [开源项目, GitHub, AI, 开发者工具]
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: 跨境电商日报
 date: 2026-03-04
-category: cross-border-ecom
+domain: cross-border-ecom
 tags: [跨境电商, 政策, 平台动态, 物流]
 ---
 

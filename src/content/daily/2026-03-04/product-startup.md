@@ -1,7 +1,7 @@
 ---
 title: 产品创业领域资讯
 date: 2026-03-04
-category: product-startup
+domain: product-startup
 ---
 
 ## 今日精选
