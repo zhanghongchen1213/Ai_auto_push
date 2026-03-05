@@ -35,58 +35,80 @@ for file in "$CONTENT_DIR"/*.md; do
     continue
   fi
 
-  # 检查必需字段
+  # 提取现有值
+  TITLE=$(grep "^title:" "$file" | sed 's/^title: *//; s/^"//; s/"$//' || echo "")
+  DOMAIN=$(grep "^domain:" "$file" | sed 's/^domain: *//; s/^"//; s/"$//' || echo "")
+  DATE=$(grep "^date:" "$file" | sed 's/^date: *//; s/^"//; s/"$//' || echo "")
+
   NEEDS_FIX=0
 
-  # 检查 title 是否有引号
+  # 检查基本字段引号
   if grep -q "^title: [^\"']" "$file"; then
-    echo "  ⚠️  title needs quotes"
     NEEDS_FIX=1
   fi
-
-  # 检查 domain 是否有引号
   if grep -q "^domain: [^\"']" "$file"; then
-    echo "  ⚠️  domain needs quotes"
     NEEDS_FIX=1
   fi
-
-  # 检查 date 是否有引号
   if grep -q "^date: [^\"']" "$file"; then
-    echo "  ⚠️  date needs quotes"
     NEEDS_FIX=1
   fi
 
-  # 检查是否缺少 itemCount
-  if ! grep -q "^itemCount:" "$file"; then
-    echo "  ⚠️  missing itemCount"
-    NEEDS_FIX=1
+  # 根据 domain 检查特定字段
+  if [ "$DOMAIN" = "commercial-opportunity" ]; then
+    # opportunitySchema
+    if ! grep -q "^finalStatus:" "$file"; then
+      NEEDS_FIX=1
+    fi
+    if ! grep -q "^retrievedCount:" "$file"; then
+      NEEDS_FIX=1
+    fi
+    if ! grep -q "^scoredCount:" "$file"; then
+      NEEDS_FIX=1
+    fi
+    if ! grep -q "^eliminatedCount:" "$file"; then
+      NEEDS_FIX=1
+    fi
+  else
+    # newsSchema
+    if ! grep -q "^itemCount:" "$file"; then
+      NEEDS_FIX=1
+    fi
   fi
 
-  # 检查是否缺少 generatedAt
   if ! grep -q "^generatedAt:" "$file"; then
-    echo "  ⚠️  missing generatedAt"
     NEEDS_FIX=1
   fi
 
   if [ $NEEDS_FIX -eq 1 ]; then
     echo "  🔧 Auto-fixing $filename..."
 
-    # 提取现有值
-    TITLE=$(grep "^title:" "$file" | sed 's/^title: *//; s/^"//; s/"$//')
-    DOMAIN=$(grep "^domain:" "$file" | sed 's/^domain: *//; s/^"//; s/"$//')
-    DATE=$(grep "^date:" "$file" | sed 's/^date: *//; s/^"//; s/"$//')
-
-    # 统计条目数（## 或 ### 标题）
-    ITEM_COUNT=$(grep -c "^## \|^### " "$file" || echo "0")
-
-    # 生成时间戳
     GENERATED_AT="${DATE}T20:00:00+08:00"
-
-    # 创建临时文件
     TEMP_FILE=$(mktemp)
 
-    # 写入修复后的 frontmatter
-    cat > "$TEMP_FILE" <<EOF
+    if [ "$DOMAIN" = "commercial-opportunity" ]; then
+      # opportunitySchema
+      FINAL_STATUS=$(grep "^finalStatus:" "$file" | sed 's/^finalStatus: *//; s/^"//; s/"$//' || echo "no_viable_proposal")
+      RETRIEVED=$(grep "^retrievedCount:" "$file" | sed 's/^retrievedCount: *//' || echo "0")
+      SCORED=$(grep "^scoredCount:" "$file" | sed 's/^scoredCount: *//' || echo "0")
+      ELIMINATED=$(grep "^eliminatedCount:" "$file" | sed 's/^eliminatedCount: *//' || echo "0")
+
+      cat > "$TEMP_FILE" <<EOF
+---
+title: "$TITLE"
+domain: "$DOMAIN"
+date: "$DATE"
+finalStatus: "$FINAL_STATUS"
+retrievedCount: $RETRIEVED
+scoredCount: $SCORED
+eliminatedCount: $ELIMINATED
+generatedAt: "$GENERATED_AT"
+---
+EOF
+    else
+      # newsSchema
+      ITEM_COUNT=$(grep -c "^## \|^### " "$file" || echo "0")
+
+      cat > "$TEMP_FILE" <<EOF
 ---
 title: "$TITLE"
 domain: "$DOMAIN"
@@ -95,11 +117,10 @@ itemCount: $ITEM_COUNT
 generatedAt: "$GENERATED_AT"
 ---
 EOF
+    fi
 
-    # 追加正文内容（跳过原 frontmatter）
+    # 追加正文
     awk '/^---$/{if(++count==2){flag=1;next}}flag' "$file" >> "$TEMP_FILE"
-
-    # 替换原文件
     mv "$TEMP_FILE" "$file"
 
     echo "  ✅ Fixed $filename"
@@ -114,8 +135,5 @@ echo "📊 Summary:"
 echo "  Fixed: $FIXED files"
 echo "  Errors: $ERRORS files"
 
-if [ $ERRORS -gt 0 ]; then
-  exit 1
-fi
-
+[ $ERRORS -gt 0 ] && exit 1
 exit 0
