@@ -79,6 +79,33 @@ for file in "$CONTENT_DIR"/*.md; do
     NEEDS_FIX=1
   fi
 
+  # 格式检查（仅警告，不自动修复）
+  BODY=$(awk '/^---$/{if(++count==2){flag=1;next}}flag' "$file")
+
+  # 检查是否有顶级标题（# 开头）
+  if echo "$BODY" | grep -q "^# "; then
+    echo "  ⚠️  Warning: Found top-level heading (# ...) after frontmatter"
+    echo "     Standard format: Use ## for all titles, no top-level headings"
+  fi
+
+  # 检查是否有编号标题（## 1. 或 ### 1. 等）
+  if echo "$BODY" | grep -qE "^##+ [0-9]+\."; then
+    echo "  ⚠️  Warning: Found numbered titles (## 1. ...)"
+    echo "     Standard format: Use ## Title without numbering"
+  fi
+
+  # 检查来源格式（应该是 **来源：** ... | **原文：** ...）
+  if echo "$BODY" | grep -q "来源：" && ! echo "$BODY" | grep -q "\*\*来源：\*\*"; then
+    echo "  ⚠️  Warning: Source format missing bold markers"
+    echo "     Standard format: **来源：** [text](URL) | **原文：** [text](URL)"
+  fi
+
+  # 检查是否有 --- 分隔符
+  if echo "$BODY" | grep -q "^---$"; then
+    echo "  ⚠️  Warning: Found --- separators in content body"
+    echo "     Standard format: No separators between items"
+  fi
+
   if [ $NEEDS_FIX -eq 1 ]; then
     echo "  🔧 Auto-fixing $filename..."
 
