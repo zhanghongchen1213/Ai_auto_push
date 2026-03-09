@@ -19,12 +19,22 @@ if ! echo "$FIRST_LINE" | grep -q "^##"; then
 fi
 
 # 检查每个 ## 标题后是否有来源链接
+IN_ITEM=0
+HAS_SOURCE=0
+TITLE=""
+
 while IFS= read -r line; do
   if [[ $line =~ ^##[[:space:]] ]]; then
+    # 检查上一条是否有来源
+    if [[ $IN_ITEM -eq 1 ]] && [[ $HAS_SOURCE -eq 0 ]]; then
+      echo "❌ 错误: 缺少来源链接"
+      echo "   标题: $TITLE"
+      ((ERRORS++))
+    fi
     TITLE="$line"
     IN_ITEM=1
     HAS_SOURCE=0
-  elif [[ $IN_ITEM -eq 1 ]] && [[ $line =~ ^\*\*来源[：:]\*\* ]]; then
+  elif [[ $IN_ITEM -eq 1 ]] && [[ $line =~ ^\*\*来源 ]]; then
     # 检查是否是链接格式
     if [[ $line =~ \[.*\]\(http ]]; then
       HAS_SOURCE=1
@@ -36,14 +46,6 @@ while IFS= read -r line; do
       ((ERRORS++))
       HAS_SOURCE=1
     fi
-  elif [[ $IN_ITEM -eq 1 ]] && [[ $line =~ ^##[[:space:]] ]]; then
-    if [[ $HAS_SOURCE -eq 0 ]]; then
-      echo "❌ 错误: 缺少来源链接"
-      echo "   标题: $TITLE"
-      ((ERRORS++))
-    fi
-    TITLE="$line"
-    HAS_SOURCE=0
   fi
 done <<< "$BODY"
 
