@@ -429,7 +429,7 @@ finalStatus = finalProposal.status
 searchDomains = selectedDomains 的 platform 列表逗号分隔
 proposalName = finalProposal.status == "commercializable" ? finalProposal.candidate.title : ""
 proposalScore = finalProposal.status == "commercializable" ? finalProposal.candidate.scores.total.toString() : ""
-generatedAt = 当前时间 ISO8601（UTC+8）
+generatedAt = 当前时间 ISO8601 格式，必须包含时区标识符（格式：YYYY-MM-DDTHH:mm:ss.sssZ 或 YYYY-MM-DDTHH:mm:ss.sss+08:00）
 ```
 
 #### 4.2 生成 frontmatter
