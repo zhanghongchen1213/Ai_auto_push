@@ -1,6 +1,6 @@
 ---
 name: commercial-opportunity
-description: "商业机会日报全自主管道：基于记忆的智能域选择、多轮深挖保证每日产出、人类可读淘汰分析。当用户说"运行商业机会管道"、"商业机会日报"、"commercial opportunity"、"/commercial-opportunity"、"执行商业机会检索"时触发。"
+description: 商业机会日报全自主管道：基于记忆的智能域选择、多轮深挖保证每日产出、人类可读淘汰分析。当用户说"运行商业机会管道"、"商业机会日报"、"commercial opportunity"、"/commercial-opportunity"、"执行商业机会检索"时触发。
 ---
 
 # 商业机会日报 — 全自主管道编排

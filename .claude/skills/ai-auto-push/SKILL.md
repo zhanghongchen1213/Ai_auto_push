@@ -1,6 +1,6 @@
 ---
 name: ai-auto-push
-description: "自动化内容管道：用 WebFetch 爬取专业资讯网站 + RSS订阅 + GitHub Releases + Brave Search + WebSearch 抓取多领域资讯、AI 筛选摘要、Markdown 格式化输出、Git 提交推送。当用户说"运行管道"、"抓取今日资讯"、"执行内容管道"、"pipeline"、"/ai-auto-push"时触发。覆盖领域：AI技术（多源增强）、跨境电商、产品创业、GitHub热门。"
+description: 自动化内容管道：用 WebFetch 爬取专业资讯网站 + RSS订阅 + GitHub Releases + Brave Search + WebSearch 抓取多领域资讯、AI 筛选摘要、Markdown 格式化输出、Git 提交推送。当用户说"运行管道"、"抓取今日资讯"、"执行内容管道"、"pipeline"、"/ai-auto-push"时触发。覆盖领域：AI技术（多源增强）、跨境电商、产品创业、GitHub热门。
 ---
 
 # AI Auto Push — 内容管道自动化
