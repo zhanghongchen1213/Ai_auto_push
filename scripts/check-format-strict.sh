@@ -11,11 +11,17 @@ ERRORS=0
 BODY=$(awk '/^---$/{if(++count==2){flag=1;next}}flag' "$FILE")
 
 # 检查是否有概述段落（frontmatter 后直接有非标题文本）
-FIRST_LINE=$(echo "$BODY" | grep -v "^$" | head -1)
-if ! echo "$FIRST_LINE" | grep -q "^##"; then
-  echo "❌ 错误: frontmatter 后有概述段落，应直接开始第一条资讯"
-  echo "   发现: $FIRST_LINE"
-  ((ERRORS++))
+# 如果 itemCount 为 0，则允许空内容
+if [ "$(grep -E '^itemCount: ([0-9]+)' "$FILE" | cut -d' ' -f2)" -eq 0 ]; then
+  # itemCount 为 0，跳过概述段落检查
+  :
+else
+  FIRST_LINE=$(echo "$BODY" | grep -v "^$" | head -1)
+  if [ -n "$FIRST_LINE" ] && ! echo "$FIRST_LINE" | grep -q "^##"; then
+    echo "❌ 错误: frontmatter 后有概述段落，应直接开始第一条资讯"
+    echo "   发现: $FIRST_LINE"
+    ((ERRORS++))
+  fi
 fi
 
 # 检查每个 ## 标题后是否有来源链接
