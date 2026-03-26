@@ -3,125 +3,125 @@ title: "AI技术日报"
 domain: "ai-tech"
 date: "2026-03-26"
 itemCount: 20
-generatedAt: "2026-03-26T20:00:00+08:00"
+generatedAt: "2026-03-26T21:50:00+08:00"
 ---
 
-## 从“被动感知”到“理解接触”，它石智航联合六大机构发布OmniVTA视触觉世界模型
+## [Serper] DURABOOK 发布全球首款 AI 就绪全加固移动工作站 Z14I-HG
 
-它石智航联合六大机构发布了OmniVTA视触觉世界模型，实现从"被动感知"到"理解接触"的突破，为机器人具身智能提供了更强大的环境感知能力。该模型能够更好地理解物理接触，促进机器人在复杂环境中的交互能力。
+DURABOOK 推出 Z14I-HG，宣称这是全球首款专为 AI 设计的全加固移动工作站，AI 性能可达 682 TOPS。该产品针对户外、工业等极端场景的 AI 应用需求，在保持传统加固本耐用特性的同时，集成了高性能 AI 加速计算能力，满足现场推理、边缘计算等需求。这款产品的推出预示着 AI 正向更广泛的垂直领域和特殊场景渗透。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [Manila Times](https://www.manilatimes.net/2026/03/26/tmt-newswire/pr-newswire/durabook-launches-z14i-hg-the-worlds-first-ai-ready-fully-rugged-mobile-workstation-delivering-ai-performance-up-to-682-tops/2308159)
 
-## Suno、Udio都被它干翻！中国AI音乐模型拿下AA全球榜单双料冠军
+## [Serper] 微软在韩国打造全球 AI 中心，从实验阶段全面转向前沿转型
 
-昆仑万维旗下Skywork AI发布的Mureka V8在全球AI音乐权威榜单AA（Audio Analytic）上获得双料冠军，性能超越了Suno和Udio等现有顶尖AI音乐模型，标志着中国AI音乐技术达到世界领先水平。
+微软于 3 月 26 日在首尔举办 Microsoft AI Tour 活动，宣布将韩国定位为全球 AI  hub，全面推进 AI 技术从实验阶段转向规模化落地转型。微软计划在韩国深化 AI 技术研发包括机器人操作模型等领域，并构建完整 AI 生态系统。这反映出全球科技巨头都在加速区域 AI 中心布局，争夺亚太市场 AI 发展主导权。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [Microsoft News](https://news.microsoft.com/source/asia/2026/03/26/microsoft-positions-korea-as-a-global-ai-hub-moving-beyond-experimentation-to-full-scale-frontier-transformation/?lang=ko)
 
-## ICLR 2026 Oral｜中科院团队提出新框架「SparseRL」，深度强化学习可自动生成高性能CUDA代码
+## [Serper] Artlist 扩展 AI 平台，推出专业级 AI 音乐品类
 
-中科院计算所团队在ICLR 2026 Oral论文中提出了SparseRL框架，利用深度强化学习能够自动生成高性能CUDA代码，解决了手工优化CUDA代码门槛高、效率低的问题，可以帮助开发者快速获得性能优异的GPU代码。
+以色列 AI 平台 Artlist 宣布推出新的 AI 音乐品类，为视频创作者提供专业级 AI 生成音乐服务。Artlist 原本专注于正版视频素材和音乐授权，此次扩展 AI 音乐能力后，可以让创作者根据视频内容直接生成适配的背景音乐。这标志着 AI 内容生成正在向更细分专业化方向发展，垂直领域创作工具价值凸显。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [EQS News](https://www.eqs-news.com/news/corporate/artlist-expands-its-ai-platform-with-professional-grade-ai-music-for-video-production/09f45495-bf9d-4a88-969d-be3f99d8161c_en)
 
-## Arm自造芯片了：是块AGI CPU，面向AI智能体
+## [Serper] Revenium 推出 AI Outcomes 破解智能体 ROI 难题
 
-Arm自主设计了一款面向AGI的CPU芯片，专门针对AI智能体工作负载进行优化，进一步证明了AI计算架构正在朝着专用化方向发展，为大模型推理和智能体交互提供更好的硬件支持。
+Revenium 宣布推出 AI Outcomes 解决方案，旨在破解智能体经济中的 ROI 衡量难题。该产品通过 AI 经济控制系统，将 AI 投资与实际业务成果直接关联，帮助企业更准确评估 AI 项目投入产出比。当前企业对 AI 投资日益理性，ROI 可衡量化成为核心需求，此类解决方案切中了市场痛点，有潜力成为 AI 落地的重要基础设施。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [GlobeNewswire](https://www.globenewswire.com/news-release/2026/03/26/3262776/0/en/Revenium-Launches-AI-Outcomes-to-Break-the-Agentic-AI-ROI-Wall.html)
 
-## 当用户与算法共同进化——华盛顿大学等建立可预测并引导人机协同适应的计算框架
+## [Serper] 研究发现 AI 生成深度伪造 X 光片可骗过医生和 AI 检测
 
-华盛顿大学等机构建立了新的计算框架，能够预测和引导人机协同适应，促进用户与AI算法共同进化，使人机协作效果持续提升，为长期人机交互系统提供了理论和工程基础。
+放射学会北美分会发布研究显示，由 AI 生成的深度伪造 X 光片，无论医生还是现有的 AI 检测算法都难以分辨真伪。这一发现警示医学影像领域的 deepfake 风险，提示需要开发更可靠的检测方法和溯源技术。随着 AI 生成能力增强，虚假内容对专业领域信任体系的冲击越来越明显，监管和技术应对都需要跟上。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [ScienceDaily](https://www.sciencedaily.com/releases/2026/03/260326011452.htm)
 
-## Sand.ai开源发布MagiCompiler：突破局部编译界限，定义训推性能上限
+## [Serper] Verne、Pony.ai 与 Uber 合作推出欧洲首个商业化自动驾驶出行服务
 
-Sand.ai开源了MagiCompiler编译器框架，突破了传统局部编译的界限，从系统级优化训推整体性能，重新定义了AI模型训练和推理的性能上限，为大模型部署带来更大效率提升。
+Verne、Pony.ai 和 Uber 宣布合作，在欧洲推出首个商业化 Robotaxi 服务，于 3 月 26 日正式上线运营。Pony.ai 同时披露 2026 年目标：在全球超过 20 个城市投放 3000 辆自动驾驶汽车，并实现盈利。这是自动驾驶商业化落地的重要进展，标志着该技术从路测走向真正规模化商业运营，行业拐点正在到来。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [Uber Investor](https://investor.uber.com/news-events/news/press-release-details/2026/Verne-Pony-ai-and-Uber-Partner-to-Launch-Europes-First-Commercial-Robotaxi-Service/default.aspx)
 
-## Ψ₀刚刚开源了！迈向通用人形机器人的基座模型
+## [Serper] Pony.ai 首次实现季度盈利，目标 2026 年在 20 城投放自动驾驶
 
-通用人形机器人基座模型Ψ₀（Psi-Zero）正式开源，该模型通过大规模人类视频预训练，具备通用视觉-语言-动作能力，为人形机器人研究提供了高质量开源基座，促进人形机器人技术发展。
+Pony.ai 在 2026 年第一季度实现首次盈利，主要得益于早期投资收益，但核心自动驾驶业务也在逐步向好。公司目标是在年内于全球 20 多个城市推出自动驾驶出行服务，达到 3000 辆规模。自动驾驶行业经历多年投入后，头部玩家开始逐步收获商业化成果，盈利验证商业模式可行性，预示行业进入新阶段。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [Bloomberg](https://www.bloomberg.com/news/articles/2026-03-26/pony-ai-swings-to-profit-aims-to-launch-robotaxis-in-20-cities)
 
-## 我在微信免费养「龙虾」，玩到上瘾，这组CP太强了
+## [Serper] 英伟达支持的 Reflection AI 寻求 25 亿美元估值融资 25 亿美元
 
-腾讯推出微信ClawBot插件，支持接入OpenClaw（龙虾）框架，用户可以在微信中直接使用AI智能体，实现聊天式远程操控，目前逐步放量中，低门槛体验AI智能体能力。
+据华尔街日报报道，英伟达 backing 的 AI 初创公司 Reflection AI 正在洽谈融资 25 亿美元，投后估值目标 250 亿美元。这笔融资如果完成，将成为今年以来 AI 领域规模最大的融资之一，反映出资本市场对 AI 基础设施企业仍保持高度热情。当前 AI 芯片需求持续旺盛，围绕英伟达生态的初创企业备受资本青睐。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [Reuters](https://www.reuters.com/business/nvidia-backed-reflection-ai-eyes-25-billion-valuation-wsj-reports-2026-03-26/)
 
-## 突发｜立即检查你的Python库！LiteLLM被投毒，Karpathy警告，马斯克关注
+## [Serper] Shield AI 融资 20 亿美元，估值 127 亿美元并收购 Aechelon
 
-知名Python库LiteLLM被发现遭投毒攻击，存在安全风险，Andrej Karpathy公开警告，马斯克也关注了此事，开发者需要立即检查更新，避免受到安全威胁。
+军用无人机 AI 公司 Shield AI 宣布完成 20 亿美元 Series G 融资，估值达到 127 亿美元，同时收购软件仿真公司 Aechelon Technology。融资中包括 15 亿美元普通股和 5 亿美元固定收益优先股。军用 AI 是当前 AI 投资热点方向，受到各国国防开支增加推动，该领域初创企业估值快速提升，整合加速。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [BusinessWire](https://www.businesswire.com/news/home/20260326446258/en/Shield-AI-to-Acquire-Software-Simulation-Company-Aechelon-and-Raise-%242B-at-%2412.7B-Valuation)
 
-## 对抗KV Cache压缩的脆弱性：两行代码以最坏风险控制防御底层假设崩塌
+## [Serper] 开源 AI 网关 LiteLLM 遭遇供应链攻击，月下载量达 9700 万次
 
-研究者提出了一种简单有效的防御方法，仅需两行代码即可增强KV Cache压缩对抗性鲁棒性，防御底层假设崩塌风险，提升大模型推理安全性。
+3 月 26 日媒体报道，广泛使用的开源 AI 网关库 LiteLLM 遭遇供应链攻击。该库在云环境中普及率达 36%，每月下载量超过 9700 万次。供应链攻击对开源 AI 基础设施构成重大威胁，由于开源组件被广泛依赖，一旦被入侵影响范围极大，这一事件警示业界需要加强对关键开源 AI 项目的安全审计和防护。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [Vibe Coding People](https://vibecodingpeople.com/march-26-2026-ai-daily-recap/)
 
-## 非夕科技发布战略新品：Enlight初昕延展通用智能机器人本体基座的能力边界
+## [Serper] Mila 与 Mozilla 合作开放 AI，致力于让所有人都能用上 AI
 
-非夕科技发布Enlight初昕战略新品，进一步扩展了通用智能机器人本体基座的能力边界，为柔性机器人和通用灵巧操作提供更强硬件基础，促进工业智能机器人应用落地。
+加拿大 Mila 研究院与 Mozilla 宣布战略合作伙伴关系，聚焦于开源 AI 的可信性和可用性，目标是让 AI 未来真正开放给所有人。双方将在开源框架、可信 AI 开发工具等领域展开合作。在大模型被少数科技巨头垄断的背景下，开源社区和研究机构的合作对保持 AI 开放生态至关重要，这一动向值得持续关注。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [CNW](https://www.newswire.ca/news-releases/mila-and-mozilla-join-forces-to-open-the-future-of-ai-to-all-891724100.html)
 
-## 养虾省91%词元！这家AI记忆公司用1亿个多模态文件验证了质变科技MemoryLake
+## [WebSearch] 谷歌推出 TurboQuant 压缩算法，AI 缓存内存占用降至 1/6
 
-质变科技推出MemoryLake新型AI记忆存储技术，在1亿多模态文件验证中可节省91%的token使用，大幅降低"养虾"（运行AI智能体）成本，提升运行效率。
+谷歌研究院发布全新压缩算法 TurboQuant，可以在不损失准确性的前提下，将大语言模型运行时的缓存内存占用至少减少 6 倍，性能提升最高 8 倍。该算法解决了传统量化技术引入额外内存开销的问题，通过 QJL 和 PolarQuant 两项核心技术实现高效压缩。这项突破性算法可让 H100 推理成本降低超过 50%，大幅降低大模型部署门槛，发布当日引发存储芯片股价波动。
 
-**来源：** [机器之心](https://www.jiqizhixin.com/)
+**来源：** [新浪财经](https://finance.sina.cn/stock/jdts/2026-03-26/detail-inhshtew0298695.d.html)
 
-## 苹果发布M5系列芯片，神经网络加速器带来最高8倍AI图像生成速度提升
+## [WebSearch] 摩根士丹利：科技巨头 2026 年 AI 硬件投入将达 6300 亿美元
 
-苹果今日正式发布全新M5、M5 Pro和M5 Max芯片，新一代GPU架构集成更强的神经网络加速器，在MacBook上实现最高4倍更快LLM提示处理和8倍AI图像生成速度，大幅提升本地AI体验。
+摩根士丹利发布研究报告指出，谷歌、微软、亚马逊、Meta 等顶级科技企业 2026 年在数据中心和 AI 芯片上的总投入将达到 6300 亿美元，但这么大规模的投入可能达不到预期回报。投入主要用于建设 AI 基础设施满足大模型训练和推理需求，但分析师对投入产出比表示担忧。这反映出业界开始对 AI 军备竞赛冷静思考，盲目扩产可能面临回报不足风险。
 
-**来源：** [Apple Newsroom](https://www.apple.com/newsroom/2026/03/apple-introduces-the-new-macbook-air-with-m5/)
+**来源：** [Reuters](https://www.reuters.com/commentary/breakingviews/how-big-techs-630-bln-ai-splurge-will-fall-short-2026-03-26/)
 
-## Azos获得2400万美元C轮融资，AI赋能巴西保险科技
+## [WebSearch] 研究质疑 AI 投资回报，CFO 认为见效但研究不认同
 
-巴西保险科技初创公司Azos完成2400万美元C轮融资，利用AI技术改造传统保险行业，提升保险定价、核保和理赔效率，推动拉美地区AI+金融创新发展。
+最新研究显示，虽然企业 CFO 普遍认为 AI 投资已经开始产生收益，但学术研究并未发现生产力提升的确凿证据。这种分歧反映出 AI 价值衡量的复杂性，很多收益可能存在滞后性，或者难以通过传统统计方法捕捉。当前 AI 进入落地深水区，如何衡量 ROI 成为核心议题，需要更科学评估体系，这也影响未来投资节奏。
 
-**来源：** [Finsmes](https://www.finsmes.com/2026/03/azos-raises-us24m-in-series-c-funding.html)
+**来源：** [Fortune](https://fortune.com/2026/03/26/cfo-believe-ai-paying-off-researchers-arent-so-sure-yet/)
 
-## Epic Microsystems获2100万美元A轮融资，专注AI基础设施供电解决方案
+## [WebSearch] 云原生成为 AI 工程生产环境的标准底座
 
-美国半导体初创公司Epic Microsystems完成2100万美元A轮融资，专注开发AI数据中心供电解决方案，满足AI算力基础设施对高效能供电的需求，支撑AI基础设施扩建。
+CNCF 发布博客指出，越来越多 AI 工作负载开始在 Kubernetes 上生产运行，但很多团队仍然面临从可用模型到可靠系统的转型挑战。云原生为 AI 提供弹性伸缩、可观测性、自动化运维等能力，正在成为 AI 工程的标准底层平台。这标志着 AI 工程化逐渐成熟，基础设施层分工越来越清晰，云原生技术栈受益于 AI 热潮进入发展快车道。
 
-**来源：** [Finsmes](https://www.finsmes.com/2026/03/epic-microsystems-raises-21m-in-series-a-funding.html)
+**来源：** [CNCF Blog](https://www.cncf.io/blog/2026/03/26/the-platform-under-the-model-how-cloud-native-powers-ai-engineering-in-production/)
 
-## Google发布TurboQuant压缩算法，LLM内存压缩6倍速度提升8倍
+## [WebSearch] Chalk 开源软件来源引擎正式 GA，支持对话 AI 查询
 
-Google推出TurboQuant新型压缩算法，可将LLM key-value缓存压缩6倍，在不损失准确率的前提下推理速度提升最高8倍，让更大模型能在消费级硬件上流畅运行。
+开源软件 provenance 引擎 Chalk 宣布正式发布通用可用性版本，并新增 MCP 服务器支持，允许通过对话式 AI 接口查询软件来源数据。这使得开发团队可以通过自然语言提问了解依赖组件来源，提高供应链安全。在频繁发生供应链攻击背景下，软件来源可追溯性越来越受重视，此类工具能够帮助企业尽早发现风险，保障 AI 软件开发安全。
 
-**来源：** [MarkTechPost](https://www.marktechpost.com/2026/03/25/google-introduces-turboquant-a-new-compression-algorithm-that-reduces-llm-key-value-cache-memory-by-6x-and-delivers-up-to-8x-speedup-all-with-zero-accuracy-loss/)
+**来源：** [News Leader](https://www.news-leader.com/press-release/story/50351/chalk-the-open-source-software-provenance-engine-reaches-general-availability/)
 
-## OVHcloud收购Dragon LLM，进军 regulated行业定制LLM服务
+## [WebSearch] CNaught 推出 Carbonlog 工具追踪 AI 软件开发碳足迹
 
-欧洲云服务商OVHcloud宣布收购Dragon LLM，这是一家面向受监管行业提供定制LLM微调的平台，收购后OVHcloud将建立AI实验室，为欧洲企业提供本地化合规LLM服务。
+CNaught 发布 Carbonlog，这是业界首个专门用于追踪 AI 辅助软件开发碳足迹的工具。当前首发作为 Claude Code 插件，未来计划扩展到其他 AI 编码工具。随着全球对碳排放关注度提升，AI 开发算力消耗巨大，其碳足迹越来越受关注，专门测量工具开始出现，这将帮助开发者优化代码和模型选择，降低 AI 对环境影响。
 
-**来源：** [Le Soleil](https://www.lesoleil.com/communiques-de-presse/2026/03/26/ovhcloud-annonce-acquerir-dragon-llm-concepteur-de-modeles-specialises-dia-generative-et-cree-son-lab-ai-pour-proposer-de-nouveaux-services-a-ses-clients-bases-sur-les-llm-S67W2BGY6FGDBDRED5P7XSRWVM/)
+**来源：** [The Gardner News](https://www.thegardnernews.com/press-release/story/47593/cnaught-launches-carbonlog-the-first-tool-to-track-the-carbon-footprint-of-ai-assisted-software-development/)
 
-## 2月中国AI大模型调用量首超美国，四款国产模型霸榜全球前五
+## [WebSearch] Check Point 发布 AI Factory 安全蓝图保护 AI 基础设施
 
-2026年2月数据显示，中国平台AI大模型调用量首次超过美国，全球调用量前五名中有四款来自中国厂商，分别是MiniMax M2.5、Kimi K2.5、智谱GLM-5和DeepSeek V3.2，国产大模型用户增长迅猛。
+Check Point 宣布发布 AI Factory 安全蓝图，从 GPU 服务器到 LLM 提示全链条保护 AI 基础设施安全。该框架提供针对 AI 特有威胁的防护方案，包括提示注入、数据泄露、模型窃取等攻击场景。随着 AI 广泛应用，AI 安全成为新的刚需赛道，传统安全厂商纷纷推出针对性解决方案，市场空间快速扩大。
+
+**来源：** [TradingView](https://www.tradingview.com/news/reuters.com,2026-03-26:newsml_Zaw6fvYGD:0-zawya-pressr-check-point-releases-ai-factory-security-blueprint-to-safeguard-ai-infrastructure-from-gpu-servers-to-llm-prompts/)
+
+## [WebSearch] AI 已经开始冲击 CPU 市场，新一轮芯片短缺浪潮蔓延
+
+在 GPU、内存已经因为 AI 出现大幅涨价短缺后，CPU 市场也开始受到 AI 浪潮冲击，需求显著提升。AI 推理和训练都需要大量 CPU 参与数据预处理和调度，带动 CPU 需求增长。原来 CPU 市场增长平稳，AI 改变了供需格局，可能引发新一轮涨价。AI 对半导体产业拉动效应正在从 GPU 向全品类蔓延，整个产业链都在调整产能布局。
+
+**来源：** [新浪财经](https://finance.sina.com.cn/roll/2026-03-26/doc-inhshtew0338717.shtml)
+
+## [WebSearch] 2 月份中国 AI API 调用量首次超过美国
+
+最新数据显示，2026 年 2 月中国 AI 大模型调用量已经首次超过美国，四款国产大模型进入全球前五。国产 AI 应用生态正在经历指数级增长，本土厂商在垂直领域落地速度快，本地化适配好。这反映出全球 AI 市场正在分化，中美两大市场各自发展本土生态，国产替代加速推进，同时也给国产算力芯片带来更大需求压力。
 
 **来源：** [36氪](https://36kr.com/p/3700980530851712)
-
-## 谷歌发布Gemini 3 Deep Think，在Codeforces获得3455分Elo排名全球第八
-
-谷歌升级Gemini 3 Deep Think深度推理模型，在竞技编程平台Codeforces获得3455分Elo评级，排名全球第八，仅有七位顶尖程序员评分高于它，证明大模型在复杂编程推理领域能力持续突破。
-
-**来源：** [机器之心](https://www.jiqizhixin.com/)
-
-## Meta裁员数百人，全面押注AI投入
-
-Meta今日宣布裁员数百人，主要涉及招聘、社交媒体和销售团队，以及Reality Labs部门，公司表示将把资源更多投入到AI领域，聚焦AI战略发展。
-
-**来源：** [The Verge](https://www.theverge.com/tech/900946/meta-layoffs-hundreds-employees)
