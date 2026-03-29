@@ -3,7 +3,7 @@ title: "GitHub热门日报"
 domain: "github-trending"
 date: "2026-03-28"
 itemCount: 9
-generatedAt: "2026-03-28 21:50:00 CST"
+generatedAt: "2026-03-28T21:50:00+08:00"
 ---
 
 ## Deep-Live-Cam
