@@ -1,6 +1,6 @@
 ---
-title: "跨境电商每日资讯"
-domain: ""
+title: "跨境电商日报"
+domain: "cross-border-ecom"
 date: "2026-04-01"
 itemCount: 6
 generatedAt: "2026-04-01T20:00:00+08:00"

@@ -3,7 +3,7 @@ title: "AI技术日报"
 domain: "ai-tech"
 date: "2026-03-23"
 itemCount: 14
-generatedAt: "2026-03-23T21:50+08:00"
+generatedAt: "2026-03-23T21:50:00+08:00"
 ---
 
 ## [WebFetch] MiniMax Token Plan：全球首个支持全模态模型的订阅计划

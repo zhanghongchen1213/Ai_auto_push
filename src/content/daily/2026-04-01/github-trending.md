@@ -1,6 +1,6 @@
 ---
-title: "GitHub 热门开源项目本周精选"
-domain: ""
+title: "GitHub热门日报"
+domain: "github-trending"
 date: "2026-04-01"
 itemCount: 10
 generatedAt: "2026-04-01T20:00:00+08:00"

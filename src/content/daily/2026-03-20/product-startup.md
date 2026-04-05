@@ -3,7 +3,7 @@ title: "产品创业日报"
 domain: "product-startup"
 date: "2026-03-20"
 itemCount: 6
-generatedAt: "2026-03-20T21:51+08:00"
+generatedAt: "2026-03-20T21:51:00+08:00"
 ---
 
 ## 国投白银LOF因溢价异常今日停牌半天
