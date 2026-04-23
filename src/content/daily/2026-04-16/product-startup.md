@@ -1,3 +1,10 @@
+---
+title: "产品创业日报"
+domain: "product-startup"
+date: "2026-04-16"
+itemCount: 6
+generatedAt: "2026-04-16T21:50:00+08:00"
+---
 
 ## 大普微今日在深交所创业板上市
 

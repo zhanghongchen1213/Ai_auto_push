@@ -1,6 +1,6 @@
 ---
 title: "产品创业每日资讯"
-domain: ""
+domain: "product-startup"
 date: "2026-04-17"
 itemCount: 2
 generatedAt: "2026-04-17T20:00:00+08:00"

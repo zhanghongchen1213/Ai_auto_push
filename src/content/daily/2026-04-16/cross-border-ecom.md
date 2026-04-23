@@ -1,3 +1,10 @@
+---
+title: "跨境电商日报"
+domain: "cross-border-ecom"
+date: "2026-04-16"
+itemCount: 5
+generatedAt: "2026-04-16T21:50:00+08:00"
+---
 
 ## 亚马逊推出AI购物助手Rufus 标志跨境电商进入AI 3.0时代
 

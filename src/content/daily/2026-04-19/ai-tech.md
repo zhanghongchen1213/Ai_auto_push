@@ -1,8 +1,9 @@
 ---
-date: 2026-04-19
-category: ai-tech
-title: AI技术日报 - 2026年4月19日
-description: 今日AI领域最新动态汇总
+title: "AI技术日报 - 2026年4月19日"
+domain: "ai-tech"
+date: "2026-04-19"
+itemCount: 11
+generatedAt: "2026-04-19T21:50:00+08:00"
 ---
 
 # AI技术日报 - 2026年4月19日

@@ -1,4 +1,10 @@
-# 跨境电商每日资讯 | 2026-04-17
+---
+title: "跨境电商日报"
+domain: "cross-border-ecom"
+date: "2026-04-17"
+itemCount: 6
+generatedAt: "2026-04-17T21:50:00+08:00"
+---
 
 ## 速卖通发力品牌出海 欲对阵Temu挑战亚马逊地位
 
